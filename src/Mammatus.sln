@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus", "Mammatus\Mammatus.csproj", "{88F26661-78E6-49D5-80BC-63EE79EEE9A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Core", "Mammatus.Core\Mammatus.Core.csproj", "{A1AAD66E-FF40-4DA6-AA69-3AC019CF8B1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Data", "Mammatus.Data\Mammatus.Data.csproj", "{20E89D07-EC07-4622-BE4B-1628768FEA84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Domain", "Mammatus.Domain\Mammatus.Domain.csproj", "{949984F4-CC69-4DDF-9B69-343198FA1425}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Web", "Mammatus.Web\Mammatus.Web.csproj", "{83821E85-449E-4730-9FED-7EA5A34D9B30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Utilities", "Mammatus.Utilities\Mammatus.Utilities.csproj", "{664F38EE-8583-4D42-B4EB-70B70FCB670C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.IoC", "Mammatus.IoC\Mammatus.IoC.csproj", "{754240AF-8BAE-41FE-B29C-BB076F23D103}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{88F26661-78E6-49D5-80BC-63EE79EEE9A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88F26661-78E6-49D5-80BC-63EE79EEE9A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88F26661-78E6-49D5-80BC-63EE79EEE9A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88F26661-78E6-49D5-80BC-63EE79EEE9A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1AAD66E-FF40-4DA6-AA69-3AC019CF8B1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1AAD66E-FF40-4DA6-AA69-3AC019CF8B1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1AAD66E-FF40-4DA6-AA69-3AC019CF8B1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1AAD66E-FF40-4DA6-AA69-3AC019CF8B1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20E89D07-EC07-4622-BE4B-1628768FEA84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20E89D07-EC07-4622-BE4B-1628768FEA84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20E89D07-EC07-4622-BE4B-1628768FEA84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20E89D07-EC07-4622-BE4B-1628768FEA84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{949984F4-CC69-4DDF-9B69-343198FA1425}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{949984F4-CC69-4DDF-9B69-343198FA1425}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{949984F4-CC69-4DDF-9B69-343198FA1425}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{949984F4-CC69-4DDF-9B69-343198FA1425}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83821E85-449E-4730-9FED-7EA5A34D9B30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83821E85-449E-4730-9FED-7EA5A34D9B30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83821E85-449E-4730-9FED-7EA5A34D9B30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83821E85-449E-4730-9FED-7EA5A34D9B30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{664F38EE-8583-4D42-B4EB-70B70FCB670C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{664F38EE-8583-4D42-B4EB-70B70FCB670C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{664F38EE-8583-4D42-B4EB-70B70FCB670C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{664F38EE-8583-4D42-B4EB-70B70FCB670C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{754240AF-8BAE-41FE-B29C-BB076F23D103}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{754240AF-8BAE-41FE-B29C-BB076F23D103}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{754240AF-8BAE-41FE-B29C-BB076F23D103}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{754240AF-8BAE-41FE-B29C-BB076F23D103}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
