@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Mammatus.Data</RootNamespace>
     <AssemblyName>Mammatus.Data</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,9 +42,50 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\DatabaseManager.cs" />
+    <Compile Include="Database\DbProviderExtensions.cs" />
+    <Compile Include="Database\DbProviders.cs" />
+    <Compile Include="Entity\EntityBase%27T.cs" />
+    <Compile Include="Entity\CreatedOnEntity.cs" />
+    <Compile Include="Entity\IEntity.cs" />
+    <Compile Include="Entity\IEntity%27T.cs" />
+    <Compile Include="Entity\ILogicDeletable.cs" />
+    <Compile Include="Entity\ITreeEntity.cs" />
+    <Compile Include="Entity\ModifiedOnEntity.cs" />
+    <Compile Include="Entity\TreeEntity.cs" />
+    <Compile Include="Extensions\RepositoryExtensions.cs" />
+    <Compile Include="Database\IDatabaseManager.cs" />
+    <Compile Include="Helpers\TransactionScopeHelper.cs" />
+    <Compile Include="UnitOfWork\UnitOfWorkManager.cs" />
+    <Compile Include="UnitOfWork\UnitOfWorkTransaction.cs" />
+    <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Infrastructure\ISessionResolver.cs" />
+    <Compile Include="Infrastructure\ITransaction.cs" />
+    <Compile Include="UnitOfWork\IUnitOfWork.cs" />
+    <Compile Include="UnitOfWork\IUnitOfWorkFactory.cs" />
+    <Compile Include="UnitOfWork\IUnitOfWorkManager.cs" />
+    <Compile Include="UnitOfWork\IUnitOfWorkScope.cs" />
+    <Compile Include="Query\Orderable.cs" />
+    <Compile Include="Repository\RepositoryBase%27T.cs" />
+    <Compile Include="Enums\TransactionMode.cs" />
+    <Compile Include="UnitOfWork\UnitOfWorkScope.cs" />
+    <Compile Include="UnitOfWork\UnitOfWorkSettings.cs" />
     <Compile Include="Repository\GenericRepository.cs" />
-    <Compile Include="Base\_Repository.cs" />
+    <Compile Include="Repository\RepositoryBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mammatus.IoC\Mammatus.IoC.csproj">
+      <Project>{754240af-8bae-41fe-b29c-bb076f23d103}</Project>
+      <Name>Mammatus.IoC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mammatus\Mammatus.csproj">
+      <Project>{88f26661-78e6-49d5-80bc-63ee79eee9a4}</Project>
+      <Name>Mammatus</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Core\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

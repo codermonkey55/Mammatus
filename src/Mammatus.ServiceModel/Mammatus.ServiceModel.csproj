@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BFBD394A-5B20-46FD-BBAC-5E8C0E340B76}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mammatus.ServiceModel</RootNamespace>
+    <AssemblyName>Mammatus.ServiceModel</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Activation" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\ServiceBase.cs" />
+    <Compile Include="ErrorHandling\ErrorServiceBehaviorAttribute.cs" />
+    <Compile Include="ErrorHandling\ServiceFaultContractBehavior.cs" />
+    <Compile Include="Helpers\ServiceInspector.cs" />
+    <Compile Include="Helpers\ServiceProxyHelper.cs" />
+    <Compile Include="Infrastructure\Impl\OperationContextProvider.cs" />
+    <Compile Include="Infrastructure\Impl\InstanceContextWrapper.cs" />
+    <Compile Include="Infrastructure\IInstanceContextWrapper.cs" />
+    <Compile Include="Infrastructure\IOperationContextProvider.cs" />
+    <Compile Include="Infrastructure\IOperationContextWrapper.cs" />
+    <Compile Include="Infrastructure\IServiceHostWrapper.cs" />
+    <Compile Include="Infrastructure\Impl\OperationContextWrapper.cs" />
+    <Compile Include="Infrastructure\Impl\ServiceHostWrapper.cs" />
+    <Compile Include="State\OperationScopeState.cs" />
+    <Compile Include="State\Collections\OperationScopeCollection.cs" />
+    <Compile Include="State\InstanceScopeState.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="State\Collections\InstanceScopeCollection.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mammatus\Mammatus.csproj">
+      <Project>{88f26661-78e6-49d5-80bc-63ee79eee9a4}</Project>
+      <Name>Mammatus</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

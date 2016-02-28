@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Mammatus.Domain</RootNamespace>
     <AssemblyName>Mammatus.Domain</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,8 +41,50 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base\_AggregateRoot.cs" />
+    <Compile Include="Events\DomainEvents.cs" />
+    <Compile Include="Events\IConsumeEvent.cs" />
+    <Compile Include="Core\AuditableEntity.cs" />
+    <Compile Include="Core\Entity%27T%27U.cs" />
+    <Compile Include="Core\IAuditableEntity.cs" />
+    <Compile Include="Core\IEntity.cs" />
+    <Compile Include="Core\IEntityAuditTrail.cs" />
+    <Compile Include="Core\ValidatableObject.cs" />
+    <Compile Include="Core\ValueObject.cs" />
+    <Compile Include="Core\ValueObject%27T.cs" />
+    <Compile Include="Repository\Repository.cs" />
+    <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="UnitOfWork\UnitOfWork.cs" />
+    <Compile Include="UnitOfWork\UnitOfWorkFactory.cs" />
+    <Compile Include="UnitOfWork\AbstractUnitOfWorkFactory.cs" />
+    <Compile Include="UnitOfWork\IUnitOfWork.cs" />
+    <Compile Include="UnitOfWork\IUnitOfWorkFactory.cs" />
+    <Compile Include="UnitOfWork\AbstractUnitOfWork.cs" />
+    <Compile Include="Enums\UnitOfWorkOption.cs" />
+    <Compile Include="Core\AggregateRoot.cs" />
+    <Compile Include="Events\EventPublisher.cs" />
+    <Compile Include="Events\EventPublisherExtensions.cs" />
+    <Compile Include="Events\EntityDeleted.cs" />
+    <Compile Include="Events\EntityInserted.cs" />
+    <Compile Include="Events\EntityUpdated.cs" />
+    <Compile Include="Events\IEventConsumer.cs" />
+    <Compile Include="Events\IEventConsumerFactory.cs" />
+    <Compile Include="Events\IEventPublisher.cs" />
+    <Compile Include="Events\ISubscriptionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Events\SubscriptionService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mammatus.IoC\Mammatus.IoC.csproj">
+      <Project>{754240af-8bae-41fe-b29c-bb076f23d103}</Project>
+      <Name>Mammatus.IoC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mammatus\Mammatus.csproj">
+      <Project>{88f26661-78e6-49d5-80bc-63ee79eee9a4}</Project>
+      <Name>Mammatus</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

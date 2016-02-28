@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Mammatus</RootNamespace>
     <AssemblyName>Mammatus</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,20 +41,64 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Application\ObjectBase%27T.cs" />
+    <Compile Include="Core\Application\ObjectBase.cs" />
+    <Compile Include="Core\Data\PagedElements.cs" />
+    <Compile Include="Core\State\IState.cs" />
+    <Compile Include="Exceptions\ConcurrencyException.cs" />
+    <Compile Include="Exceptions\CoreException.cs" />
+    <Compile Include="Exceptions\DatabaseException.cs" />
+    <Compile Include="Exceptions\DependencyException.cs" />
+    <Compile Include="Extensions\GuidExtensions.cs" />
+    <Compile Include="Core\Exceptions\ExceptionBase.cs" />
+    <Compile Include="Core\IoC\IContainerAdapter.cs" />
+    <Compile Include="Core\State\IScopeState.cs" />
+    <Compile Include="Extensions\QueryableExtensions.cs" />
+    <Compile Include="Helpers\NameKeyGenerator.cs" />
+    <Compile Include="Operation.Results\IListResult%27T.cs" />
+    <Compile Include="Collections\Pagination\IPagedData.cs" />
+    <Compile Include="Collections\Pagination\IPagedDataProvider.cs" />
+    <Compile Include="Collections\Pagination\PagedData.cs" />
+    <Compile Include="Collections\Pagination\PaginationHelper.cs" />
+    <Compile Include="Operation.Results\IResult.cs" />
+    <Compile Include="Operation.Results\IResult%27T.cs" />
+    <Compile Include="Operation.Results\ListResult%27T.cs" />
+    <Compile Include="Operation.Results\Result.cs" />
+    <Compile Include="Operation.Results\ResultFactory.cs" />
+    <Compile Include="Operation.Results\Result%27T.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Extensions\CollectionExtensions.cs" />
+    <Compile Include="Extensions\StreamExtensions.cs" />
+    <Compile Include="Extensions\NumericExtensions.cs" />
+    <Compile Include="Core\State\IContext.cs" />
+    <Compile Include="Core\State\ISessionState.cs" />
+    <Compile Include="Time\Clock.cs" />
+    <Compile Include="Time\DateTimeRange.cs" />
+    <Compile Include="Time\IClockProvider.cs" />
+    <Compile Include="Time\IDateTimeRange.cs" />
+    <Compile Include="Time\LocalClockProvider.cs" />
+    <Compile Include="Time\UtcClockProvider.cs" />
+    <Compile Include="Contracts\Exceptions\AssertionException.cs" />
+    <Compile Include="Contracts\CodeContract.cs" />
+    <Compile Include="Contracts\Exceptions\CodeContractException.cs" />
+    <Compile Include="Contracts\Exceptions\InvariantException.cs" />
+    <Compile Include="Contracts\Exceptions\PostconditionException.cs" />
+    <Compile Include="Contracts\Exceptions\PreconditionException.cs" />
+    <Compile Include="Enums\FileSize.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Extensions\TypeExtensions.cs" />
+    <Compile Include="Validation\CheckIf.cs" />
+    <Compile Include="Validation\Guard.cs" />
+    <Compile Include="Validation\FilePathValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Timing\Clock.cs" />
-    <Compile Include="Timing\DateTimeRange.cs" />
-    <Compile Include="Timing\IClockProvider.cs" />
-    <Compile Include="Timing\IDateTimeRange.cs" />
-    <Compile Include="Timing\LocalClockProvider.cs" />
-    <Compile Include="Timing\UtcClockProvider.cs" />
+    <Compile Include="Validation\IValidatable.cs" />
+    <Compile Include="Validation\IValidator%27T.cs" />
+    <Compile Include="Validation\ValidationError.cs" />
+    <Compile Include="Validation\ValidationException.cs" />
+    <Compile Include="Validation\ValidationResult.cs" />
+    <Compile Include="Validation\Validator%27T.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Mammatus.Core\Mammatus.Core.csproj">
-      <Project>{a1aad66e-ff40-4da6-aa69-3ac019cf8b1c}</Project>
-      <Name>Mammatus.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
