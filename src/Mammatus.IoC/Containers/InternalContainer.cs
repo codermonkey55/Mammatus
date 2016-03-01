@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using Mammatus.Core.Exceptions;
 using Mammatus.Core.IoC;
+using Mammatus.Exceptions;
 
 namespace Mammatus.IoC.Containers
 {
     using System;
-    using Mammatus.Exceptions;
 
-    public class InternalContainer : IContainerAdapter
+    public class InternalContainer : IInternalContainer
     {
-        public static IContainerAdapter Current
+        public static InternalContainer Current
         {
             get
             {
@@ -40,7 +40,7 @@ namespace Mammatus.IoC.Containers
         }
 
 
-        IEnumerable<TDependency> IContainerAdapter.GetAllInstances<TDependency>()
+        IEnumerable<TDependency> IInternalContainer.GetAllInstances<TDependency>()
         {
             return this.GetAllInstances<TDependency>();
         }
@@ -184,5 +184,6 @@ namespace Mammatus.IoC.Containers
         {
             throw new NotImplementedException();
         }
+
     }
 }

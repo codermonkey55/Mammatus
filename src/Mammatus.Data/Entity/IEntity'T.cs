@@ -6,6 +6,6 @@ namespace Mammatus.Data.Entity
 {
     public interface IEntity<TKey> : IEntity
     {
-        TKey Id { get; set; }
+        new TKey Id { get; set; }
     }
 }

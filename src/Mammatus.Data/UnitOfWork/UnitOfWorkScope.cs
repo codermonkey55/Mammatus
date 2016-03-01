@@ -26,7 +26,7 @@ namespace Mammatus.Data.UnitOfWork
 
         internal UnitOfWorkScope()
         {
-            IContainerAdapter containerAdapter = InternalContainer.Current;
+            IInternalContainer containerAdapter = InternalContainer.Current;
 
             this.UnitOfWork = containerAdapter.GetInstance<IUnitOfWorkManager>().CurrentUnitOfWork;
 
@@ -147,7 +147,7 @@ namespace Mammatus.Data.UnitOfWork
 
         public static IUnitOfWorkScope BeginScope()
         {
-            IContainerAdapter containerAdapter = InternalContainer.Current;
+            IInternalContainer containerAdapter = InternalContainer.Current;
 
             var uowManager = containerAdapter.GetInstance<IUnitOfWorkManager>();
 
@@ -160,7 +160,7 @@ namespace Mammatus.Data.UnitOfWork
         {
             get
             {
-                IContainerAdapter containerAdapter = InternalContainer.Current;
+                IInternalContainer containerAdapter = InternalContainer.Current;
 
                 var uowManager = containerAdapter.GetInstance<IUnitOfWorkManager>();
 

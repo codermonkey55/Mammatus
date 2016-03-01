@@ -4,7 +4,7 @@ namespace Mammatus.Core.IoC
 {
     using System;
 
-    public interface IContainerAdapter
+    public interface IInternalContainer
     {
         void Register<TService, TImplementation>() where TImplementation : TService;
 

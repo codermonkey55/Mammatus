@@ -21,7 +21,7 @@ namespace Mammatus.Domain
         {
             get
             {
-                IContainerAdapter containerAdapter = InternalContainer.Current;
+                IInternalContainer containerAdapter = InternalContainer.Current;
 
                 IState currentContextState = containerAdapter.GetInstance<IState>();
 
@@ -42,7 +42,7 @@ namespace Mammatus.Domain
         public static void Dispatch<T>(T @event)
         where T : class
         {
-            IContainerAdapter containerAdapter = InternalContainer.Current;
+            IInternalContainer containerAdapter = InternalContainer.Current;
 
             DomainEvents.Events.Enqueue(() =>
                 {

@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{528396DE-89E7-4466-842D-6040FD98D281}</ProjectGuid>
+    <ProjectGuid>{B48F48A6-1466-4458-8579-3CFDD66F4561}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Mammatus.Serialization.Newtonsoft</RootNamespace>
-    <AssemblyName>Mammatus.Serialization.Newtonsoft</AssemblyName>
+    <RootNamespace>Mammatus.UI</RootNamespace>
+    <AssemblyName>Mammatus.UI</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
