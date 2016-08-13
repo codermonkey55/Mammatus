@@ -1,43 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Dispatcher;
 using System.ServiceModel.Security;
 using Mammatus.Core.Application;
+using Mammatus.ServiceModel.Runtime.InstanceContext;
+using Mammatus.ServiceModel.Runtime.ServiceHost;
 
-namespace Mammatus.ServiceModel.State
+namespace Mammatus.ServiceModel.Runtime.OperationContext
 {
     public class OperationContextWrapper : ObjectBase<OperationContextWrapper>, IOperationContextWrapper
     {
-        readonly OperationContext _context;
+        readonly System.ServiceModel.OperationContext _context;
 
         readonly IServiceHostWrapper _serviceHostWrapper;
 
         readonly IInstanceContextWrapper _instanceContext;
 
-        public OperationContextWrapper(OperationContext context)
+        public OperationContextWrapper(System.ServiceModel.OperationContext context)
         {
             _context = context;
 
             _instanceContext = InstanceContextWrapper.Create(context.InstanceContext);
         }
 
-        public OperationContextWrapper(OperationContext context, IServiceHostWrapper serviceHostWrapper)
+        public OperationContextWrapper(System.ServiceModel.OperationContext context, IServiceHostWrapper serviceHostWrapper)
         {
             _context = context;
 
             _serviceHostWrapper = serviceHostWrapper;
         }
 
-        public OperationContextWrapper(OperationContext context, IInstanceContextWrapper instanceContext)
+        public OperationContextWrapper(System.ServiceModel.OperationContext context, IInstanceContextWrapper instanceContext)
         {
             _context = context;
 
             _instanceContext = instanceContext;
         }
 
-        public OperationContextWrapper(OperationContext context, IInstanceContextWrapper instanceContext, IServiceHostWrapper serviceHostWrapper)
+        public OperationContextWrapper(System.ServiceModel.OperationContext context, IInstanceContextWrapper instanceContext, IServiceHostWrapper serviceHostWrapper)
         {
             _context = context;
 
@@ -56,7 +57,7 @@ namespace Mammatus.ServiceModel.State
             get { return _context.EndpointDispatcher; }
         }
 
-        public IExtensionCollection<OperationContext> Extensions
+        public IExtensionCollection<System.ServiceModel.OperationContext> Extensions
         {
             get { return _context.Extensions; }
         }

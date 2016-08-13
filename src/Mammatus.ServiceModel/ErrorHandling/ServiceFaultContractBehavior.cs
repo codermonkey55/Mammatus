@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Description;
 using System.ServiceModel.Dispatcher;
-using System.Text;
 
 namespace Mammatus.ServiceModel.ErrorHandling
 {
@@ -13,7 +11,7 @@ namespace Mammatus.ServiceModel.ErrorHandling
     [AttributeUsage(AttributeTargets.Interface, AllowMultiple = false, Inherited = true)]
     public sealed class ServiceFaultContractBehavior : Attribute, IContractBehavior
     {
-        private readonly Type[] knownFaultTypes;
+        private readonly Type[] _knownFaultTypes;
 
         public ServiceFaultContractBehavior()
         {
@@ -21,20 +19,21 @@ namespace Mammatus.ServiceModel.ErrorHandling
 
         public ServiceFaultContractBehavior(Type[] knownFaultTypes)
         {
-            this.knownFaultTypes = knownFaultTypes;
+            this._knownFaultTypes = knownFaultTypes;
         }
 
         public void AddBindingParameters(ContractDescription contractDescription, ServiceEndpoint endpoint, BindingParameterCollection bindingParameters)
         {
             foreach (var op in contractDescription.Operations)
             {
-                foreach (var knownFaultType in knownFaultTypes)
+                foreach (var knownFaultType in _knownFaultTypes)
                 {
-                    if (!op.Faults.Any(f => f.DetailType == knownFaultType))
+                    if (op.Faults.All(f => f.DetailType != knownFaultType))
                     {
                         op.Faults.Add(new FaultDescription(knownFaultType.Name)
                         {
-                            DetailType = knownFaultType, Name = knownFaultType.Name
+                            DetailType = knownFaultType,
+                            Name = knownFaultType.Name
                         });
                     }
                 }
@@ -53,7 +52,8 @@ namespace Mammatus.ServiceModel.ErrorHandling
 
         public void Validate(ContractDescription contractDescription, ServiceEndpoint endpoint)
         {
-            var badType = knownFaultTypes.FirstOrDefault(t => !t.IsDefined(typeof(DataContractAttribute), true));
+            var badType = _knownFaultTypes.FirstOrDefault(t => !t.IsDefined(typeof(DataContractAttribute), true));
+
             if (badType != null)
             {
                 throw new ArgumentException(string.Format("The specified fault '{0}' is no data contract. Did you forget to decorate the class with the DataContractAttirbute attribute?", badType));

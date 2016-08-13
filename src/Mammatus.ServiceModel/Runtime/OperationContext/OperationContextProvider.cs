@@ -1,12 +1,11 @@
 using System.ServiceModel.Activation;
 using Mammatus.Core.Application;
-using Mammatus.Core.State;
 
-namespace Mammatus.ServiceModel.State
+namespace Mammatus.ServiceModel.Runtime.OperationContext
 {
     public class OperationContextProvider : ObjectBase<OperationContextProvider>, IOperationContextProvider
     {
-        private IOperationContextWrapper _operationContextWrapper;
+        private readonly IOperationContextWrapper _operationContextWrapper;
 
         public bool IsWebApplication
         {

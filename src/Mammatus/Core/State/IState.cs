@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Mammatus.Core.State
+﻿namespace Mammatus.Core.State
 {
     public interface IState
     {
@@ -14,7 +8,7 @@ namespace Mammatus.Core.State
 
         T Get<T>(string key);
 
-        bool TryGet<T>(object Key, out T value);
+        bool TryGet<T>(object key, out T value);
 
         void Put<T>(T instance);
 

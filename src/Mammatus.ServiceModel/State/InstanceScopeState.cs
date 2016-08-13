@@ -1,9 +1,8 @@
 using System;
-using System.Collections;
-using System.ServiceModel;
 using Mammatus.Core.Application;
 using Mammatus.Core.State;
 using Mammatus.Helpers;
+using Mammatus.ServiceModel.Runtime;
 using Mammatus.ServiceModel.State.Collections;
 
 namespace Mammatus.ServiceModel.State
@@ -12,13 +11,13 @@ namespace Mammatus.ServiceModel.State
     {
         private readonly InstanceScopeCollection _collection;
 
-        private InstanceScopeState(IOperationContextProvider context)
+        public InstanceScopeState(IOperationContextProvider context)
         {
             _collection = context.OperationContext.InstanceContext.Extensions.Find<InstanceScopeCollection>();
 
             if (_collection == null)
             {
-                lock(context.OperationContext.InstanceContext)
+                lock (context.OperationContext.InstanceContext)
                 {
                     _collection = context.OperationContext.InstanceContext.Extensions.Find<InstanceScopeCollection>();
 
@@ -38,7 +37,7 @@ namespace Mammatus.ServiceModel.State
 
         public T Get<T>(object key)
         {
-            return (T) _collection.Get(NameKeyGenerator.BuildFullKey<T>(key));
+            return (T)_collection.Get(NameKeyGenerator.BuildFullKey<T>(key));
         }
 
         public void Put<T>(T instance)
@@ -56,6 +55,11 @@ namespace Mammatus.ServiceModel.State
             Remove<T>(default(object));
         }
 
+        public void Remove(string key)
+        {
+            _collection.Remove(key);
+        }
+
         public void Remove<T>(object key)
         {
             _collection.Remove(NameKeyGenerator.BuildFullKey<T>(key));
@@ -66,14 +70,12 @@ namespace Mammatus.ServiceModel.State
             _collection.Clear();
         }
 
-
-
         public T Get<T>(string key)
         {
             throw new NotImplementedException();
         }
 
-        public bool TryGet<T>(object Key, out T value)
+        public bool TryGet<T>(object key, out T value)
         {
             throw new NotImplementedException();
         }

@@ -6,7 +6,7 @@ using System.ServiceModel.Description;
 using System.ServiceModel.Dispatcher;
 using Mammatus.Core.Application;
 
-namespace Mammatus.ServiceModel.State
+namespace Mammatus.ServiceModel.Runtime.ServiceHost
 {
     public sealed class ServiceHostWrapper : ObjectBase<ServiceHostWrapper>, IServiceHostWrapper
     {
@@ -75,7 +75,7 @@ namespace Mammatus.ServiceModel.State
 
         public ServiceEndpoint AddServiceEndpoint(string implementedContract, Binding binding, string address, Uri listenUri)
         {
-           return _serviceHost.AddServiceEndpoint(implementedContract, binding, address, listenUri);
+            return _serviceHost.AddServiceEndpoint(implementedContract, binding, address, listenUri);
         }
 
         public ServiceEndpoint AddServiceEndpoint(string implementedContract, Binding binding, Uri address, Uri listenUri)

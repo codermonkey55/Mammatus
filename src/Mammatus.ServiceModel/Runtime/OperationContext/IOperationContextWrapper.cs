@@ -1,11 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Dispatcher;
 using System.ServiceModel.Security;
+using Mammatus.ServiceModel.Runtime.InstanceContext;
+using Mammatus.ServiceModel.Runtime.ServiceHost;
 
-namespace Mammatus.ServiceModel.State
+namespace Mammatus.ServiceModel.Runtime.OperationContext
 {
     /// <summary>
     /// Interface wrapper that wraps a <see cref="OperationContext"/>
@@ -26,7 +27,7 @@ namespace Mammatus.ServiceModel.State
         /// Gets a <see cref="IExtensionCollection{T}"/> of service extensions for the current message context.
         /// </summary>
         /// <value>A <see cref="IExtensionCollection{T}"/> of service extensions.</value>
-        IExtensionCollection<OperationContext> Extensions { get; }
+        IExtensionCollection<System.ServiceModel.OperationContext> Extensions { get; }
         /// <summary>
         /// Gets a value indicating weather the incoming message has supporting tokens.
         /// </summary>

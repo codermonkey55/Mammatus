@@ -2,12 +2,13 @@
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Threading;
+using Mammatus.ServiceModel.Runtime.ServiceHost;
 
-namespace Mammatus.ServiceModel.State
+namespace Mammatus.ServiceModel.Runtime.InstanceContext
 {
     public interface IInstanceContextWrapper
     {
-        IExtensionCollection<InstanceContext> Extensions { get; }
+        IExtensionCollection<System.ServiceModel.InstanceContext> Extensions { get; }
 
         IServiceHostWrapper Host { get; }
 

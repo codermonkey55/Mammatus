@@ -1,7 +1,7 @@
-﻿using System;
-using Mammatus.Core.State;
+﻿using Mammatus.Core.State;
+using Mammatus.ServiceModel.Runtime.OperationContext;
 
-namespace Mammatus.ServiceModel.State
+namespace Mammatus.ServiceModel.Runtime
 {
     public interface IOperationContextProvider : IContextProvider
     {

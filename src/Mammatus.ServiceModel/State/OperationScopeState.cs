@@ -1,9 +1,8 @@
 using System;
-using System.Collections;
-using System.ServiceModel;
 using Mammatus.Core.Application;
 using Mammatus.Core.State;
 using Mammatus.Helpers;
+using Mammatus.ServiceModel.Runtime;
 using Mammatus.ServiceModel.State.Collections;
 
 namespace Mammatus.ServiceModel.State
@@ -12,7 +11,7 @@ namespace Mammatus.ServiceModel.State
     {
         readonly OperationScopeCollection _collection;
 
-        private OperationScopeState(IOperationContextProvider context)
+        public OperationScopeState(IOperationContextProvider context)
         {
             _collection = context.OperationContext.Extensions.Find<OperationScopeCollection>();
             if (_collection == null)
@@ -25,13 +24,13 @@ namespace Mammatus.ServiceModel.State
         public T Get<T>()
         {
             var fullKey = NameKeyGenerator.BuildFullKey<T>();
-            return (T) _collection.Get(fullKey);
+            return (T)_collection.Get(fullKey);
         }
 
         public T Get<T>(object key)
         {
             var fullKey = NameKeyGenerator.BuildFullKey<T>(key);
-            return (T) _collection.Get(fullKey);
+            return (T)_collection.Get(fullKey);
         }
 
         public void Put<T>(T instance)
@@ -52,6 +51,11 @@ namespace Mammatus.ServiceModel.State
             _collection.Remove(fullKey);
         }
 
+        public void Remove(string key)
+        {
+            _collection.Remove(key);
+        }
+
         public void Remove<T>(object key)
         {
             var fullKey = NameKeyGenerator.BuildFullKey<T>(key);
@@ -63,14 +67,12 @@ namespace Mammatus.ServiceModel.State
             _collection.Clear();
         }
 
-
-
         public T Get<T>(string key)
         {
             throw new NotImplementedException();
         }
 
-        public bool TryGet<T>(object Key, out T value)
+        public bool TryGet<T>(object key, out T value)
         {
             throw new NotImplementedException();
         }

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus", "Mammatus\Mammatus.csproj", "{88F26661-78E6-49D5-80BC-63EE79EEE9A4}"
 EndProject
@@ -67,6 +67,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Serialization.Newtonsoft", "Mammatus.Serialization.Newtonsoft\Mammatus.Serialization.Newtonsoft.csproj", "{528396DE-89E7-4466-842D-6040FD98D281}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.UI", "Mammatus.UI\Mammatus.UI.csproj", "{B48F48A6-1466-4458-8579-3CFDD66F4561}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Xml", "Mammatus.Xml\Mammatus.Xml.csproj", "{AE8F9E2E-0409-4179-82EC-B841E7F70630}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{AD1DC5DB-156F-4F6B-9270-271ECCCA9D00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.ServiceModel.Web", "Mammatus.ServiceModel.Web\Mammatus.ServiceModel.Web.csproj", "{E11BEAF3-78A1-4454-8A40-9A43E0CD555A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -162,6 +168,14 @@ Global
 		{B48F48A6-1466-4458-8579-3CFDD66F4561}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B48F48A6-1466-4458-8579-3CFDD66F4561}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B48F48A6-1466-4458-8579-3CFDD66F4561}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE8F9E2E-0409-4179-82EC-B841E7F70630}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE8F9E2E-0409-4179-82EC-B841E7F70630}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE8F9E2E-0409-4179-82EC-B841E7F70630}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE8F9E2E-0409-4179-82EC-B841E7F70630}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E11BEAF3-78A1-4454-8A40-9A43E0CD555A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E11BEAF3-78A1-4454-8A40-9A43E0CD555A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E11BEAF3-78A1-4454-8A40-9A43E0CD555A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E11BEAF3-78A1-4454-8A40-9A43E0CD555A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

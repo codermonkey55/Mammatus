@@ -3,23 +3,24 @@ using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Threading;
 using Mammatus.Core.Application;
+using Mammatus.ServiceModel.Runtime.ServiceHost;
 
-namespace Mammatus.ServiceModel.State
+namespace Mammatus.ServiceModel.Runtime.InstanceContext
 {
     public sealed class InstanceContextWrapper : ObjectBase<InstanceContextWrapper>, IInstanceContextWrapper
     {
-        readonly InstanceContext _context;
+        readonly System.ServiceModel.InstanceContext _context;
 
         readonly IServiceHostWrapper _serviceHostWrapper;
 
-        public InstanceContextWrapper(InstanceContext context)
+        public InstanceContextWrapper(System.ServiceModel.InstanceContext context)
         {
             _context = context;
 
             _serviceHostWrapper = ServiceHostWrapper.Create(_context.Host);
         }
 
-        public InstanceContextWrapper(InstanceContext context, IServiceHostWrapper serviceHostWrapper)
+        public InstanceContextWrapper(System.ServiceModel.InstanceContext context, IServiceHostWrapper serviceHostWrapper)
         {
             _context = context;
 
@@ -27,7 +28,7 @@ namespace Mammatus.ServiceModel.State
         }
 
 
-        public IExtensionCollection<InstanceContext> Extensions
+        public IExtensionCollection<System.ServiceModel.InstanceContext> Extensions
         {
             get { return _context.Extensions; }
         }

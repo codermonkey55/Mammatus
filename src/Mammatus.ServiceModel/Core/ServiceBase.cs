@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ServiceModel;
 using Mammatus.ServiceModel.Helpers;
+using Mammatus.ServiceModel.Runtime;
 using Mammatus.ServiceModel.State;
 
 namespace Mammatus.ServiceModel.Core
@@ -17,21 +15,53 @@ namespace Mammatus.ServiceModel.Core
         public InstanceScopeState InstanceState { get; set; }
         public OperationScopeState OperationState { get; set; }
 
-        public ServiceBase()
+        protected ServiceBase()
         {
-            var operactionContextProvider = ServiceModel.State.OperationContextProvider.Create();
+            var operactionContextProvider = Runtime.OperationContext.OperationContextProvider.Create();
             this._operationContextProvider = operactionContextProvider;
             this.Inspector = ServiceInspector.Create();
             this.InstanceState = InstanceScopeState.Create(operactionContextProvider);
             this.OperationState = OperationScopeState.Create(operactionContextProvider);
         }
 
-        public ServiceBase(IOperationContextProvider operactionContextProvider)
+        protected ServiceBase(IOperationContextProvider operactionContextProvider)
         {
             this._operationContextProvider = operactionContextProvider;
             this.Inspector = ServiceInspector.Create();
             this.InstanceState = InstanceScopeState.Create(operactionContextProvider);
             this.OperationState = OperationScopeState.Create(operactionContextProvider);
+        }
+
+        protected T ExecuteFaultHandledOperation<T>(Func<T> codetoExecute)
+        {
+            try
+            {
+                return codetoExecute.Invoke();
+            }
+            catch (FaultException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
+        protected void ExecuteFaultHandledOperation(Action codetoExecute)
+        {
+            try
+            {
+                codetoExecute.Invoke();
+            }
+            catch (FaultException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
         }
     }
 }

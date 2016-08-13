@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using Mammatus.Core.State;
 using Mammatus.Helpers;
 
@@ -50,7 +49,7 @@ namespace Mammatus.Web.State
             var fullKey = NameKeyGenerator.BuildFullKey<T>(key);
 
             lock (_contextProvider.HttpContext.Session.SyncRoot)
-                return (T) _contextProvider.HttpContext.Session[fullKey];
+                return (T)_contextProvider.HttpContext.Session[fullKey];
         }
 
         public void Put<T>(T instance)
@@ -91,7 +90,7 @@ namespace Mammatus.Web.State
             throw new NotImplementedException();
         }
 
-        public bool TryGet<T>(object Key, out T value)
+        public bool TryGet<T>(object key, out T value)
         {
             throw new NotImplementedException();
         }

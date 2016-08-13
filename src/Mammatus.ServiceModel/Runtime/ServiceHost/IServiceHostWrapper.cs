@@ -5,7 +5,7 @@ using System.ServiceModel.Channels;
 using System.ServiceModel.Description;
 using System.ServiceModel.Dispatcher;
 
-namespace Mammatus.ServiceModel.State
+namespace Mammatus.ServiceModel.Runtime.ServiceHost
 {
     /// <summary>
     /// Wrapper interface for <see cref="ServiceHost"/>.
@@ -41,7 +41,7 @@ namespace Mammatus.ServiceModel.State
         /// Gets the description of the service host.
         /// </summary>
         /// <value>A <see cref="ServiceDescription"/> instance.</value>
-        ServiceDescription Description { get;}
+        ServiceDescription Description { get; }
         /// <summary>
         /// Gets the extensions registered for the service host.
         /// </summary>

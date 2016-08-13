@@ -32,10 +32,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Activation" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,16 +50,41 @@
     <Compile Include="Core\ServiceClientBase.cs" />
     <Compile Include="ErrorHandling\ErrorServiceBehaviorAttribute.cs" />
     <Compile Include="ErrorHandling\ServiceFaultContractBehavior.cs" />
+    <Compile Include="Extensibility\Behaviors\ExtensionElements\BehaviorExtensionElementBase.cs" />
+    <Compile Include="Extensibility\Behaviors\ExtensionElements\ExceptionHandlingBehaviorExtensionElement.cs" />
+    <Compile Include="Extensibility\Behaviors\ExtensionElements\MetricsBehaviorExtensionElement.cs" />
+    <Compile Include="Extensibility\Behaviors\Operation\MetricsOperationBahavior.cs" />
+    <Compile Include="Extensibility\Behaviors\Operation\OperationBehaviorBase.cs" />
+    <Compile Include="Extensibility\Behaviors\Service\ExceptionHandlingServiceBehavior.cs" />
+    <Compile Include="Extensibility\Behaviors\Service\IoCServiceBehavior.cs" />
+    <Compile Include="Extensibility\Behaviors\Service\MetricsServiceBehavior.cs" />
+    <Compile Include="Extensibility\Behaviors\Service\ServiceBehaviorBase.cs" />
+    <Compile Include="Extensibility\DependencyInjection\LifetimeManagement\WcfInstanceLifetimeManager.cs" />
+    <Compile Include="Extensibility\DependencyInjection\LifetimeManagement\WcfOperationLifetimeManager.cs" />
+    <Compile Include="Extensibility\DependencyInjection\Providers\IServiceResolverProvider.cs" />
+    <Compile Include="Extensibility\DependencyInjection\Providers\ServiceResolverProvider.cs" />
+    <Compile Include="Extensibility\DependencyInjection\Resolvers\IServiceResolver.cs" />
+    <Compile Include="Extensibility\DependencyInjection\Resolvers\ServiceResolver.cs" />
+    <Compile Include="Extensibility\Dispatchers\ErrorHandlerDispatcherBase.cs" />
+    <Compile Include="Extensibility\Dispatchers\SoapErrorHandlerDispatcher.cs" />
+    <Compile Include="Extensibility\Factories\IoCServiceHostFactory.cs" />
+    <Compile Include="Extensibility\Factories\ServiceHostFactoryBase.cs" />
+    <Compile Include="Extensibility\Hosts\IoCServiceHost.cs" />
+    <Compile Include="Extensibility\Hosts\ServiceHostBase.cs" />
+    <Compile Include="Extensibility\Inspectors\MetricsParameterInspector.cs" />
+    <Compile Include="Extensibility\Inspectors\ParameterInspectorBase.cs" />
+    <Compile Include="Extensibility\Providers\InstanceProviderBase.cs" />
+    <Compile Include="Extensibility\Providers\IoCInstanceProvider.cs" />
     <Compile Include="Helpers\ServiceInspector.cs" />
     <Compile Include="Helpers\ServiceProxyHelper.cs" />
-    <Compile Include="Infrastructure\Impl\OperationContextProvider.cs" />
-    <Compile Include="Infrastructure\Impl\InstanceContextWrapper.cs" />
-    <Compile Include="Infrastructure\IInstanceContextWrapper.cs" />
-    <Compile Include="Infrastructure\IOperationContextProvider.cs" />
-    <Compile Include="Infrastructure\IOperationContextWrapper.cs" />
-    <Compile Include="Infrastructure\IServiceHostWrapper.cs" />
-    <Compile Include="Infrastructure\Impl\OperationContextWrapper.cs" />
-    <Compile Include="Infrastructure\Impl\ServiceHostWrapper.cs" />
+    <Compile Include="Runtime\OperationContext\OperationContextProvider.cs" />
+    <Compile Include="Runtime\InstanceContext\InstanceContextWrapper.cs" />
+    <Compile Include="Runtime\InstanceContext\IInstanceContextWrapper.cs" />
+    <Compile Include="Runtime\IOperationContextProvider.cs" />
+    <Compile Include="Runtime\OperationContext\IOperationContextWrapper.cs" />
+    <Compile Include="Runtime\ServiceHost\IServiceHostWrapper.cs" />
+    <Compile Include="Runtime\OperationContext\OperationContextWrapper.cs" />
+    <Compile Include="Runtime\ServiceHost\ServiceHostWrapper.cs" />
     <Compile Include="State\OperationScopeState.cs" />
     <Compile Include="State\Collections\OperationScopeCollection.cs" />
     <Compile Include="State\InstanceScopeState.cs" />
@@ -69,6 +96,13 @@
       <Project>{88f26661-78e6-49d5-80bc-63ee79eee9a4}</Project>
       <Name>Mammatus</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Extensibility\Behaviors\Endpoint\" />
+    <Folder Include="Extensibility\BodyWriters\" />
+    <Folder Include="Extensibility\ContentTypeMappers\" />
+    <Folder Include="Extensibility\Faults\" />
+    <Folder Include="Extensibility\Formatters\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

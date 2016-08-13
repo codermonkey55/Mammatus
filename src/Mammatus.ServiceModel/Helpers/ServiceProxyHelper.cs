@@ -1,5 +1,4 @@
 using System;
-using System.Diagnostics.CodeAnalysis;
 using System.ServiceModel;
 
 namespace Mammatus.ServiceModel.Helpers
@@ -12,21 +11,18 @@ namespace Mammatus.ServiceModel.Helpers
 
         public ServiceProxyHelper(TProxy proxy)
         {
-            this._proxy = proxy;
+            _proxy = proxy;
         }
 
         public TProxy Proxy
         {
             get
             {
-                if (this._proxy != null)
+                if (_proxy != null)
                 {
-                    return this._proxy;
+                    return _proxy;
                 }
-                else
-                {
-                    throw new ObjectDisposedException("ServiceProxyHelper");
-                }
+                throw new ObjectDisposedException("ServiceProxyHelper");
             }
         }
 
@@ -34,34 +30,34 @@ namespace Mammatus.ServiceModel.Helpers
         {
             try
             {
-                if (this._proxy != null)
+                if (_proxy != null)
                 {
-                    if (this._proxy.State != CommunicationState.Faulted)
+                    if (_proxy.State != CommunicationState.Faulted)
                     {
-                        this._proxy.Close();
+                        _proxy.Close();
                     }
                     else
                     {
-                        this._proxy.Abort();
+                        _proxy.Abort();
                     }
                 }
             }
             catch (CommunicationException)
             {
-                this._proxy.Abort();
+                _proxy.Abort();
             }
             catch (TimeoutException)
             {
-                this._proxy.Abort();
+                _proxy.Abort();
             }
             catch (Exception)
             {
-                this._proxy.Abort();
+                _proxy.Abort();
                 throw;
             }
             finally
             {
-                this._proxy = null;
+                _proxy = null;
             }
         }
     }
