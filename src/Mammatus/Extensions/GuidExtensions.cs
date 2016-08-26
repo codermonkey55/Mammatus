@@ -18,20 +18,20 @@ namespace Mammatus.Guid.Extensions
         {
             byte[] bits = value.ToByteArray();
 
-            const int VariantShift = 6;
-            const int VariantMask = 0x3 << VariantShift;
-            const int VariantBits = 0x2 << VariantShift;
+            const int variantShift = 6;
+            const int variantMask = 0x3 << variantShift;
+            const int variantBits = 0x2 << variantShift;
 
-            if ((bits[8] & VariantMask) != VariantBits)
+            if ((bits[8] & variantMask) != variantBits)
             {
                 return false;
             }
 
-            const int VersionShift = 4;
-            const int VersionMask = 0xf << VersionShift;
-            const int VersionBits = 0x4 << VersionShift;
+            const int versionShift = 4;
+            const int versionMask = 0xf << versionShift;
+            const int versionBits = 0x4 << versionShift;
 
-            if ((bits[7] & VersionMask) != VersionBits)
+            if ((bits[7] & versionMask) != versionBits)
             {
                 return false;
             }
@@ -66,7 +66,7 @@ namespace Mammatus.Guid.Extensions
 
         public static System.Guid NewCombGuid(this System.Guid value)
         {
-            return value.NewCombGuid();
+            return NewCombGuid();
         }
 
         public static DateTime ShowDate(this System.Guid value)
