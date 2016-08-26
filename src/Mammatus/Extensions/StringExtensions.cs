@@ -45,5 +45,44 @@ namespace Mammatus.String.Extensions
             return (TEnum)Enum.Parse(typeof(TEnum), value, ignoreCase);
         }
 
+        public static TEnum ParseEnumByName<TEnum>(this string enumNameString) where TEnum : struct
+        {
+            TEnum outputEnum;
+
+            if (string.IsNullOrEmpty(enumNameString))
+            {
+                outputEnum = default(TEnum);
+
+                return outputEnum;
+            }
+
+            var textInfo = new CultureInfo("en-US", true).TextInfo;
+
+            var enumNameStringTitleCase = textInfo.ToTitleCase(enumNameString);
+
+            Enum.TryParse<TEnum>(enumNameStringTitleCase.Trim(), out outputEnum);
+
+            return outputEnum;
+        }
+
+        public static bool TryParseEnumByName<TEnum>(this string enumNameString, out TEnum outputEnum) where TEnum : struct
+        {
+            bool parseSuccesful = false;
+
+            if (string.IsNullOrEmpty(enumNameString))
+            {
+                outputEnum = default(TEnum);
+
+                return parseSuccesful;
+            }
+
+            var textInfo = new CultureInfo("en-US", true).TextInfo;
+
+            var enumNameStringTitleCase = textInfo.ToTitleCase(enumNameString);
+
+            parseSuccesful = Enum.TryParse<TEnum>(enumNameStringTitleCase.Trim(), out outputEnum);
+
+            return parseSuccesful;
+        }
     }
 }

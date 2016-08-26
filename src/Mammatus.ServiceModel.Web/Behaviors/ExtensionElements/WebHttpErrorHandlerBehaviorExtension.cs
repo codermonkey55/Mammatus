@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.ServiceModel.Configuration;
 using Mammatus.ServiceModel.Web.Dispatchers;
 
@@ -6,13 +7,28 @@ namespace Mammatus.ServiceModel.Web.Behaviors.ExtensionElements
 {
     public class WebHttpErrorHandlerBehaviorExtension : BehaviorExtensionElement
     {
-        private readonly bool _useJsonFault;
-
-        public WebHttpErrorHandlerBehaviorExtension() { }
-
-        public WebHttpErrorHandlerBehaviorExtension(bool useJsonFault)
+        [ConfigurationProperty("useJsonFault", DefaultValue = false, IsRequired = true)]
+        public bool UseJsonFault
         {
-            _useJsonFault = useJsonFault;
+            get { return (bool)this["useJsonFault"]; }
+            set { this["useJsonFault"] = value; }
+        }
+
+        private ConfigurationPropertyCollection _propertyCollection = null;
+
+        protected override ConfigurationPropertyCollection Properties
+        {
+            get
+            {
+                if (_propertyCollection == null)
+                {
+                    _propertyCollection = new ConfigurationPropertyCollection
+                    {
+                        new ConfigurationProperty("useJsonFault", typeof(bool), false, ConfigurationPropertyOptions.IsRequired)
+                    };
+                }
+                return this._propertyCollection;
+            }
         }
 
         public override Type BehaviorType
@@ -22,7 +38,7 @@ namespace Mammatus.ServiceModel.Web.Behaviors.ExtensionElements
 
         protected override object CreateBehavior()
         {
-            return new WebHttpErrorHandlerDispatcher(_useJsonFault);
+            return new WebHttpErrorHandlerDispatcher(UseJsonFault);
         }
     }
 }

@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Core\DataContractBase.cs" />
     <Compile Include="Core\ServiceBase.cs" />
+    <Compile Include="Core\ServiceClient.cs" />
     <Compile Include="Core\ServiceClientBase.cs" />
     <Compile Include="ErrorHandling\ErrorServiceBehaviorAttribute.cs" />
     <Compile Include="ErrorHandling\ServiceFaultContractBehavior.cs" />

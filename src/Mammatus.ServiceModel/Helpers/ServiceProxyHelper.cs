@@ -9,6 +9,13 @@ namespace Mammatus.ServiceModel.Helpers
     {
         private TProxy _proxy;
 
+        private bool _disposed;
+
+        public ServiceProxyHelper()
+        {
+            _proxy = new TProxy();
+        }
+
         public ServiceProxyHelper(TProxy proxy)
         {
             _proxy = proxy;
@@ -26,39 +33,54 @@ namespace Mammatus.ServiceModel.Helpers
             }
         }
 
-        public void Dispose()
+        public void Dispose(bool disposing)
         {
-            try
+            if (!this._disposed)
             {
-                if (_proxy != null)
+                if (disposing)
                 {
-                    if (_proxy.State != CommunicationState.Faulted)
+                    try
                     {
-                        _proxy.Close();
+                        if (_proxy != null)
+                        {
+                            if (_proxy.State != CommunicationState.Faulted)
+                            {
+                                _proxy.Close();
+                            }
+                            else
+                            {
+                                _proxy.Abort();
+                            }
+                        }
                     }
-                    else
+                    catch (CommunicationException)
                     {
                         _proxy.Abort();
                     }
+                    catch (TimeoutException)
+                    {
+                        _proxy.Abort();
+                    }
+                    catch (Exception)
+                    {
+                        _proxy.Abort();
+                        throw;
+                    }
+                    finally
+                    {
+                        _proxy = null;
+                    }
                 }
             }
-            catch (CommunicationException)
-            {
-                _proxy.Abort();
-            }
-            catch (TimeoutException)
-            {
-                _proxy.Abort();
-            }
-            catch (Exception)
-            {
-                _proxy.Abort();
-                throw;
-            }
-            finally
-            {
-                _proxy = null;
-            }
+
+            this._disposed = true;
+        }
+
+        void IDisposable.Dispose()
+        {
+            Dispose(true);
+
+            GC.SuppressFinalize(this);
         }
     }
 }
