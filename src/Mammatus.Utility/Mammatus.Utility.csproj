@@ -7,8 +7,8 @@
     <ProjectGuid>{664F38EE-8583-4D42-B4EB-70B70FCB670C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Mammatus.Utilities</RootNamespace>
-    <AssemblyName>Mammatus.Utilities</AssemblyName>
+    <RootNamespace>Mammatus.Utility</RootNamespace>
+    <AssemblyName>Mammatus.Utility</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -47,7 +47,6 @@
     <Compile Include="Logging\LoggerManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

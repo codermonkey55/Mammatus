@@ -1,6 +1,6 @@
 using System;
 
-namespace Mammatus.Utilities.Logging
+namespace Mammatus.Utility.Logging
 {
     public interface ILogger
     {
