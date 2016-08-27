@@ -7,25 +7,9 @@ using Mammatus.String.Extensions;
 
 namespace Mammatus.Code.Contracts
 {
-    public sealed class CodeContract
+    public static class CodeContract
     {
-        private static bool _enableExceptions;
-
-        public static bool EnableExceptions
-        {
-            get
-            {
-                return _enableExceptions;
-            }
-
-            set
-            {
-                _enableExceptions = value;
-            }
-        }
-
-
-        private CodeContract() { }
+        public static bool EnableExceptions { get; set; }
 
         public static void Require(bool assertion, string message)
         {
@@ -100,7 +84,6 @@ namespace Mammatus.Code.Contracts
             }
         }
 
-
         public static void Invariant(bool assertion, string message)
         {
             if (EnableExceptions)
@@ -136,7 +119,6 @@ namespace Mammatus.Code.Contracts
                 Trace.Assert(assertion, "Invariant failed.");
             }
         }
-
 
         public static void Assert(bool assertion, string message)
         {
@@ -174,20 +156,20 @@ namespace Mammatus.Code.Contracts
             }
         }
 
-
         [DebuggerStepThrough]
-        public static void IsNotNull(object value, string name) 
-        { 
-            if (value == null) throw new ArgumentNullException(name); 
+        public static void IsNotNull(object value, string name)
+        {
+            if (value == null) throw new ArgumentNullException(name);
         }
 
         [DebuggerStepThrough]
         public static void IsOfType(object argument, System.Type baseType, string argumentName)
         {
             IsNotNull(argument, argumentName);
+
             IsNotNull(baseType, "baseType");
 
-            if (!baseType.IsAssignableFrom(argument.GetType()))
+            if (!baseType.IsInstanceOfType(argument))
                 throw new ArgumentException("{0} is not of type {1}.".FormatWith(argument, baseType), argumentName);
         }
 
@@ -213,14 +195,14 @@ namespace Mammatus.Code.Contracts
             }
             if (param.Length < 1)
             {
-                throw new ArgumentException(string.Format("The array parameter '{0}' should not be empty.", paramName));
+                throw new ArgumentException($"The array parameter '{paramName}' should not be empty.");
             }
             Hashtable hashtable = new Hashtable(param.Length);
             for (int i = param.Length - 1; i >= 0; i--)
             {
                 if (hashtable.Contains(param[i]))
                 {
-                    throw new ArgumentException(string.Format("The array '{0}' should not contain duplicate values.", paramName));
+                    throw new ArgumentException($"The array '{paramName}' should not contain duplicate values.");
                 }
                 hashtable.Add(param[i], param[i]);
             }
