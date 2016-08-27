@@ -109,5 +109,53 @@ namespace Mammatus.Enumerable.Extensions
         {
             return new ReadOnlyCollection<T>(enumerable.ToList());
         }
+
+        public static T FindMinElement<T>(this IEnumerable<T> list, Converter<T, int> projection)
+        {
+            var enumerable = list as T[] ?? list.ToArray();
+
+            if (enumerable.Any() == false)
+            {
+                throw new InvalidOperationException("Empty list");
+            }
+
+            int minValue = int.MinValue;
+            T minElement = default(T);
+
+            foreach (T item in enumerable)
+            {
+                int value = projection(item);
+                if (value < minValue)
+                {
+                    minValue = value;
+                    minElement = item;
+                }
+            }
+            return minElement;
+        }
+
+        public static T FindMaxElement<T>(this IEnumerable<T> list, Converter<T, int> projection)
+        {
+            var enumerable = list as T[] ?? list.ToArray();
+
+            if (enumerable.Any() == false)
+            {
+                throw new InvalidOperationException("Empty list");
+            }
+
+            int maxValue = int.MinValue;
+            T maxElement = default(T);
+
+            foreach (T item in enumerable)
+            {
+                int value = projection(item);
+                if (value > maxValue)
+                {
+                    maxValue = value;
+                    maxElement = item;
+                }
+            }
+            return maxElement;
+        }
     }
 }
