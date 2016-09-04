@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Domain", "Mammatus
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Web", "Mammatus.Web\Mammatus.Web.csproj", "{83821E85-449E-4730-9FED-7EA5A34D9B30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Utilities", "Mammatus.Utilities\Mammatus.Utilities.csproj", "{664F38EE-8583-4D42-B4EB-70B70FCB670C}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.IoC", "Mammatus.IoC\Mammatus.IoC.csproj", "{754240AF-8BAE-41FE-B29C-BB076F23D103}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Data.EF", "Mammatus.Data.EF\Mammatus.Data.EF.csproj", "{ADB848C8-34A6-42B5-90FC-DDF0B8513109}"
@@ -29,6 +27,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{BC670C
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1D0EC9CD-D9ED-4B49-B3F7-37D66ACB03C5}"
+	ProjectSection(SolutionItems) = preProject
+		References.txt = References.txt
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Data.EFCore", "Mammatus.Data.EFCore\Mammatus.Data.EFCore.csproj", "{9B8FA2FE-1697-4501-B8ED-70C6BA5017DB}"
 EndProject
@@ -74,6 +75,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{AD1DC5DB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.ServiceModel.Web", "Mammatus.ServiceModel.Web\Mammatus.ServiceModel.Web.csproj", "{E11BEAF3-78A1-4454-8A40-9A43E0CD555A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Reactive", "Mammatus.Reactive\Mammatus.Reactive.csproj", "{A7BEA62F-082F-4138-BA05-05ED9D18C656}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rx.NET", "Rx.NET", "{1B03FCB4-8BA1-4A2E-B710-829C1661B631}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Reactive.Utils", "Mammatus.Reactive.Utils\Mammatus.Reactive.Utils.csproj", "{E16CBA2B-8919-4D57-AEE3-BF60F85C9AA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Utility", "Mammatus.Utility\Mammatus.Utility.csproj", "{664F38EE-8583-4D42-B4EB-70B70FCB670C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -96,10 +105,6 @@ Global
 		{83821E85-449E-4730-9FED-7EA5A34D9B30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83821E85-449E-4730-9FED-7EA5A34D9B30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83821E85-449E-4730-9FED-7EA5A34D9B30}.Release|Any CPU.Build.0 = Release|Any CPU
-		{664F38EE-8583-4D42-B4EB-70B70FCB670C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{664F38EE-8583-4D42-B4EB-70B70FCB670C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{664F38EE-8583-4D42-B4EB-70B70FCB670C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{664F38EE-8583-4D42-B4EB-70B70FCB670C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{754240AF-8BAE-41FE-B29C-BB076F23D103}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{754240AF-8BAE-41FE-B29C-BB076F23D103}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{754240AF-8BAE-41FE-B29C-BB076F23D103}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -176,6 +181,18 @@ Global
 		{E11BEAF3-78A1-4454-8A40-9A43E0CD555A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E11BEAF3-78A1-4454-8A40-9A43E0CD555A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E11BEAF3-78A1-4454-8A40-9A43E0CD555A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7BEA62F-082F-4138-BA05-05ED9D18C656}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7BEA62F-082F-4138-BA05-05ED9D18C656}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7BEA62F-082F-4138-BA05-05ED9D18C656}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7BEA62F-082F-4138-BA05-05ED9D18C656}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E16CBA2B-8919-4D57-AEE3-BF60F85C9AA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E16CBA2B-8919-4D57-AEE3-BF60F85C9AA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E16CBA2B-8919-4D57-AEE3-BF60F85C9AA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E16CBA2B-8919-4D57-AEE3-BF60F85C9AA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{664F38EE-8583-4D42-B4EB-70B70FCB670C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{664F38EE-8583-4D42-B4EB-70B70FCB670C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{664F38EE-8583-4D42-B4EB-70B70FCB670C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{664F38EE-8583-4D42-B4EB-70B70FCB670C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -194,5 +211,8 @@ Global
 		{05359005-306E-4AF4-9113-07DD0446DAE5} = {DF482BD0-DD5D-489A-A7F3-3AA5840C2BE8}
 		{7C62BFBC-7341-42E0-88F2-1CED8E84305B} = {98E3DFAF-45E3-49D5-BF89-7534ABC4024F}
 		{528396DE-89E7-4466-842D-6040FD98D281} = {05359005-306E-4AF4-9113-07DD0446DAE5}
+		{A7BEA62F-082F-4138-BA05-05ED9D18C656} = {1B03FCB4-8BA1-4A2E-B710-829C1661B631}
+		{1B03FCB4-8BA1-4A2E-B710-829C1661B631} = {DF482BD0-DD5D-489A-A7F3-3AA5840C2BE8}
+		{E16CBA2B-8919-4D57-AEE3-BF60F85C9AA0} = {1B03FCB4-8BA1-4A2E-B710-829C1661B631}
 	EndGlobalSection
 EndGlobal

@@ -7,11 +7,11 @@ namespace Mammatus.Collections.Pagination
 {
     public class PagedData<T> : IPagedData<T>, IPagedDataProvider<T>
     {
-        protected IEnumerable<T> _currentItems;
+        protected IEnumerable<T> CurrentItems;
 
-        protected ArrayList _innerArray;
+        protected ArrayList InnerArray;
 
-        public static int DefaultPageSize { get { return 20; } }
+        public static int DefaultPageSize => 20;
 
         public int TotalCountOfItems { get; set; }
 
@@ -34,7 +34,10 @@ namespace Mammatus.Collections.Pagination
 
                 return CurrentPage + 1;
             }
-            set { }
+            set
+            {
+                if (value <= 0) throw new ArgumentOutOfRangeException(nameof(value));
+            }
         }
 
         public int PreviousPage
@@ -46,28 +49,33 @@ namespace Mammatus.Collections.Pagination
 
                 return CurrentPage - 1;
             }
-            set { }
+            set
+            {
+                if (value <= 0) throw new ArgumentOutOfRangeException(nameof(value));
+            }
         }
 
         public List<T> Items
         {
-            get { return _innerArray.Cast<T>().ToArray().ToList(); }
-            set { }
+            get { return InnerArray.Cast<T>().ToList(); }
+            set { CurrentItems = value; }
         }
 
 
         public PagedData()
         {
-            _innerArray = new ArrayList();
+            InnerArray = new ArrayList();
         }
 
         public PagedData(IEnumerable<T> currentItems, int currentPage, int itemsPerPage)
         {
-            if (_innerArray == null) _innerArray = new ArrayList();
+            if (InnerArray == null) InnerArray = new ArrayList();
 
-            _innerArray.AddRange(currentItems.ToArray());
+            var enumerable = currentItems as T[] ?? currentItems.ToArray();
 
-            TotalCountOfItems = currentItems.Count();
+            InnerArray.AddRange(enumerable);
+
+            TotalCountOfItems = enumerable.Length;
 
             CurrentPage = currentPage;
 
@@ -81,11 +89,11 @@ namespace Mammatus.Collections.Pagination
         }
 
 
-        public PagedData(IEnumerable<T> currentItems, int totalCountOfItems,int currentPage, int itemsPerPage)
+        public PagedData(IEnumerable<T> currentItems, int totalCountOfItems, int currentPage, int itemsPerPage)
         {
-            if (_innerArray == null) _innerArray = new ArrayList();
+            if (InnerArray == null) InnerArray = new ArrayList();
 
-            _innerArray.AddRange(currentItems.ToArray());
+            InnerArray.AddRange(currentItems.ToArray());
 
             TotalCountOfItems = totalCountOfItems;
 
@@ -93,7 +101,7 @@ namespace Mammatus.Collections.Pagination
 
             ItemsPerPage = itemsPerPage;
 
-            TotalPages = (int) Math.Ceiling((float) TotalCountOfItems/ItemsPerPage);
+            TotalPages = (int)Math.Ceiling((float)TotalCountOfItems / ItemsPerPage);
 
             HasNextPage = CurrentPage < TotalPages;
 
@@ -102,36 +110,34 @@ namespace Mammatus.Collections.Pagination
 
         public IPagedData<T> GetPagedData(IEnumerable<T> items, int currentPage, int itemsPerPage)
         {
-            IEnumerable<T> pagedItems = null;
+            var enumerable = items as T[] ?? items.ToArray();
 
-            pagedItems = items.Skip((currentPage - 1) * itemsPerPage)
-                              .Take(itemsPerPage)
-                              .Select(x => x).ToArray();
+            IEnumerable<T> pagedItems = enumerable.Skip((currentPage - 1) * itemsPerPage)
+                                                  .Take(itemsPerPage)
+                                                  .Select(x => x).ToArray();
 
-            return new PagedData<T>(pagedItems, items.Count(), currentPage, itemsPerPage);
+            return new PagedData<T>(pagedItems, enumerable.Length, currentPage, itemsPerPage);
         }
 
         public IPagedData<T> GetPagedData(IEnumerable<T> items, int totalCountOfItems, int currentPage, int itemsPerPage)
         {
-            IEnumerable<T> pagedItems = null;
-
-            pagedItems = items.Skip((currentPage - 1) * itemsPerPage)
-                              .Take(itemsPerPage)
-                              .Select(x => x).ToArray();
+            IEnumerable<T> pagedItems = items.Skip((currentPage - 1) * itemsPerPage)
+                                             .Take(itemsPerPage)
+                                             .Select(x => x).ToArray();
 
             return new PagedData<T>(pagedItems, totalCountOfItems, currentPage, itemsPerPage);
         }
 
         public IEnumerator<T> GetEnumerator()
         {
-            var enumator = _innerArray.Cast<T>().GetEnumerator();
+            var enumator = InnerArray.Cast<T>().GetEnumerator();
 
             return enumator;
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            var enumator = _innerArray.GetEnumerator();
+            var enumator = InnerArray.GetEnumerator();
 
             return enumator;
         }
@@ -140,30 +146,30 @@ namespace Mammatus.Collections.Pagination
         {
             get
             {
-                return (T)_innerArray[index];
+                return (T)InnerArray[index];
             }
             set
             {
-                _innerArray[index] = value;
+                InnerArray[index] = value;
             }
         }
 
         public virtual void Add(T item)
         {
-            _innerArray.Add(item);
+            InnerArray.Add(item);
         }
 
         public virtual bool Remove(T item)
         {
             bool result = false;
 
-            for (int i = 0; i < _innerArray.Count; i++)
+            for (int i = 0; i < InnerArray.Count; i++)
             {
-                T obj = (T)_innerArray[i];
+                T obj = (T)InnerArray[i];
 
                 if (obj.Equals(item))
                 {
-                    _innerArray.RemoveAt(i);
+                    InnerArray.RemoveAt(i);
 
                     result = true;
 
@@ -176,12 +182,12 @@ namespace Mammatus.Collections.Pagination
 
         public void Clear()
         {
-            _innerArray.Clear();
+            InnerArray.Clear();
         }
 
         public bool Contains(T item)
         {
-            foreach (T obj in _innerArray)
+            foreach (T obj in InnerArray)
             {
                 if (obj.Equals(item))
                 {
@@ -194,32 +200,26 @@ namespace Mammatus.Collections.Pagination
 
         public void CopyTo(T[] array, int arrayIndex)
         {
-            _innerArray.CopyTo(array, arrayIndex);
+            InnerArray.CopyTo(array, arrayIndex);
         }
 
-        public int Count
-        {
-            get { return _innerArray.Count; }
-        }
+        public int Count => InnerArray.Count;
 
-        public bool IsReadOnly
-        {
-            get { return _innerArray.IsReadOnly; }
-        }
+        public bool IsReadOnly => InnerArray.IsReadOnly;
 
         public int IndexOf(T item)
         {
-            return _innerArray.IndexOf(item);
+            return InnerArray.IndexOf(item);
         }
 
         public void Insert(int index, T item)
         {
-            _innerArray.Insert(index, item);
+            InnerArray.Insert(index, item);
         }
 
         public void RemoveAt(int index)
         {
-            _innerArray.RemoveAt(index);
+            InnerArray.RemoveAt(index);
         }
     }
 }

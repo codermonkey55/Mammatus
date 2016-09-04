@@ -1,0 +1,17 @@
+References to Repositories containing Common Useful Code, Utils, Helpers and Objects
+--> https://github.com/saintedlama/CommonExtensionMethods/tree/master/src/CommonExtensionMethodsTests
+--> https://github.com/Boredbone/CsCommon/tree/master/Utility
+--> https://github.com/todddill/CommonUtilities
+--> https://github.com/jimbosoft/CommonLib
+-->
+-->
+-->
+-->
+-->
+-->
+-->
+-->
+-->
+-->
+-->
+-->

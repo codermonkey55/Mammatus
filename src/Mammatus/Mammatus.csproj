@@ -33,6 +33,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,7 +43,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\Direction.cs" />
+    <Compile Include="Enums\LogLevel.cs" />
+    <Compile Include="Extensions\AsyncExtensions.cs" />
+    <Compile Include="Extensions\BooleanExtensions.cs" />
+    <Compile Include="Extensions\ConcurrentExtensions.cs" />
     <Compile Include="Extensions\CoreExtensions.cs" />
+    <Compile Include="Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Extensions\GeneratorExtensions.cs" />
+    <Compile Include="Extensions\ObjectExtensions.cs" />
+    <Compile Include="Extensions\TimeExtensions.cs" />
+    <Compile Include="Helpers\BinaryHelper.cs" />
+    <Compile Include="Helpers\FileHandler.cs" />
+    <Compile Include="Helpers\FileSizeConverter.cs" />
+    <Compile Include="Helpers\FtpHandler.cs" />
+    <Compile Include="Enums\TextStorageType.cs" />
+    <Compile Include="Library\Serialization\TextFormatter.cs" />
+    <Compile Include="Library\Smtp\MailSender.cs" />
+    <Compile Include="Models\FtpState.cs" />
+    <Compile Include="Helpers\FullNameParser.cs" />
+    <Compile Include="Helpers\ImageHelper.cs" />
+    <Compile Include="Interface.Contracts\IRaiseEvent.cs" />
+    <Compile Include="Models\FileWriteState.cs" />
+    <Compile Include="Models\Name.cs" />
+    <Compile Include="Helpers\NumberGenerator.cs" />
+    <Compile Include="Helpers\TextFileLoader.cs" />
     <Compile Include="Interface.Contracts\IValidator.cs" />
     <Compile Include="Core\Application\ObjectBase%27T.cs" />
     <Compile Include="Core\Application\ObjectBase.cs" />
@@ -71,6 +97,17 @@
     <Compile Include="Interface.Contracts\IIdentifiableEntity.cs" />
     <Compile Include="Interface.Contracts\IServiceContract.cs" />
     <Compile Include="Interface.Contracts\IServiceClientFactory.cs" />
+    <Compile Include="Library\Async\AsyncLock.cs" />
+    <Compile Include="Library\Async\Releaser.cs" />
+    <Compile Include="Library\Collection\ObservableSet%27T.cs" />
+    <Compile Include="Library\Dynamic\DynamicComparer.cs" />
+    <Compile Include="Library\Generic\None%27T.cs" />
+    <Compile Include="Library\Generic\Option%27T.cs" />
+    <Compile Include="Library\Generic\Some%27T.cs" />
+    <Compile Include="Library\Generic\Switch.cs" />
+    <Compile Include="Library\Generic\TypeSwitch.cs" />
+    <Compile Include="Enums\ImageFileType.cs" />
+    <Compile Include="Library\Image\ImageInfo.cs" />
     <Compile Include="Operation.Results\IListResult%27T.cs" />
     <Compile Include="Collections\Pagination\IPagedData.cs" />
     <Compile Include="Collections\Pagination\IPagedDataProvider.cs" />
@@ -89,6 +126,7 @@
     <Compile Include="Core\State\IContext.cs" />
     <Compile Include="Core\State\ISessionState.cs" />
     <Compile Include="Time\Clock.cs" />
+    <Compile Include="Time\DateTimeDiff.cs" />
     <Compile Include="Time\DateTimeRange.cs" />
     <Compile Include="Time\IClockProvider.cs" />
     <Compile Include="Time\IDateTimeRange.cs" />
@@ -117,6 +155,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
+    <Folder Include="Notifications\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
