@@ -14,32 +14,38 @@ namespace Mammatus.Data.Database
     {
         //private static readonly ILogger log = LoggerManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
-        private readonly DbProviderFactory _connectionProvider;
-        private readonly string _connectionString;
-        private readonly string _providerName;
+        private readonly DbProviderFactory connectionProvider;
+        private readonly string connectionString;
+        private readonly string providerName;
 
         public DatabaseManager(string provider, string connectionString)
         {
-            this._providerName = provider;
-            this._connectionString = connectionString;
-            this._connectionProvider = DbProviderFactories.GetFactory(_providerName);
+            this.providerName = provider;
+            this.connectionString = connectionString;
+            this.connectionProvider = DbProviderFactories.GetFactory(providerName);
         }
 
-        public DbProviderFactory DbProviderFactory => this._connectionProvider;
+        public DbProviderFactory DbProviderFactory
+        {
+            get
+            {
+                return this.connectionProvider;
+            }
+        }
 
         public void CreateDatabase()
         {
-            InternalCreateDatabase(this._connectionProvider, this._connectionString, this._providerName);
+            InternalCreateDatabase(this.connectionProvider, this.connectionString, this.providerName);
         }
 
         public bool DatabaseExists()
         {
-            return InternalDatabaseExists(this._connectionProvider, this._connectionString, this._providerName);
+            return InternalDatabaseExists(this.connectionProvider, this.connectionString, this.providerName);
         }
 
         public void DropDatabase()
         {
-            this.InternalDropDatabase(this._connectionProvider, this._connectionString, this._providerName);
+            this.InternalDropDatabase(this.connectionProvider, this.connectionString, this.providerName);
         }
 
         private static void InternalClearAllPools(string providerName)
@@ -49,7 +55,7 @@ namespace Mammatus.Data.Database
                 SqlConnection.ClearAllPools();
             }
 
-            if (providerName == DbProvider.PostgreSqlProvider)
+            if (providerName == DbProvider.PostgreSQLProvider)
             {
                 Type type = Type.GetType("Npgsql.NpgsqlConnection, Npgsql", true);
                 MethodInfo method = type.GetMethod("ClearAllPools", BindingFlags.Static | BindingFlags.Public);
@@ -71,7 +77,7 @@ namespace Mammatus.Data.Database
             string connStr = InternalStripDbName(connectionString, providerName, out dbName, out dbFile);
             var command = new StringBuilder(); // Build SQL Command..
 
-            if (providerName == DbProvider.SqLiteProvider)
+            if (providerName == DbProvider.SQLiteProvider)
             {
                 // Do nothing..
                 return;
@@ -121,7 +127,7 @@ namespace Mammatus.Data.Database
             {
                 throw new NotImplementedException();
             }
-            else if (providerName == DbProvider.PostgreSqlProvider)
+            else if (providerName == DbProvider.PostgreSQLProvider)
             {
                 command.AppendFormat(CultureInfo.InvariantCulture, "CREATE DATABASE \"{0}\" WITH ENCODING = 'UTF8'", dbName);
             }
@@ -162,7 +168,7 @@ namespace Mammatus.Data.Database
                 //    providerName,
                 //    connStr);
 
-                if (providerName == DbProvider.SqLiteProvider)
+                if (providerName == DbProvider.SQLiteProvider)
                 {
                     if (dbName.ToUpperInvariant() == ":MEMORY:")
                     {
@@ -182,28 +188,28 @@ namespace Mammatus.Data.Database
                 switch (providerName)
                 {
                     case DbProvider.MsSqlProvider:
-                        cmdText = string.Format(CultureInfo.InvariantCulture, "select COUNT(*) from sys.sysdatabases where name=\'{0}\'", dbName);
-                        break;
+                    cmdText = string.Format(CultureInfo.InvariantCulture, "select COUNT(*) from sys.sysdatabases where name=\'{0}\'", dbName);
+                    break;
                     case DbProvider.MySqlProvider:
-                        cmdText = string.Format(
-                                      CultureInfo.InvariantCulture,
-                                      @"SELECT COUNT(*) FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '{0}'",
-                                      dbName);
-                        break;
+                    cmdText = string.Format(
+                                  CultureInfo.InvariantCulture,
+                                  @"SELECT COUNT(*) FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '{0}'",
+                                  dbName);
+                    break;
                     case DbProvider.OracleDataProvider:
-                        cmdText = "SELECT 1 FROM DUAL";
-                        break;
-                    case DbProvider.PostgreSqlProvider:
-                        cmdText = string.Format(
-                                      CultureInfo.InvariantCulture,
-                                      "select count(*) from pg_catalog.pg_database where datname = '{0}'",
-                                      dbName);
-                        break;
-                    default:
-                        throw new NotSupportedException(string.Format(
-                                                            CultureInfo.InvariantCulture,
-                                                            "Provider {0} is not supported",
-                                                            providerName));
+                    cmdText = "SELECT 1 FROM DUAL";
+                    break;
+                    case DbProvider.PostgreSQLProvider:
+                    cmdText = string.Format(
+                                  CultureInfo.InvariantCulture,
+                                  "select count(*) from pg_catalog.pg_database where datname = '{0}'",
+                                  dbName);
+                    break;
+                default:
+                    throw new NotSupportedException(string.Format(
+                                                        CultureInfo.InvariantCulture,
+                                                        "Provider {0} is not supported",
+                                                        providerName));
                 }
 
                 object ret = provider.ExecuteScalar(connStr, cmdText);
@@ -251,7 +257,7 @@ namespace Mammatus.Data.Database
             }
 
             // SQLite! (XXX: MsSql has 'Data Source' as a means to specify Server address)
-            if ((providerName == DbProvider.SqLiteProvider || providerName == DbProvider.SqlCe) && builder.TryGetValue("Data Source", out tmp))
+            if ((providerName == DbProvider.SQLiteProvider || providerName == DbProvider.SqlCe) && builder.TryGetValue("Data Source", out tmp))
             {
                 dbname = tmp.ToString();
                 builder.Remove("Data Source");
@@ -330,7 +336,7 @@ namespace Mammatus.Data.Database
             {
                 throw new NotImplementedException();
             }
-            else if (providerName == DbProvider.SqLiteProvider)
+            else if (providerName == DbProvider.SQLiteProvider)
             {
                 if (dbName.ToUpperInvariant() != ":MEMORY:")
                 {
@@ -355,16 +361,16 @@ namespace Mammatus.Data.Database
                                  "USE master; ALTER DATABASE [{0}] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;",
                                  dbName);
 
-                this._connectionProvider.ExecuteNonQuery(connStr, cmd);
-                this._connectionProvider.ExecuteNonQuery(connStr, string.Format(CultureInfo.InvariantCulture, "DROP DATABASE [{0}]", dbName));
+                this.connectionProvider.ExecuteNonQuery(connStr, cmd);
+                this.connectionProvider.ExecuteNonQuery(connStr, string.Format(CultureInfo.InvariantCulture, "DROP DATABASE [{0}]", dbName));
             }
-            else if (providerName == DbProvider.PostgreSqlProvider)
+            else if (providerName == DbProvider.PostgreSQLProvider)
             {
-                this._connectionProvider.ExecuteNonQuery(connStr, string.Format(CultureInfo.InvariantCulture, "DROP DATABASE \"{0}\"", dbName));
+                this.connectionProvider.ExecuteNonQuery(connStr, string.Format(CultureInfo.InvariantCulture, "DROP DATABASE \"{0}\"", dbName));
             }
             else
             {
-                this._connectionProvider.ExecuteNonQuery(connStr, string.Format(CultureInfo.InvariantCulture, "DROP DATABASE '{0}'", dbName));
+                this.connectionProvider.ExecuteNonQuery(connStr, string.Format(CultureInfo.InvariantCulture, "DROP DATABASE '{0}'", dbName));
             }
         }
     }

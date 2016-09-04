@@ -42,12 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enums\DataEventTiming.cs" />
-    <Compile Include="Enums\DataEventType.cs" />
-    <Compile Include="Contracts\IDataObject.cs" />
-    <Compile Include="Enums\EntityType.cs" />
-    <Compile Include="Enums\ComparisonType.cs" />
-    <Compile Include="Enums\OperationType.cs" />
     <Compile Include="Database\DatabaseManager.cs" />
     <Compile Include="Database\DbProviderExtensions.cs" />
     <Compile Include="Database\DbProviders.cs" />
