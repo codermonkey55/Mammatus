@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Mammatus.ServiceModel</RootNamespace>
     <AssemblyName>Mammatus.ServiceModel</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -45,6 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\Data\Request.cs" />
+    <Compile Include="Contracts\Data\Response.cs" />
+    <Compile Include="Contracts\Data\RulesFault.cs" />
     <Compile Include="Core\DataContractBase.cs" />
     <Compile Include="Core\ServiceBase.cs" />
     <Compile Include="Core\ServiceClient.cs" />
@@ -78,6 +81,9 @@
     <Compile Include="Extensibility\Providers\IoCInstanceProvider.cs" />
     <Compile Include="Helpers\ServiceInspector.cs" />
     <Compile Include="Helpers\ServiceProxyHelper.cs" />
+    <Compile Include="Model\IBusinessRules.cs" />
+    <Compile Include="Model\ICommunicator.cs" />
+    <Compile Include="Model\ITranslator.cs" />
     <Compile Include="Runtime\OperationContext\OperationContextProvider.cs" />
     <Compile Include="Runtime\InstanceContext\InstanceContextWrapper.cs" />
     <Compile Include="Runtime\InstanceContext\IInstanceContextWrapper.cs" />
