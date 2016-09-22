@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Mammatus</RootNamespace>
     <AssemblyName>Mammatus</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -32,16 +32,55 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Application\Disposable.cs" />
+    <Compile Include="Enums\Direction.cs" />
+    <Compile Include="Enums\ImageFileType.cs" />
+    <Compile Include="Enums\LogLevel.cs" />
+    <Compile Include="Enums\MailFormat.cs" />
+    <Compile Include="Enums\MathFormula.cs" />
+    <Compile Include="Enums\TextStorageType.cs" />
+    <Compile Include="Extensions\AsyncExtensions.cs" />
+    <Compile Include="Extensions\BooleanExtensions.cs" />
+    <Compile Include="Extensions\BytesExtensions.cs" />
+    <Compile Include="Extensions\ConcurrentExtensions.cs" />
     <Compile Include="Extensions\CoreExtensions.cs" />
+    <Compile Include="Extensions\DataTableExtensions.cs" />
+    <Compile Include="Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Extensions\GeneratorExtensions.cs" />
+    <Compile Include="Extensions\ObjectExtensions.cs" />
+    <Compile Include="Extensions\ReflectionExtensions.cs" />
+    <Compile Include="Extensions\TimeExtensions.cs" />
+    <Compile Include="Extensions\XmlExtensions.cs" />
+    <Compile Include="Helpers\BinaryHelper.cs" />
+    <Compile Include="Helpers\FileHandler.cs" />
+    <Compile Include="Helpers\FileSizeConverter.cs" />
+    <Compile Include="Helpers\FtpHandler.cs" />
+    <Compile Include="Helpers\FullNameParser.cs" />
+    <Compile Include="Helpers\ImageHelper.cs" />
+    <Compile Include="Helpers\MemoryStreamHelper.cs" />
+    <Compile Include="Helpers\NumberGenerator.cs" />
+    <Compile Include="Helpers\SystemHelper.cs" />
+    <Compile Include="Helpers\TextFileLoader.cs" />
+    <Compile Include="Helpers\UrlHelper.cs" />
+    <Compile Include="Helpers\WebSitePathHelper.cs" />
+    <Compile Include="Helpers\XmlSecurityHelper.cs" />
+    <Compile Include="Helpers\XmlSerializationHelper.cs" />
+    <Compile Include="Helpers\YzmHelper.cs" />
+    <Compile Include="Interface.Contracts\IRaiseEvent.cs" />
     <Compile Include="Interface.Contracts\IValidator.cs" />
     <Compile Include="Core\Application\ObjectBase%27T.cs" />
     <Compile Include="Core\Application\ObjectBase.cs" />
@@ -71,6 +110,77 @@
     <Compile Include="Interface.Contracts\IIdentifiableEntity.cs" />
     <Compile Include="Interface.Contracts\IServiceContract.cs" />
     <Compile Include="Interface.Contracts\IServiceClientFactory.cs" />
+    <Compile Include="Library\Async\AsyncLock.cs" />
+    <Compile Include="Library\Async\Releaser.cs" />
+    <Compile Include="Library\Collection\ObservableSet%27T.cs" />
+    <Compile Include="Library\Constants\RegularExpressions.cs" />
+    <Compile Include="Library\Dynamic\DynamicComparer.cs" />
+    <Compile Include="Library\Generic\None%27T.cs" />
+    <Compile Include="Library\Generic\Option%27T.cs" />
+    <Compile Include="Library\Generic\Some%27T.cs" />
+    <Compile Include="Library\Generic\Switch.cs" />
+    <Compile Include="Library\Generic\TypeSwitch.cs" />
+    <Compile Include="Library\Image\ImageInfo.cs" />
+    <Compile Include="Library\Image\ValidateImgGenerator.cs" />
+    <Compile Include="Library\Json\ConvertJson.cs" />
+    <Compile Include="Library\Mail\MailAttachments.cs" />
+    <Compile Include="Library\Mail\MailHelper.cs" />
+    <Compile Include="Library\Mail\MailMessage.cs" />
+    <Compile Include="Library\Mail\MailPoper.cs" />
+    <Compile Include="Library\Mail\MailPriority.cs" />
+    <Compile Include="Library\Mail\MailSender.cs" />
+    <Compile Include="Library\Mail\PopConfig.cs" />
+    <Compile Include="Library\Mail\PopSetting.cs" />
+    <Compile Include="Library\Mail\SmtpClient.cs" />
+    <Compile Include="Library\Mail\SmtpMail.cs" />
+    <Compile Include="Library\Mail\SmtpServerHelper.cs" />
+    <Compile Include="Library\Math\MathUtil.cs" />
+    <Compile Include="Library\Mime\MediaTypes.cs" />
+    <Compile Include="Library\Mime\MimeEntity.cs" />
+    <Compile Include="Library\Mime\MimeHeaders.cs" />
+    <Compile Include="Library\Mime\MimeReader.cs" />
+    <Compile Include="Library\Mime\QuotedPrintableEncoding.cs" />
+    <Compile Include="Library\POP3\ConnectCommand.cs" />
+    <Compile Include="Library\POP3\ConnectResponse.cs" />
+    <Compile Include="Library\POP3\DeleCommand.cs" />
+    <Compile Include="Library\POP3\ListCommand.cs" />
+    <Compile Include="Library\POP3\ListResponse.cs" />
+    <Compile Include="Library\POP3\MailHeaders.cs" />
+    <Compile Include="Library\POP3\MailMessageEx.cs" />
+    <Compile Include="Library\POP3\NoopCommand.cs" />
+    <Compile Include="Library\POP3\PassCommand.cs" />
+    <Compile Include="Library\POP3\Pop3Client.cs" />
+    <Compile Include="Library\POP3\Pop3Command.cs" />
+    <Compile Include="Library\POP3\Pop3Commands.cs" />
+    <Compile Include="Library\POP3\Pop3Exception.cs" />
+    <Compile Include="Library\POP3\Pop3ListItem.cs" />
+    <Compile Include="Library\POP3\Pop3Response.cs" />
+    <Compile Include="Library\POP3\Pop3Responses.cs" />
+    <Compile Include="Library\POP3\Pop3State.cs" />
+    <Compile Include="Library\POP3\QuitCommand.cs" />
+    <Compile Include="Library\POP3\RetrCommand.cs" />
+    <Compile Include="Library\POP3\RetrResponse.cs" />
+    <Compile Include="Library\POP3\RsetCommand.cs" />
+    <Compile Include="Library\POP3\Stat.cs" />
+    <Compile Include="Library\POP3\StatCommand.cs" />
+    <Compile Include="Library\POP3\StatResponse.cs" />
+    <Compile Include="Library\POP3\TopCommand.cs" />
+    <Compile Include="Library\POP3\UserCommand.cs" />
+    <Compile Include="Library\Random\RandomGenerator.cs" />
+    <Compile Include="Library\Serialization\TextFormatter.cs" />
+    <Compile Include="Library\Smtp\MessageDetails.cs" />
+    <Compile Include="Library\Smtp\MessageSender.cs" />
+    <Compile Include="Library\Web\DownloadEventArgs.cs" />
+    <Compile Include="Helpers\HtmlHelper.cs" />
+    <Compile Include="Library\Web\JavaScriptUtil.cs" />
+    <Compile Include="Library\Web\MultipartForm.cs" />
+    <Compile Include="Library\Web\UploadEventArgs.cs" />
+    <Compile Include="Library\Web\WebCache.cs" />
+    <Compile Include="Library\Web\WebClient.cs" />
+    <Compile Include="Library\Xml\XmlData.cs" />
+    <Compile Include="Models\FileWriteState.cs" />
+    <Compile Include="Models\FtpState.cs" />
+    <Compile Include="Models\Name.cs" />
     <Compile Include="Operation.Results\IListResult%27T.cs" />
     <Compile Include="Collections\Pagination\IPagedData.cs" />
     <Compile Include="Collections\Pagination\IPagedDataProvider.cs" />
@@ -89,6 +199,7 @@
     <Compile Include="Core\State\IContext.cs" />
     <Compile Include="Core\State\ISessionState.cs" />
     <Compile Include="Time\Clock.cs" />
+    <Compile Include="Time\DateTimeDiff.cs" />
     <Compile Include="Time\DateTimeRange.cs" />
     <Compile Include="Time\IClockProvider.cs" />
     <Compile Include="Time\IDateTimeRange.cs" />
@@ -117,6 +228,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
+    <Folder Include="Notifications\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
