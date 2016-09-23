@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 using System.Drawing;
 using System.Security.Cryptography;
 using System.Threading;
@@ -7,6 +7,8 @@ using Mammatus.Library.Random;
 
 namespace Mammatus.Library.POP3
 {
+    using System;
+
     public class YzmHelper
     {
         private readonly string _text;

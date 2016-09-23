@@ -7,7 +7,7 @@ namespace Mammatus.Extensions
 {
     public static class ReflectionExtensions
     {
-         Properties
+        #region  Properties
 
         /// <summary>
         /// Determines whether the value is the name of one of the given properties.
@@ -55,6 +55,6 @@ namespace Mammatus.Extensions
             return info.Name;
         }
 
-        
+        #endregion
     }
 }

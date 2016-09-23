@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
-using Mammatus.Guid.Extensions;
+using Mammatus.Extensions;
 
 namespace Mammatus.Exceptions
 {

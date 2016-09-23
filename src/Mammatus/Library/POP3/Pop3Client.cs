@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Sockets;
+using Mammatus.Library.Mime;
 
 namespace Mammatus.Library.POP3
 {
     /// <summary>
     /// The Pop3Client class provides a wrapper for the Pop3 commands
-    /// that can be executed against a Pop3Server.  This class will 
-    /// execute and return results for the various commands that are 
+    /// that can be executed against a Pop3Server.  This class will
+    /// execute and return results for the various commands that are
     /// executed.
     /// </summary>
     public sealed class Pop3Client : IDisposable
@@ -231,12 +232,12 @@ namespace Mammatus.Library.POP3
         {
             if (Trace != null)
             {
-                command.Trace += delegate(string message) { OnTrace(message); };
+                command.Trace += delegate (string message) { OnTrace(message); };
             }
         }
 
         /// <summary>
-        /// Connects this instance and properly sets the 
+        /// Connects this instance and properly sets the
         /// client stream to Use Ssl if it is specified.
         /// </summary>
         private void Connect()
@@ -266,8 +267,8 @@ namespace Mammatus.Library.POP3
         }
 
         /// <summary>
-        /// Sets the client stream.  If UseSsl <c>true</c> then wrap 
-        /// the client's <c>NetworkStream</c> in an <c>SslStream</c>, if UseSsl <c>false</c> 
+        /// Sets the client stream.  If UseSsl <c>true</c> then wrap
+        /// the client's <c>NetworkStream</c> in an <c>SslStream</c>, if UseSsl <c>false</c>
         /// then set the client stream to the <c>NetworkStream</c>
         /// </summary>
         private void SetClientStream(Stream networkStream)
@@ -284,7 +285,7 @@ namespace Mammatus.Library.POP3
         /// Authenticates this instance.
         /// </summary>
         /// <remarks>A successful execution of this method will result in a Current State of Transaction.
-        /// Unsuccessful USER or PASS commands can be reattempted by resetting the Username or Password 
+        /// Unsuccessful USER or PASS commands can be reattempted by resetting the Username or Password
         /// properties and re-execution of the methods.</remarks>
         /// <exception cref="Pop3Exception">
         /// If the Pop3Server is unable to be connected.

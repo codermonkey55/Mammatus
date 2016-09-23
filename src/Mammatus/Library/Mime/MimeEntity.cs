@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Text;
 using System.IO;
-using System.Net.Mime;
 using System.Net.Mail;
+using System.Net.Mime;
+using System.Text;
+using Mammatus.Library.POP3;
 
 namespace Mammatus.Library.Mime
 {
@@ -335,7 +336,7 @@ namespace Mammatus.Library.Mime
                 //create the mail message from the first child because it will
                 //contain all of the mail headers.  The entity in this state
                 //only contains simple content type headers indicating, disposition, type and description.
-                //This means we can't create the mail message from this type as there is no 
+                //This means we can't create the mail message from this type as there is no
                 //internet mail headers attached to this entity.
                 message = MailMessageEx.CreateMailMessageFromEntity(entity.Children[0]);
                 BuildMultiPartMessage(entity, message);
@@ -413,7 +414,7 @@ namespace Mammatus.Library.Mime
                     && string.Equals(child.ContentDisposition.DispositionType, DispositionTypeNames.Attachment, StringComparison.InvariantCultureIgnoreCase))
                 {
                     message.Children.Add(ToMailMessageEx(child));
-                } //create a child message and 
+                } //create a child message and
                 else if (IsAttachment(child))
                 {
                     message.Attachments.Add(CreateAttachment(child));
@@ -458,7 +459,7 @@ namespace Mammatus.Library.Mime
             if (encoding == null)
             {
                 encoding = Encoding.UTF7;
-            }  //email defaults to 7bit.  
+            }  //email defaults to 7bit.
 
             return encoding.GetString(buffer);
         }

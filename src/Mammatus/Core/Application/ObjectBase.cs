@@ -2,16 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using Mammatus.Core.Attributes;
+using Mammatus.Core.Extensions;
 using Mammatus.Core.IoC;
+using Mammatus.Helpers;
 using Mammatus.Interface.Contracts;
 using Mammatus.Validation;
-using Mammatus.Core.Extensions;
-using System.Linq.Expressions;
-using Mammatus.Helpers;
 
 namespace Mammatus.Core.Application
 {
@@ -22,7 +20,7 @@ namespace Mammatus.Core.Application
         protected IEnumerable<ValidationError> _ValidationErrors = null;
         protected internal IInternalContainer InternalContainer { get; protected set; }
 
-         Validation
+        #region Validation
 
         protected virtual IValidator GetValidator()
         {
@@ -57,9 +55,9 @@ namespace Mammatus.Core.Application
             }
         }
 
-        
+        #endregion
 
-         IDirtyCapable Members
+        #region IDirtyCapable Members
 
         [NotNavigable]
         public virtual bool IsDirty
@@ -121,9 +119,9 @@ namespace Mammatus.Core.Application
             }, coll => { });
         }
 
-        
+        #endregion
 
-         Protected Methods
+        #region Protected Methods
 
         protected void WalkObjectGraph(Func<ObjectBase, bool> snippetForObject,
                                        Action<IList> snippetForCollection,
@@ -179,9 +177,9 @@ namespace Mammatus.Core.Application
             walk(this);
         }
 
-        
+        #endregion
 
-         Property Change Notification
+        #region Property Change Notification
 
         protected override void OnPropertyChanged(string propertyName)
         {
@@ -204,6 +202,6 @@ namespace Mammatus.Core.Application
             Validate();
         }
 
-        
+        #endregion
     }
 }

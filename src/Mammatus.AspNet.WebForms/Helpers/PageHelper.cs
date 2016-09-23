@@ -3,7 +3,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
-using Mammatus.String.Extensions;
+using Mammatus.Extensions;
 
 namespace Mammatus.AspNet.WebForms.Helpers
 {

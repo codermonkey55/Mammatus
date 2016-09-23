@@ -20,7 +20,7 @@ namespace Mammatus.Extensions
             return new DateTimeDiff(offset, (x, y) => x.AddYears(y));
         }
 
-         Timestamps
+        #region Timestamps
 
         /// <summary>
         /// Converts a timestamp to a DateTime
@@ -43,9 +43,9 @@ namespace Mammatus.Extensions
             return (long)ts.TotalMilliseconds;
         }
 
-        
+        #endregion
 
-         Comparing to Now
+        #region Comparing to Now
 
         /// <summary>
         /// Elapseds time from now.
@@ -67,6 +67,7 @@ namespace Mammatus.Extensions
             return datetime.Elapsed() > TimeSpan.Zero;
         }
 
-        
+        #endregion
+
     }
 }

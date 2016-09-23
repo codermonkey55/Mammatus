@@ -118,6 +118,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{7546A951-C
 		..\proj\docs\Wiki.txt = ..\proj\docs\Wiki.txt
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.AspNet.WebApi.Autofac", "Mammatus.AspNet.WebApi.Autofac\Mammatus.AspNet.WebApi.Autofac.csproj", "{4028A286-4634-4B0A-834A-E5E10BD27371}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -262,6 +264,10 @@ Global
 		{664F38EE-8583-4D42-B4EB-70B70FCB670C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{664F38EE-8583-4D42-B4EB-70B70FCB670C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{664F38EE-8583-4D42-B4EB-70B70FCB670C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4028A286-4634-4B0A-834A-E5E10BD27371}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4028A286-4634-4B0A-834A-E5E10BD27371}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4028A286-4634-4B0A-834A-E5E10BD27371}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4028A286-4634-4B0A-834A-E5E10BD27371}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -291,5 +297,6 @@ Global
 		{8B667901-60EB-4FB7-929B-66ED8398A735} = {1D0EC9CD-D9ED-4B49-B3F7-37D66ACB03C5}
 		{4CE97817-4EF1-4A73-ADC8-8B1A0D2B703F} = {28B63387-FAFE-43DE-9B8C-A506E070668C}
 		{7546A951-C089-45E4-995C-C25E6044CE68} = {1D0EC9CD-D9ED-4B49-B3F7-37D66ACB03C5}
+		{4028A286-4634-4B0A-834A-E5E10BD27371} = {98E3DFAF-45E3-49D5-BF89-7534ABC4024F}
 	EndGlobalSection
 EndGlobal

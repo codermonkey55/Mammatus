@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Mime;
+using Mammatus.Library.POP3;
 
 namespace Mammatus.Library.Mime
 {
@@ -176,7 +177,7 @@ namespace Mammatus.Library.Mime
 
 
         /// <summary>
-        /// Sets the decoded content stream by decoding the EncodedMessage 
+        /// Sets the decoded content stream by decoding the EncodedMessage
         /// and writing it to the entity content stream.
         /// </summary>
         /// <param name="entity">The entity containing the encoded message.</param>
@@ -226,8 +227,8 @@ namespace Mammatus.Library.Mime
                 while (_lines.Count > 0
                     && !string.Equals(_lines.Peek(), _entity.EndBoundary))
                 {
-                    /*Check to verify the current line is not the same as the parent starting boundary.  
-                       If it is the same as the parent starting boundary this indicates existence of a 
+                    /*Check to verify the current line is not the same as the parent starting boundary.
+                       If it is the same as the parent starting boundary this indicates existence of a
                        new child entity. Return and process the next child.*/
                     if (_entity.Parent != null
                         && string.Equals(_entity.Parent.StartBoundary, _lines.Peek()))
@@ -372,8 +373,8 @@ namespace Mammatus.Library.Mime
         /// <param name="transferEncoding">The transfer encoding.</param>
         /// <returns></returns>
         /// <remarks>
-        /// The transfer encoding determination follows the same rules as 
-        /// Peter Huber's article w/ the exception of not throwing exceptions 
+        /// The transfer encoding determination follows the same rules as
+        /// Peter Huber's article w/ the exception of not throwing exceptions
         /// when binary is provided as a transferEncoding.  Instead it is left
         /// to the calling code to check for binary.
         /// </remarks>

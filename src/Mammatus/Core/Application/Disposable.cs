@@ -4,7 +4,7 @@ namespace Mammatus.Core.Application
 {
     public class Disposable : IDisposable
     {
-         Implementation of the IDisposable Pattern
+        #region Implementation of the IDisposable Pattern
 
         private bool _alreadyDisposed;
 
@@ -50,6 +50,6 @@ namespace Mammatus.Core.Application
             Dispose(false);
         }
 
-        
+        #endregion
     }
 }

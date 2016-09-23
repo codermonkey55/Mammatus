@@ -1,8 +1,6 @@
 using System;
-using System.Text;
-using System.IO;
-using System.Net.Sockets;
 using System.Collections;
+using Mammatus.Enums;
 
 namespace Mammatus.Library.Mail_Xofly
 {
@@ -17,7 +15,7 @@ namespace Mammatus.Library.Mail_Xofly
         {
             _Recipients = new ArrayList();        //收件人列表
             _Attachments = new MailAttachments(); //附件
-            _BodyFormat = MailFormat.HTML;        //缺省的邮件格式为HTML
+            _BodyFormat = MailFormat.Html;        //缺省的邮件格式为HTML
             _Priority = MailPriority.Normal;
             _Charset = "GB2312";
         }

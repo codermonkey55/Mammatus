@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Net.Mail;
 using System.Net.Mime;
 using System.Text.RegularExpressions;
+using Mammatus.Library.Mime;
 
 namespace Mammatus.Library.POP3
 {
     /// <summary>
-    /// This class adds a few internet mail headers not already exposed by the 
+    /// This class adds a few internet mail headers not already exposed by the
     /// System.Net.MailMessage.  It also provides support to encapsulate the
     /// nested mail attachments in the Children collection.
     /// </summary>

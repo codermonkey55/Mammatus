@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using System.Text;
-using Mammatus.String.Extensions;
+using Mammatus.Extensions;
 
 namespace Mammatus.Helpers
 {

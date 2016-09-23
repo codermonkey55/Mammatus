@@ -1,8 +1,8 @@
-﻿using System;
-using Mammatus.Helpers;
+﻿using Mammatus.Helpers;
 
 namespace Mammatus.Library.Image
 {
+    using System;
     using System.IO;
     using System.Windows;
 

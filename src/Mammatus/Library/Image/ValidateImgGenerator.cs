@@ -1,8 +1,9 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace Mammatus.Library.Image
 {
+    using System;
+
     public class ValidateImg
     {
         public void GenerateValidateImg()
