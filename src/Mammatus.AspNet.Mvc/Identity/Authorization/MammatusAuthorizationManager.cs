@@ -6,5 +6,10 @@
         {
 
         }
+
+        public bool HasAllowedRole()
+        {
+            return false;
+        }
     }
 }
