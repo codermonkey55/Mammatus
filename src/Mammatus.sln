@@ -27,9 +27,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{BC670C
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1D0EC9CD-D9ED-4B49-B3F7-37D66ACB03C5}"
-	ProjectSection(SolutionItems) = preProject
-		References.txt = References.txt
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Data.EFCore", "Mammatus.Data.EFCore\Mammatus.Data.EFCore.csproj", "{9B8FA2FE-1697-4501-B8ED-70C6BA5017DB}"
 EndProject
@@ -103,17 +100,23 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Documents.iTextSha
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{8B667901-60EB-4FB7-929B-66ED8398A735}"
 	ProjectSection(SolutionItems) = preProject
-		..\.proj\lib\Excel.dll = ..\.proj\lib\Excel.dll
-		..\.proj\lib\ICSharpCode.SharpZipLib.dll = ..\.proj\lib\ICSharpCode.SharpZipLib.dll
-		..\.proj\lib\itextsharp.dll = ..\.proj\lib\itextsharp.dll
-		..\.proj\lib\Microsoft.Vbe.Interop.dll = ..\.proj\lib\Microsoft.Vbe.Interop.dll
-		..\.proj\lib\office.dll = ..\.proj\lib\office.dll
-		..\.proj\lib\OWC10Chart.dll = ..\.proj\lib\OWC10Chart.dll
+		..\proj\lib\Excel.dll = ..\proj\lib\Excel.dll
+		..\proj\lib\ICSharpCode.SharpZipLib.dll = ..\proj\lib\ICSharpCode.SharpZipLib.dll
+		..\proj\lib\itextsharp.dll = ..\proj\lib\itextsharp.dll
+		..\proj\lib\Microsoft.Vbe.Interop.dll = ..\proj\lib\Microsoft.Vbe.Interop.dll
+		..\proj\lib\office.dll = ..\proj\lib\office.dll
+		..\proj\lib\OWC10Chart.dll = ..\proj\lib\OWC10Chart.dll
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.AspNet.Mvc.Autofac", "Mammatus.AspNet.Mvc.Autofac\Mammatus.AspNet.Mvc.Autofac.csproj", "{4CE97817-4EF1-4A73-ADC8-8B1A0D2B703F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Utility", "Mammatus.Utility\Mammatus.Utility.csproj", "{664F38EE-8583-4D42-B4EB-70B70FCB670C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{7546A951-C089-45E4-995C-C25E6044CE68}"
+	ProjectSection(SolutionItems) = preProject
+		..\proj\docs\References.txt = ..\proj\docs\References.txt
+		..\proj\docs\Wiki.txt = ..\proj\docs\Wiki.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -287,5 +290,6 @@ Global
 		{F43E030F-C171-433A-9904-B035563EE944} = {F81326E5-3974-4F71-9F99-C565676702C5}
 		{8B667901-60EB-4FB7-929B-66ED8398A735} = {1D0EC9CD-D9ED-4B49-B3F7-37D66ACB03C5}
 		{4CE97817-4EF1-4A73-ADC8-8B1A0D2B703F} = {28B63387-FAFE-43DE-9B8C-A506E070668C}
+		{7546A951-C089-45E4-995C-C25E6044CE68} = {1D0EC9CD-D9ED-4B49-B3F7-37D66ACB03C5}
 	EndGlobalSection
 EndGlobal
