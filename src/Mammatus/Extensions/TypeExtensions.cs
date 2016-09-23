@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Mammatus.Type.Extensions
+namespace Mammatus.Extensions
 {
     public static class TypeExtensions
     {
