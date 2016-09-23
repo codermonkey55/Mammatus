@@ -113,6 +113,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{8B667901-60E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.AspNet.Mvc.Autofac", "Mammatus.AspNet.Mvc.Autofac\Mammatus.AspNet.Mvc.Autofac.csproj", "{4CE97817-4EF1-4A73-ADC8-8B1A0D2B703F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Utility", "Mammatus.Utility\Mammatus.Utility.csproj", "{664F38EE-8583-4D42-B4EB-70B70FCB670C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -253,6 +255,10 @@ Global
 		{4CE97817-4EF1-4A73-ADC8-8B1A0D2B703F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CE97817-4EF1-4A73-ADC8-8B1A0D2B703F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CE97817-4EF1-4A73-ADC8-8B1A0D2B703F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{664F38EE-8583-4D42-B4EB-70B70FCB670C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{664F38EE-8583-4D42-B4EB-70B70FCB670C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{664F38EE-8583-4D42-B4EB-70B70FCB670C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{664F38EE-8583-4D42-B4EB-70B70FCB670C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
