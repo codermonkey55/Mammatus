@@ -3,7 +3,7 @@ using System.Text;
 namespace Mammatus.Models
 {
 
-    public class Name
+    public struct Name
     {
         public string Title { get; set; }
 
@@ -15,13 +15,13 @@ namespace Mammatus.Models
 
         public string Suffix { get; set; }
 
-        public Name()
+        public Name(string title, string first, string middle, string last, string suffix)
         {
-            Title = string.Empty;
-            First = string.Empty;
-            Middle = string.Empty;
-            Last = string.Empty;
-            Suffix = string.Empty;
+            Title = title;
+            First = first;
+            Middle = middle;
+            Last = last;
+            Suffix = suffix;
         }
 
         public override string ToString()
