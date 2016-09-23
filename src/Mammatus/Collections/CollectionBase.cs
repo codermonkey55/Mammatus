@@ -12,7 +12,7 @@ namespace Mammatus.Core.Collections
     public class CollectionBase<T> : ObservableCollection<T>, IDirtyCapable
            where T : ObjectBase
     {
-        #region Property Change Notification
+         Property Change Notification
 
         event ItemPropertyChangedEventHandler<T> _ItemPropertyChangedEvent;
 
@@ -47,9 +47,9 @@ namespace Mammatus.Core.Collections
                 _ItemPropertyChangedEvent(this, new ItemPropertyChangedEventArgs<T>(item, propertyName));
         }
 
-        #endregion
+        
 
-        #region IDirtyCapable Members
+         IDirtyCapable Members
 
         [NotNavigable]
         public virtual bool IsDirty
@@ -103,9 +103,9 @@ namespace Mammatus.Core.Collections
                 item.CleanAll();
         }
 
-        #endregion
+        
 
-        #region ObservableCollection<T> Overrides
+         ObservableCollection<T> Overrides
 
         protected override void InsertItem(int index, T item)
         {
@@ -136,6 +136,6 @@ namespace Mammatus.Core.Collections
             item.PropertyChanged += item_PropertyChanged;
         }
 
-        #endregion
+        
     }
 }
