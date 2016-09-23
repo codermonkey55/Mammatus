@@ -103,12 +103,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Documents.iTextSha
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{8B667901-60EB-4FB7-929B-66ED8398A735}"
 	ProjectSection(SolutionItems) = preProject
-		.proj\lib\Excel.dll = .proj\lib\Excel.dll
-		.proj\lib\ICSharpCode.SharpZipLib.dll = .proj\lib\ICSharpCode.SharpZipLib.dll
-		.proj\lib\itextsharp.dll = .proj\lib\itextsharp.dll
-		.proj\lib\Microsoft.Vbe.Interop.dll = .proj\lib\Microsoft.Vbe.Interop.dll
-		.proj\lib\office.dll = .proj\lib\office.dll
-		.proj\lib\OWC10Chart.dll = .proj\lib\OWC10Chart.dll
+		..\.proj\lib\Excel.dll = ..\.proj\lib\Excel.dll
+		..\.proj\lib\ICSharpCode.SharpZipLib.dll = ..\.proj\lib\ICSharpCode.SharpZipLib.dll
+		..\.proj\lib\itextsharp.dll = ..\.proj\lib\itextsharp.dll
+		..\.proj\lib\Microsoft.Vbe.Interop.dll = ..\.proj\lib\Microsoft.Vbe.Interop.dll
+		..\.proj\lib\office.dll = ..\.proj\lib\office.dll
+		..\.proj\lib\OWC10Chart.dll = ..\.proj\lib\OWC10Chart.dll
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.AspNet.Mvc.Autofac", "Mammatus.AspNet.Mvc.Autofac\Mammatus.AspNet.Mvc.Autofac.csproj", "{4CE97817-4EF1-4A73-ADC8-8B1A0D2B703F}"

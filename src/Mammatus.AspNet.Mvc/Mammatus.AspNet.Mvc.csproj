@@ -42,8 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application\MammatusWebApplication.cs" />
-    <Compile Include="Authentication\MammatusAuthenticationManager.cs" />
-    <Compile Include="Authorization\MammatusAuthorizationManager.cs" />
+    <Compile Include="Identity\Authentication\MammatusAuthenticationManager.cs" />
+    <Compile Include="Identity\Authorization\MammatusAuthorizationManager.cs" />
+    <Compile Include="Identity\MammatusUserManager.cs" />
     <Compile Include="Initialization\WebApplicationInitializationResultContext.cs" />
     <Compile Include="Initialization\MammatusWebApplicationInitializer.cs" />
     <Compile Include="Initialization\PostWebApplicationInitializationContext.cs" />
