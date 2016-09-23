@@ -1,9 +1,15 @@
 ﻿using System;
+using Mammatus.AspNet.Mvc.Initialization;
 
 namespace Mammatus.AspNet.Mvc.Application
 {
-    public abstract class MammutApplication : System.Web.HttpApplication
+    public abstract class MammatusWebApplication : System.Web.HttpApplication
     {
+
+        protected virtual void Configure(Action<IMammatusWebApplicationInitializationInvoker> invoker)
+        {
+            invoker.Invoke(new MammatusWebApplicationInitializer());
+        }
 
         protected virtual void Application_Start(object sender, EventArgs e)
         {

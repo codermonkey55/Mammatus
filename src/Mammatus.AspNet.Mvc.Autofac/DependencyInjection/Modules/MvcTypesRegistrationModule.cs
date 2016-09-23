@@ -1,6 +1,6 @@
 ﻿namespace Mammatus.AspNet.Mvc.Autofac.Modules
 {
-    public class MvcTypesRegistrationModule : RegistrationModule
+    internal sealed class MvcTypesRegistrationModule : RegistrationModule
     {
 
     }
