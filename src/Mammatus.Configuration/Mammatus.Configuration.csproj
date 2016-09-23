@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Elements\DataProviderElement.cs" />
+    <Compile Include="Helpers\ConfigurationManagerHelper.cs" />
     <Compile Include="Sections\MammatusConfigurationSection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

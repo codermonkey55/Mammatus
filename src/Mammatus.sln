@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Domain", "Mammatus
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Web", "Mammatus.Web\Mammatus.Web.csproj", "{83821E85-449E-4730-9FED-7EA5A34D9B30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Utilities", "Mammatus.Utilities\Mammatus.Utilities.csproj", "{664F38EE-8583-4D42-B4EB-70B70FCB670C}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.IoC", "Mammatus.IoC\Mammatus.IoC.csproj", "{754240AF-8BAE-41FE-B29C-BB076F23D103}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Data.EF", "Mammatus.Data.EF\Mammatus.Data.EF.csproj", "{ADB848C8-34A6-42B5-90FC-DDF0B8513109}"
@@ -29,6 +27,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{BC670C
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1D0EC9CD-D9ED-4B49-B3F7-37D66ACB03C5}"
+	ProjectSection(SolutionItems) = preProject
+		References.txt = References.txt
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Data.EFCore", "Mammatus.Data.EFCore\Mammatus.Data.EFCore.csproj", "{9B8FA2FE-1697-4501-B8ED-70C6BA5017DB}"
 EndProject
@@ -74,6 +75,44 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{AD1DC5DB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.ServiceModel.Web", "Mammatus.ServiceModel.Web\Mammatus.ServiceModel.Web.csproj", "{E11BEAF3-78A1-4454-8A40-9A43E0CD555A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rx", "Rx", "{B954CABB-3D77-4CBE-A793-3231936B5371}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Reactive", "Mammatus.Reactive\Mammatus.Reactive.csproj", "{A7BEA62F-082F-4138-BA05-05ED9D18C656}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Reactive.Utils", "Mammatus.Reactive.Utils\Mammatus.Reactive.Utils.csproj", "{E16CBA2B-8919-4D57-AEE3-BF60F85C9AA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.ServiceModel.Security", "Mammatus.ServiceModel.Security\Mammatus.ServiceModel.Security.csproj", "{9B1ADC44-2302-408E-A6E2-402F2EE11EDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.ServiceModel.Example", "Mammatus.ServiceModel.Example\Mammatus.ServiceModel.Example.csproj", "{9685EB15-6D05-45A2-88A1-D601B0C27A29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Compute", "Mammatus.Compute\Mammatus.Compute.csproj", "{C82FE0BC-D74C-4FF8-8B2D-B3C7E47E5AE8}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Mammatus.Data.SqlServer", "Mammatus.Data.SqlServer\Mammatus.Data.SqlServer.sqlproj", "{A135B449-0E83-45EB-B21A-0C0B04EEFCDC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src_Utilities", "Src_Utilities", "{74695B69-8C76-4316-839A-EC88333904CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet.Utilities", "Src_Utilities\CLIB\DotNet.Utilities.csproj", "{0A9704F9-7864-45AF-BFA7-E09F2B30A29F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebForms", "WebForms", "{8FA1A508-E40F-4DE3-8709-DED170B462D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.AspNet.WebForms", "Mammatus.AspNet.WebForms\Mammatus.AspNet.WebForms.csproj", "{295D7829-1D15-4148-B8F7-6F803785F1AC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iTextSharp", "iTextSharp", "{F81326E5-3974-4F71-9F99-C565676702C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Documents.iTextSharp", "Mammatus.Documents.iTextSharp\Mammatus.Documents.iTextSharp.csproj", "{F43E030F-C171-433A-9904-B035563EE944}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{8B667901-60EB-4FB7-929B-66ED8398A735}"
+	ProjectSection(SolutionItems) = preProject
+		.proj\lib\Excel.dll = .proj\lib\Excel.dll
+		.proj\lib\ICSharpCode.SharpZipLib.dll = .proj\lib\ICSharpCode.SharpZipLib.dll
+		.proj\lib\itextsharp.dll = .proj\lib\itextsharp.dll
+		.proj\lib\Microsoft.Vbe.Interop.dll = .proj\lib\Microsoft.Vbe.Interop.dll
+		.proj\lib\office.dll = .proj\lib\office.dll
+		.proj\lib\OWC10Chart.dll = .proj\lib\OWC10Chart.dll
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.AspNet.Mvc.Autofac", "Mammatus.AspNet.Mvc.Autofac\Mammatus.AspNet.Mvc.Autofac.csproj", "{4CE97817-4EF1-4A73-ADC8-8B1A0D2B703F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -96,10 +135,6 @@ Global
 		{83821E85-449E-4730-9FED-7EA5A34D9B30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83821E85-449E-4730-9FED-7EA5A34D9B30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83821E85-449E-4730-9FED-7EA5A34D9B30}.Release|Any CPU.Build.0 = Release|Any CPU
-		{664F38EE-8583-4D42-B4EB-70B70FCB670C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{664F38EE-8583-4D42-B4EB-70B70FCB670C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{664F38EE-8583-4D42-B4EB-70B70FCB670C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{664F38EE-8583-4D42-B4EB-70B70FCB670C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{754240AF-8BAE-41FE-B29C-BB076F23D103}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{754240AF-8BAE-41FE-B29C-BB076F23D103}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{754240AF-8BAE-41FE-B29C-BB076F23D103}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -176,6 +211,48 @@ Global
 		{E11BEAF3-78A1-4454-8A40-9A43E0CD555A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E11BEAF3-78A1-4454-8A40-9A43E0CD555A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E11BEAF3-78A1-4454-8A40-9A43E0CD555A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7BEA62F-082F-4138-BA05-05ED9D18C656}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7BEA62F-082F-4138-BA05-05ED9D18C656}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7BEA62F-082F-4138-BA05-05ED9D18C656}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7BEA62F-082F-4138-BA05-05ED9D18C656}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E16CBA2B-8919-4D57-AEE3-BF60F85C9AA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E16CBA2B-8919-4D57-AEE3-BF60F85C9AA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E16CBA2B-8919-4D57-AEE3-BF60F85C9AA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E16CBA2B-8919-4D57-AEE3-BF60F85C9AA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B1ADC44-2302-408E-A6E2-402F2EE11EDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B1ADC44-2302-408E-A6E2-402F2EE11EDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B1ADC44-2302-408E-A6E2-402F2EE11EDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B1ADC44-2302-408E-A6E2-402F2EE11EDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9685EB15-6D05-45A2-88A1-D601B0C27A29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9685EB15-6D05-45A2-88A1-D601B0C27A29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9685EB15-6D05-45A2-88A1-D601B0C27A29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9685EB15-6D05-45A2-88A1-D601B0C27A29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C82FE0BC-D74C-4FF8-8B2D-B3C7E47E5AE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C82FE0BC-D74C-4FF8-8B2D-B3C7E47E5AE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C82FE0BC-D74C-4FF8-8B2D-B3C7E47E5AE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C82FE0BC-D74C-4FF8-8B2D-B3C7E47E5AE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A135B449-0E83-45EB-B21A-0C0B04EEFCDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A135B449-0E83-45EB-B21A-0C0B04EEFCDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A135B449-0E83-45EB-B21A-0C0B04EEFCDC}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{A135B449-0E83-45EB-B21A-0C0B04EEFCDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A135B449-0E83-45EB-B21A-0C0B04EEFCDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A135B449-0E83-45EB-B21A-0C0B04EEFCDC}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{0A9704F9-7864-45AF-BFA7-E09F2B30A29F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A9704F9-7864-45AF-BFA7-E09F2B30A29F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A9704F9-7864-45AF-BFA7-E09F2B30A29F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A9704F9-7864-45AF-BFA7-E09F2B30A29F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{295D7829-1D15-4148-B8F7-6F803785F1AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{295D7829-1D15-4148-B8F7-6F803785F1AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{295D7829-1D15-4148-B8F7-6F803785F1AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{295D7829-1D15-4148-B8F7-6F803785F1AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F43E030F-C171-433A-9904-B035563EE944}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F43E030F-C171-433A-9904-B035563EE944}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F43E030F-C171-433A-9904-B035563EE944}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F43E030F-C171-433A-9904-B035563EE944}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CE97817-4EF1-4A73-ADC8-8B1A0D2B703F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CE97817-4EF1-4A73-ADC8-8B1A0D2B703F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CE97817-4EF1-4A73-ADC8-8B1A0D2B703F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CE97817-4EF1-4A73-ADC8-8B1A0D2B703F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -194,5 +271,15 @@ Global
 		{05359005-306E-4AF4-9113-07DD0446DAE5} = {DF482BD0-DD5D-489A-A7F3-3AA5840C2BE8}
 		{7C62BFBC-7341-42E0-88F2-1CED8E84305B} = {98E3DFAF-45E3-49D5-BF89-7534ABC4024F}
 		{528396DE-89E7-4466-842D-6040FD98D281} = {05359005-306E-4AF4-9113-07DD0446DAE5}
+		{B954CABB-3D77-4CBE-A793-3231936B5371} = {DF482BD0-DD5D-489A-A7F3-3AA5840C2BE8}
+		{A7BEA62F-082F-4138-BA05-05ED9D18C656} = {B954CABB-3D77-4CBE-A793-3231936B5371}
+		{E16CBA2B-8919-4D57-AEE3-BF60F85C9AA0} = {B954CABB-3D77-4CBE-A793-3231936B5371}
+		{0A9704F9-7864-45AF-BFA7-E09F2B30A29F} = {74695B69-8C76-4316-839A-EC88333904CC}
+		{8FA1A508-E40F-4DE3-8709-DED170B462D8} = {DF482BD0-DD5D-489A-A7F3-3AA5840C2BE8}
+		{295D7829-1D15-4148-B8F7-6F803785F1AC} = {8FA1A508-E40F-4DE3-8709-DED170B462D8}
+		{F81326E5-3974-4F71-9F99-C565676702C5} = {DF482BD0-DD5D-489A-A7F3-3AA5840C2BE8}
+		{F43E030F-C171-433A-9904-B035563EE944} = {F81326E5-3974-4F71-9F99-C565676702C5}
+		{8B667901-60EB-4FB7-929B-66ED8398A735} = {1D0EC9CD-D9ED-4B49-B3F7-37D66ACB03C5}
+		{4CE97817-4EF1-4A73-ADC8-8B1A0D2B703F} = {28B63387-FAFE-43DE-9B8C-A506E070668C}
 	EndGlobalSection
 EndGlobal

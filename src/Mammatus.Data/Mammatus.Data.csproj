@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IDataObject.cs" />
     <Compile Include="Database\DatabaseManager.cs" />
     <Compile Include="Database\DbProviderExtensions.cs" />
     <Compile Include="Database\DbProviders.cs" />
@@ -53,6 +54,11 @@
     <Compile Include="Entity\ITreeEntity.cs" />
     <Compile Include="Entity\ModifiedOnEntity.cs" />
     <Compile Include="Entity\TreeEntity.cs" />
+    <Compile Include="Enums\ComparisonType.cs" />
+    <Compile Include="Enums\DataEventTiming.cs" />
+    <Compile Include="Enums\DataEventType.cs" />
+    <Compile Include="Enums\EntityType.cs" />
+    <Compile Include="Enums\OperationType.cs" />
     <Compile Include="Extensions\RepositoryExtensions.cs" />
     <Compile Include="Database\IDatabaseManager.cs" />
     <Compile Include="Helpers\TransactionScopeHelper.cs" />
