@@ -22,7 +22,7 @@ namespace Mammatus.Core.Application
         protected IEnumerable<ValidationError> _ValidationErrors = null;
         protected internal IInternalContainer InternalContainer { get; protected set; }
 
-        #region Validation
+         Validation
 
         protected virtual IValidator GetValidator()
         {
@@ -57,9 +57,9 @@ namespace Mammatus.Core.Application
             }
         }
 
-        #endregion
+        
 
-        #region IDirtyCapable Members
+         IDirtyCapable Members
 
         [NotNavigable]
         public virtual bool IsDirty
@@ -121,9 +121,9 @@ namespace Mammatus.Core.Application
             }, coll => { });
         }
 
-        #endregion
+        
 
-        #region Protected Methods
+         Protected Methods
 
         protected void WalkObjectGraph(Func<ObjectBase, bool> snippetForObject,
                                        Action<IList> snippetForCollection,
@@ -179,9 +179,9 @@ namespace Mammatus.Core.Application
             walk(this);
         }
 
-        #endregion
+        
 
-        #region Property Change Notification
+         Property Change Notification
 
         protected override void OnPropertyChanged(string propertyName)
         {
@@ -204,6 +204,6 @@ namespace Mammatus.Core.Application
             Validate();
         }
 
-        #endregion
+        
     }
 }
