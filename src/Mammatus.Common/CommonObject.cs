@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mammatus.ComponentModel.Container.Ninject
+namespace Mammatus.Common
 {
-    public class Class1
+    public class CommonObject
     {
     }
 }

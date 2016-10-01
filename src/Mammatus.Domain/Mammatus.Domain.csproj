@@ -74,10 +74,6 @@
     <Compile Include="Events\SubscriptionService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Mammatus.IoC\Mammatus.IoC.csproj">
-      <Project>{754240af-8bae-41fe-b29c-bb076f23d103}</Project>
-      <Name>Mammatus.IoC</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Mammatus\Mammatus.csproj">
       <Project>{88f26661-78e6-49d5-80bc-63ee79eee9a4}</Project>
       <Name>Mammatus</Name>

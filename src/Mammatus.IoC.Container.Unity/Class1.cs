@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mammatus.IoC.Container.Unity
+namespace Mammatus.ComponentModel.Container.Unity
 {
     public class Class1
     {

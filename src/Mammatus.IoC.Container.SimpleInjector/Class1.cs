@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mammatus.IoC.Container.SimpleInjector
+namespace Mammatus.ComponentModel.Container.SimpleInjector
 {
     public class Class1
     {

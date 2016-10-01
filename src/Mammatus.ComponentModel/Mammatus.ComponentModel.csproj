@@ -7,8 +7,8 @@
     <ProjectGuid>{754240AF-8BAE-41FE-B29C-BB076F23D103}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Mammatus.IoC</RootNamespace>
-    <AssemblyName>Mammatus.IoC</AssemblyName>
+    <RootNamespace>Mammatus.ComponentModel</RootNamespace>
+    <AssemblyName>Mammatus.ComponentModel</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

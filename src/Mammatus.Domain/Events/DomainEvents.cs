@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using Mammatus.Core.IoC;
 using Mammatus.Core.State;
-using Mammatus.IoC;
-using Mammatus.IoC.Containers;
+using Mammatus.ComponentModel;
+using Mammatus.ComponentModel.Containers;
 
 namespace Mammatus.Domain
 {

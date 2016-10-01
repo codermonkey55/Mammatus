@@ -1,11 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Mammatus.Core.Exceptions;
 using Mammatus.Core.IoC;
 using Mammatus.Exceptions;
 
-namespace Mammatus.IoC.Containers
+namespace Mammatus.ComponentModel.Containers
 {
     using System;
 

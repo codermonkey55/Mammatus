@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Domain", "Mammatus
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Web", "Mammatus.Web\Mammatus.Web.csproj", "{83821E85-449E-4730-9FED-7EA5A34D9B30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.IoC", "Mammatus.IoC\Mammatus.IoC.csproj", "{754240AF-8BAE-41FE-B29C-BB076F23D103}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Data.EF", "Mammatus.Data.EF\Mammatus.Data.EF.csproj", "{ADB848C8-34A6-42B5-90FC-DDF0B8513109}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Data.NHibernate", "Mammatus.Data.NHibernate\Mammatus.Data.NHibernate.csproj", "{505B9D22-012A-4085-99A1-9C6F79785F4C}"
@@ -124,6 +122,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Common", "Mammatus
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{D371E8B7-4387-42B9-8F38-F818A5D9EB88}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.ComponentModel", "Mammatus.ComponentModel\Mammatus.ComponentModel.csproj", "{754240AF-8BAE-41FE-B29C-BB076F23D103}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -146,10 +146,6 @@ Global
 		{83821E85-449E-4730-9FED-7EA5A34D9B30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83821E85-449E-4730-9FED-7EA5A34D9B30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83821E85-449E-4730-9FED-7EA5A34D9B30}.Release|Any CPU.Build.0 = Release|Any CPU
-		{754240AF-8BAE-41FE-B29C-BB076F23D103}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{754240AF-8BAE-41FE-B29C-BB076F23D103}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{754240AF-8BAE-41FE-B29C-BB076F23D103}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{754240AF-8BAE-41FE-B29C-BB076F23D103}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ADB848C8-34A6-42B5-90FC-DDF0B8513109}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ADB848C8-34A6-42B5-90FC-DDF0B8513109}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADB848C8-34A6-42B5-90FC-DDF0B8513109}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -276,6 +272,10 @@ Global
 		{250D875F-BC87-42F1-BADB-B65DF67EA706}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{250D875F-BC87-42F1-BADB-B65DF67EA706}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{250D875F-BC87-42F1-BADB-B65DF67EA706}.Release|Any CPU.Build.0 = Release|Any CPU
+		{754240AF-8BAE-41FE-B29C-BB076F23D103}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{754240AF-8BAE-41FE-B29C-BB076F23D103}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{754240AF-8BAE-41FE-B29C-BB076F23D103}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{754240AF-8BAE-41FE-B29C-BB076F23D103}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
