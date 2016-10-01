@@ -60,7 +60,7 @@
     <Folder Include="ServiceBroker" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="ServiceBroker\EndAllConversations.sql" />
+    <None Include="ServiceBroker\EndAllConversations.sql" />
     <Build Include="SQLTimeDiffFormatter.sql" />
     <Build Include="SQLStringFormatter.sql" />
     <Build Include="SQLSplit.sql" />
@@ -71,12 +71,12 @@
     <Build Include="ListAllProcNames.sql" />
     <Build Include="ListAllMetadata.sql" />
     <Build Include="ListAllColumnMetaData.sql" />
-    <Build Include="IndexFragmentation.sql" />
-    <Build Include="GrantExecOnAllProcs.sql" />
-    <Build Include="GenerateCrudProcedures.sql" />
+    <None Include="IndexFragmentation.sql" />
+    <None Include="GrantExecOnAllProcs.sql" />
+    <None Include="GenerateCrudProcedures.sql" />
     <Build Include="FindWorkingDays.sql" />
-    <Build Include="FindObjectByName.sql" />
-    <Build Include="FindDatabaseByTable.sql" />
+    <None Include="FindObjectByName.sql" />
+    <None Include="FindDatabaseByTable.sql" />
     <Build Include="DeleteAllProcedures.sql" />
   </ItemGroup>
 </Project>

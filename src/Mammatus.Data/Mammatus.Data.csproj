@@ -81,6 +81,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Mammatus.ComponentModel\Mammatus.ComponentModel.csproj">
+      <Project>{754240af-8bae-41fe-b29c-bb076f23d103}</Project>
+      <Name>Mammatus.ComponentModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Mammatus\Mammatus.csproj">
       <Project>{88f26661-78e6-49d5-80bc-63ee79eee9a4}</Project>
       <Name>Mammatus</Name>

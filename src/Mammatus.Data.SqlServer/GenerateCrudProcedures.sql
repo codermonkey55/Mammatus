@@ -1,11 +1,11 @@
 ﻿-- #########################################################
 -- Author:	www.sqlbook.com
 -- Copyright:	(c) www.sqlbook.com. You are free to use and redistribute
---		this script as long as this comments section with the 
+--		this script as long as this comments section with the
 --		author and copyright details are not altered.
 -- Purpose:	For a specified user defined table (or all user defined
---		tables) in the database this script generates 4 Stored 
---		Procedure definitions with different Procedure name 
+--		tables) in the database this script generates 4 Stored
+--		Procedure definitions with different Procedure name
 --		suffixes:
 --		1) List all records in the table (suffix of  _lst)
 --		2) Get a specific record from the table (suffix of _sel)
@@ -19,7 +19,7 @@
 --		dbo.udp_Location_del
 -- Notes: 	The stored procedure definitions can either be printed
 --		to the screen or executed using EXEC sp_ExecuteSQL.
---		The stored proc names are prefixed with udp_ to avoid 
+--		The stored proc names are prefixed with udp_ to avoid
 --		conflicts with system stored procs.
 -- Assumptions:	- This script assumes that the primary key is the first
 --		column in the table and that if the primary key is
@@ -29,7 +29,7 @@
 --		- After the script has run you will need to add
 --		an ORDER BY clause into the '_lst' procedures
 --		according to your needs / required sort order.
---		- Assumes you have set valid values for the 
+--		- Assumes you have set valid values for the
 --		config variables in the section immediately below
 -- #########################################################
 
@@ -63,21 +63,21 @@ SET @PrintOrExecute = 'Print'
 DECLARE @TablePrefix varchar(10)
 SET @TablePrefix = 'tbl_'
 
--- For our '_lst' and '_sel' procedures do we want to 
+-- For our '_lst' and '_sel' procedures do we want to
 -- do SELECT * or SELECT [ColumnName,]...
 -- Assign a value of either 1 or 0
 DECLARE @UseSelectWildCard bit
 SET @UseSelectWildCard = 0
 
 -- ##########################################################
-/* END SETTING OF CONFIG VARIABLE 
+/* END SETTING OF CONFIG VARIABLE
 -- do not edit below this line */
 -- ##########################################################
 
 
 -- DECLARE CURSOR containing all columns from user defined tables
 -- in the database
-DECLARE TableCol Cursor FOR 
+DECLARE TableCol Cursor FOR
 SELECT c.TABLE_SCHEMA, c.TABLE_NAME, c.COLUMN_NAME, c.DATA_TYPE, c.CHARACTER_MAXIMUM_LENGTH
 FROM INFORMATION_SCHEMA.Columns c INNER JOIN
 	INFORMATION_SCHEMA.Tables t ON c.TABLE_NAME = t.TABLE_NAME
@@ -98,7 +98,7 @@ DECLARE @CurrentTable varchar(100)
 DECLARE @FirstTable bit
 DECLARE @FirstColumnName varchar(100)
 DECLARE @FirstColumnDataType varchar(30)
-DECLARE @ObjectName varchar(100) -- this is the tablename with the 
+DECLARE @ObjectName varchar(100) -- this is the tablename with the
 				-- specified tableprefix lopped off.
 DECLARE @TablePrefixLength int
 
@@ -127,38 +127,38 @@ WHILE @@FETCH_STATUS = 0 BEGIN
 
 	-- is this a new table?
 	IF @TableName <> @CurrentTable BEGIN
-		
+
 		-- if is the end of the last table
 		IF @CurrentTable <> '' BEGIN
 			IF @GenerateProcsFor = '' OR @GenerateProcsFor = @CurrentTable BEGIN
 
 				-- first add any syntax to end the statement
-				
+
 				-- _lst
 				SET @LIST = @List + Char(13) + 'FROM ' + @CurrentTable + Char(13)
 				SET @LIST = @LIST + ''')' + Char(13)
-				
+
 				-- _sel
 				SET @SELECT = @SELECT + Char(13) + 'FROM ' + @CurrentTable + Char(13)
 				SET @SELECT = @SELECT + 'WHERE [' + @FirstColumnName + '] = @' + Replace(@FirstColumnName, ' ', '') + Char(13)
 				SET @SELECT = @SELECT + ''')' + Char(13)
-	
-	
+
+
 				-- UPDATE (remove trailing comma and append the WHERE clause)
 				SET @UPDATE = SUBSTRING(@UPDATE, 0, LEN(@UPDATE)- 1) + Char(13) + Char(9) + 'WHERE [' + @FirstColumnName + '] = @' + Replace(@FirstColumnName, ' ', '') + Char(13)
-				
+
 				-- INSERT
 				SET @INSERT = SUBSTRING(@INSERT, 0, LEN(@INSERT) - 1) + Char(13) + Char(9) + ')' + Char(13)
 				SET @INSERTVALUES = SUBSTRING(@INSERTVALUES, 0, LEN(@INSERTVALUES) -1) + Char(13) + Char(9) + ')'
 				SET @INSERT = @INSERT + @INSERTVALUES
-				
+
 				-- _ups
 				SET @UPSERT = @UPSERT + Char(13) + 'AS' + Char(13)
 				IF @FirstColumnDataType IN ('int', 'bigint', 'smallint', 'tinyint', 'float', 'decimal')
 				BEGIN
 					SET @UPSERT = @UPSERT + 'IF @' + Replace(@FirstColumnName, ' ', '') + ' = 0 BEGIN' + Char(13)
 				END ELSE BEGIN
-					SET @UPSERT = @UPSERT + 'IF @' + Replace(@FirstColumnName, ' ', '') + ' = '''' BEGIN' + Char(13)	
+					SET @UPSERT = @UPSERT + 'IF @' + Replace(@FirstColumnName, ' ', '') + ' = '''' BEGIN' + Char(13)
 				END
 				SET @UPSERT = @UPSERT + ISNULL(@INSERT, '') + Char(13)
 				SET @UPSERT = @UPSERT + Char(9) + 'SELECT SCOPE_IDENTITY() As InsertedID' + Char(13)
@@ -167,12 +167,12 @@ WHILE @@FETCH_STATUS = 0 BEGIN
 				SET @UPSERT = @UPSERT + ISNULL(@UPDATE, '') + Char(13)
 				SET @UPSERT = @UPSERT + 'END' + Char(13)
 				SET @UPSERT = @UPSERT + ''')' + Char(13)
-	
+
 				-- _del
 				-- delete proc completed already
-	
+
 				-- --------------------------------------------------
-				-- now either print the SP definitions or 
+				-- now either print the SP definitions or
 				-- execute the statements to create the procs
 				-- --------------------------------------------------
 				IF @PrintOrExecute <> 'Execute' BEGIN
@@ -188,12 +188,12 @@ WHILE @@FETCH_STATUS = 0 BEGIN
 				END
 			END -- end @GenerateProcsFor = '' OR @GenerateProcsFor = @CurrentTable
 		END
-		
+
 		-- update the value held in @CurrentTable
 		SET @CurrentTable = @TableName
 		SET @FirstColumnName = @ColumnName
 		SET @FirstColumnDataType = @DataType
-		
+
 		IF @TablePrefixLength > 0 BEGIN
 			IF SUBSTRING(@CurrentTable, 1, @TablePrefixLength) = @TablePrefix BEGIN
 				--PRINT Char(13) + 'DEBUG: OBJ NAME: ' + RIGHT(@CurrentTable, LEN(@CurrentTable) - @TablePrefixLength)
@@ -204,9 +204,9 @@ WHILE @@FETCH_STATUS = 0 BEGIN
 		END ELSE BEGIN
 			SET @ObjectName = @CurrentTable
 		END
-		
+
 		IF @GenerateProcsFor = '' OR @GenerateProcsFor = @CurrentTable BEGIN
-		
+
 			-- ----------------------------------------------------
 			-- now start building the procedures for the next table
 			-- ----------------------------------------------------
@@ -218,7 +218,7 @@ WHILE @@FETCH_STATUS = 0 BEGIN
 			SET @LIST = @LIST + 'AS' + Char(13)
 			IF @UseSelectWildcard = 1 BEGIN
 				SET @LIST = @LIST + Char(13) + 'SELECT * '
-			END 
+			END
 			ELSE BEGIN
 				SET @LIST = @LIST + Char(13) + 'SELECT [' + @ColumnName + ']'
 			END
@@ -234,11 +234,11 @@ WHILE @@FETCH_STATUS = 0 BEGIN
 			SET @SELECT = @SELECT + Char(13) + 'AS' + Char(13)
 			IF @UseSelectWildcard = 1 BEGIN
 				SET @SELECT = @SELECT + Char(13) + 'SELECT * '
-			END 
+			END
 			ELSE BEGIN
 				SET @SELECT = @SELECT + Char(13) + 'SELECT [' + @ColumnName + ']'
 			END
-	
+
 			-- _ups
 			SET @UPSERT = 'IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE ID = object_id(N''[dbo].[udp_' + @ObjectName + '_ups]'') AND OBJECTPROPERTY(id, N''IsProcedure'') = 1)' + Char(13)
 			SET @UPSERT = @UPSERT + 'DROP PROC [dbo].[udp_' + @ObjectName + '_ups]' + Char(13)
@@ -247,21 +247,21 @@ WHILE @@FETCH_STATUS = 0 BEGIN
 			IF @DataType IN ('varchar', 'nvarchar', 'char', 'nchar') BEGIN
 				SET @UPSERT = @UPSERT + '(' + CAST(@CharLength As Varchar(10)) + ')'
 			END
-	
+
 			-- UPDATE
 			SET @UPDATE = Char(9) + 'UPDATE ' + @TableName + ' SET ' + Char(13)
-			
+
 			-- INSERT -- don't add first column to insert if it is an
 			--	     integer (assume autonumber)
 			SET @INSERT = Char(9) + 'INSERT INTO ' + @TableName + ' (' + Char(13)
 			SET @INSERTVALUES = Char(9) + 'VALUES (' + Char(13)
-			
+
 			IF @FirstColumnDataType NOT IN ('int', 'bigint', 'smallint', 'tinyint')
 			BEGIN
 				SET @INSERT = @INSERT + Char(9) + Char(9) + '[' + @ColumnName + '],' + Char(13)
 				SET @INSERTVALUES = @INSERTVALUES + Char(9) + Char(9) + '@' + @ColumnNameCleaned + ',' + Char(13)
 			END
-	
+
 			-- _del
 			SET @DELETE = 'IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE ID = object_id(N''[dbo].[udp_' + @ObjectName + '_del]'') AND OBJECTPROPERTY(id, N''IsProcedure'') = 1)' + Char(13)
 			SET @DELETE = @DELETE + 'DROP PROC [dbo].[udp_' + @ObjectName + '_del]' + Char(13)
@@ -279,33 +279,33 @@ WHILE @@FETCH_STATUS = 0 BEGIN
 	END
 	ELSE BEGIN
 		IF @GenerateProcsFor = '' OR @GenerateProcsFor = @CurrentTable BEGIN
-		
+
 			-- is the same table as the last row of the cursor
 			-- just append the column
-			
+
 			-- _lst
 			IF @UseSelectWildCard = 0 BEGIN
 				SET @LIST = @LIST + ', ' + Char(13) + Char(9) + '[' + @ColumnName + ']'
 			END
-	
+
 			-- _sel
 			IF @UseSelectWildCard = 0 BEGIN
 				SET @SELECT = @SELECT + ', ' + Char(13) + Char(9) + '[' + @ColumnName + ']'
 			END
-	
+
 			-- _ups
 			SET @UPSERT = @UPSERT + ',' + Char(13) + Char(9) + '@' + @ColumnNameCleaned + ' ' + @DataType
 			IF @DataType IN ('varchar', 'nvarchar', 'char', 'nchar') BEGIN
 				SET @UPSERT = @UPSERT + '(' + CAST(@CharLength As varchar(10)) + ')'
 			END
-	
+
 			-- UPDATE
 			SET @UPDATE = @UPDATE + Char(9) + Char(9) + '[' + @ColumnName + '] = @' + @ColumnNameCleaned + ',' + Char(13)
-	
+
 			-- INSERT
 			SET @INSERT = @INSERT + Char(9) + Char(9) + '[' + @ColumnName + '],' + Char(13)
 			SET @INSERTVALUES = @INSERTVALUES + Char(9) + Char(9) + '@' + @ColumnNameCleaned + ',' + Char(13)
-	
+
 			-- _del
 			-- delete proc completed already
 		END -- end @GenerateProcsFor = '' OR @GenerateProcsFor = @CurrentTable'
@@ -332,11 +332,11 @@ IF @CurrentTable <> '' BEGIN
 	IF @GenerateProcsFor = '' OR @GenerateProcsFor = @CurrentTable BEGIN
 
 		-- first add any syntax to end the statement
-		
+
 		-- _lst
 		SET @LIST = @List + Char(13) + 'FROM ' + @CurrentTable + Char(13)
 		SET @LIST = @LIST + ''')' + Char(13)
-		
+
 		-- _sel
 		SET @SELECT = @SELECT + Char(13) + 'FROM ' + @CurrentTable + Char(13)
 		SET @SELECT = @SELECT + 'WHERE [' + @FirstColumnName + '] = @' + Replace(@FirstColumnName, ' ', '') + Char(13)
@@ -345,19 +345,19 @@ IF @CurrentTable <> '' BEGIN
 
 		-- UPDATE (remove trailing comma and append the WHERE clause)
 		SET @UPDATE = SUBSTRING(@UPDATE, 0, LEN(@UPDATE)- 1) + Char(13) + Char(9) + 'WHERE [' + @FirstColumnName + '] = @' + Replace(@FirstColumnName, ' ', '') + Char(13)
-		
+
 		-- INSERT
 		SET @INSERT = SUBSTRING(@INSERT, 0, LEN(@INSERT) - 1) + Char(13) + Char(9) + ')' + Char(13)
 		SET @INSERTVALUES = SUBSTRING(@INSERTVALUES, 0, LEN(@INSERTVALUES) -1) + Char(13) + Char(9) + ')'
 		SET @INSERT = @INSERT + @INSERTVALUES
-		
+
 		-- _ups
 		SET @UPSERT = @UPSERT + Char(13) + 'AS' + Char(13)
 		IF @FirstColumnDataType IN ('int', 'bigint', 'smallint', 'tinyint', 'float', 'decimal')
 		BEGIN
 			SET @UPSERT = @UPSERT + 'IF @' + Replace(@FirstColumnName, ' ', '') + ' = 0 BEGIN' + Char(13)
 		END ELSE BEGIN
-			SET @UPSERT = @UPSERT + 'IF @' + Replace(@FirstColumnName, ' ', '') + ' = '''' BEGIN' + Char(13)	
+			SET @UPSERT = @UPSERT + 'IF @' + Replace(@FirstColumnName, ' ', '') + ' = '''' BEGIN' + Char(13)
 		END
 		SET @UPSERT = @UPSERT + ISNULL(@INSERT, '') + Char(13)
 		SET @UPSERT = @UPSERT + Char(9) + 'SELECT SCOPE_IDENTITY() As InsertedID' + Char(13)
@@ -371,7 +371,7 @@ IF @CurrentTable <> '' BEGIN
 		-- delete proc completed already
 
 		-- --------------------------------------------------
-		-- now either print the SP definitions or 
+		-- now either print the SP definitions or
 		-- execute the statements to create the procs
 		-- --------------------------------------------------
 		IF @PrintOrExecute <> 'Execute' BEGIN
