@@ -112,7 +112,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Utility", "Mammatu
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{7546A951-C089-45E4-995C-C25E6044CE68}"
 	ProjectSection(SolutionItems) = preProject
-		..\proj\docs\References.txt = ..\proj\docs\References.txt
 		..\proj\docs\Wiki.txt = ..\proj\docs\Wiki.txt
 	EndProjectSection
 EndProject

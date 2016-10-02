@@ -43,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\IDataObject.cs" />
+    <Compile Include="Core\IStateObject.cs" />
+    <Compile Include="Core\StateObject.cs" />
     <Compile Include="Database\DatabaseManager.cs" />
     <Compile Include="Database\DbProviderExtensions.cs" />
     <Compile Include="Database\DbProviders.cs" />
@@ -58,6 +60,7 @@
     <Compile Include="Enums\DataEventTiming.cs" />
     <Compile Include="Enums\DataEventType.cs" />
     <Compile Include="Enums\EntityType.cs" />
+    <Compile Include="Enums\ObjectState.cs" />
     <Compile Include="Enums\OperationType.cs" />
     <Compile Include="Extensions\RepositoryExtensions.cs" />
     <Compile Include="Database\IDatabaseManager.cs" />
@@ -90,9 +93,7 @@
       <Name>Mammatus</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Core\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

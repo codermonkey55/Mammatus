@@ -236,3 +236,4 @@ _Pvt_Extensions
 .fake/
 /src/Src_Utilities/CLIB
 /src/Mammatus.Data.SqlServer/Mammatus.Data.SqlServer.jfm
+/proj/docs/References.txt
