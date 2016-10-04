@@ -51,6 +51,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\Application\Disposable.cs" />
+    <Compile Include="Core\Object\IAuditableEntity.cs" />
+    <Compile Include="Core\Object\IClonableEntity.cs" />
+    <Compile Include="Core\Object\ICrudEntity.cs" />
+    <Compile Include="Core\Object\IEntity.cs" />
+    <Compile Include="Core\Object\IIdentifiableEntity.cs" />
     <Compile Include="Enums\Direction.cs" />
     <Compile Include="Enums\ImageFileType.cs" />
     <Compile Include="Enums\LogLevel.cs" />

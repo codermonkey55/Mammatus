@@ -61,22 +61,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ServiceBroker\EndAllConversations.sql" />
-    <Build Include="SQLTimeDiffFormatter.sql" />
+    <None Include="SQLTimeDiffFormatter.sql" />
     <Build Include="SQLStringFormatter.sql" />
-    <Build Include="SQLSplit.sql" />
-    <Build Include="ListTableRelationships.sql" />
-    <Build Include="ListAllTableNames.sql" />
-    <Build Include="ListAllTableMetaData.sql" />
-    <Build Include="ListAllProcParams.sql" />
-    <Build Include="ListAllProcNames.sql" />
-    <Build Include="ListAllMetadata.sql" />
-    <Build Include="ListAllColumnMetaData.sql" />
+    <None Include="SQLSplit.sql" />
+    <None Include="ListTableRelationships.sql" />
+    <None Include="ListAllTableNames.sql" />
+    <None Include="ListAllTableMetaData.sql" />
+    <None Include="ListAllProcParams.sql" />
+    <None Include="ListAllProcNames.sql" />
+    <None Include="ListAllMetadata.sql" />
+    <None Include="ListAllColumnMetaData.sql" />
     <None Include="IndexFragmentation.sql" />
     <None Include="GrantExecOnAllProcs.sql" />
     <None Include="GenerateCrudProcedures.sql" />
     <Build Include="FindWorkingDays.sql" />
     <None Include="FindObjectByName.sql" />
     <None Include="FindDatabaseByTable.sql" />
-    <Build Include="DeleteAllProcedures.sql" />
+    <None Include="DeleteAllProcedures.sql" />
   </ItemGroup>
 </Project>
