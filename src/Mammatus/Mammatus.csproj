@@ -82,6 +82,7 @@
     <Compile Include="Helpers\ImageHelper.cs" />
     <Compile Include="Helpers\MemoryStreamHelper.cs" />
     <Compile Include="Helpers\NumberGenerator.cs" />
+    <Compile Include="Helpers\RetryHelper.cs" />
     <Compile Include="Helpers\SystemHelper.cs" />
     <Compile Include="Helpers\TextFileLoader.cs" />
     <Compile Include="Helpers\UrlHelper.cs" />
