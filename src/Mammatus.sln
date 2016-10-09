@@ -123,6 +123,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{D371E8B7-4
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.ComponentModel", "Mammatus.ComponentModel\Mammatus.ComponentModel.csproj", "{754240AF-8BAE-41FE-B29C-BB076F23D103}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.SOA", "Mammatus.SOA\Mammatus.SOA.csproj", "{726728D4-C3B9-424C-A091-959FC06D13FC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -275,6 +277,10 @@ Global
 		{754240AF-8BAE-41FE-B29C-BB076F23D103}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{754240AF-8BAE-41FE-B29C-BB076F23D103}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{754240AF-8BAE-41FE-B29C-BB076F23D103}.Release|Any CPU.Build.0 = Release|Any CPU
+		{726728D4-C3B9-424C-A091-959FC06D13FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{726728D4-C3B9-424C-A091-959FC06D13FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{726728D4-C3B9-424C-A091-959FC06D13FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{726728D4-C3B9-424C-A091-959FC06D13FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
