@@ -127,6 +127,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.ServiceModel.Integ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.SharedKernel", "Mammatus.SharedKernel\Mammatus.SharedKernel.csproj", "{E66F6F5A-785E-4087-A9BF-202769310188}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.ServiceModel.Client", "Mammatus.ServiceModel.Client\Mammatus.ServiceModel.Client.csproj", "{6FCAECC4-229B-4A38-914A-FE70E6910A2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Cryptography", "Mammatus.Cryptography\Mammatus.Cryptography.csproj", "{6DBFF353-C818-4BF1-AFE1-02E344F2A001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.UnitTest", "Mammatus.UnitTest\Mammatus.UnitTest.csproj", "{72695C5A-E6F4-42EC-BB35-35511BFEC3C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -283,6 +289,18 @@ Global
 		{E66F6F5A-785E-4087-A9BF-202769310188}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E66F6F5A-785E-4087-A9BF-202769310188}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E66F6F5A-785E-4087-A9BF-202769310188}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FCAECC4-229B-4A38-914A-FE70E6910A2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FCAECC4-229B-4A38-914A-FE70E6910A2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FCAECC4-229B-4A38-914A-FE70E6910A2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FCAECC4-229B-4A38-914A-FE70E6910A2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DBFF353-C818-4BF1-AFE1-02E344F2A001}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DBFF353-C818-4BF1-AFE1-02E344F2A001}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DBFF353-C818-4BF1-AFE1-02E344F2A001}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DBFF353-C818-4BF1-AFE1-02E344F2A001}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72695C5A-E6F4-42EC-BB35-35511BFEC3C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72695C5A-E6F4-42EC-BB35-35511BFEC3C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72695C5A-E6F4-42EC-BB35-35511BFEC3C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72695C5A-E6F4-42EC-BB35-35511BFEC3C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -319,5 +337,6 @@ Global
 		{4028A286-4634-4B0A-834A-E5E10BD27371} = {98E3DFAF-45E3-49D5-BF89-7534ABC4024F}
 		{D371E8B7-4387-42B9-8F38-F818A5D9EB88} = {DF482BD0-DD5D-489A-A7F3-3AA5840C2BE8}
 		{57EB2CA8-76DC-4AF8-A91F-A32A2F3534B3} = {74EB36E8-43A6-4CC7-B2EA-0051256A9A63}
+		{72695C5A-E6F4-42EC-BB35-35511BFEC3C0} = {74EB36E8-43A6-4CC7-B2EA-0051256A9A63}
 	EndGlobalSection
 EndGlobal
