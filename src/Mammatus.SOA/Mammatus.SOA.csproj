@@ -41,11 +41,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\BusinessCapability.cs" />
+    <Compile Include="Business\BusinessDomain.cs" />
     <Compile Include="Business\BusinessProcess.cs" />
+    <Compile Include="Business\InformationModel.cs" />
+    <Compile Include="Business\SubDomain.cs" />
     <Compile Include="Service\EntityService.cs" />
     <Compile Include="Service\ExternalComponent.cs" />
     <Compile Include="Service\IntegrationService.cs" />
+    <Compile Include="Service\ServiceCapability.cs" />
     <Compile Include="Service\ServiceInventory.cs" />
+    <Compile Include="Service\ServiceMessage.cs" />
     <Compile Include="Service\TaskService.cs" />
     <Compile Include="Service\UtilityService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
