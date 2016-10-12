@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Mammatus.UI")]
+[assembly: AssemblyTitle("Mammatus.Data.Exchange")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("by adguard")]
-[assembly: AssemblyProduct("Mammatus.UI")]
-[assembly: AssemblyCopyright("Copyright © by adguard 2016")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("Mammatus.Data.Exchange")]
+[assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("66ec17ea-c9cb-4c7b-acf0-de71883188cc")]
+[assembly: Guid("356fb679-793c-4667-b6c6-5ab8975f9459")]
 
 // Version information for an assembly consists of the following four values:
 //
