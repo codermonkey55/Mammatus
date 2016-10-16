@@ -1,4 +1,4 @@
-﻿namespace Mammatus.SOA.Service
+﻿namespace Mammatus.Microservice.Service
 {
     public class ServiceMessage
     {

@@ -1,4 +1,4 @@
-﻿namespace Mammatus.SOA.Business
+﻿namespace Mammatus.Microservice.Business
 {
     public class BusinessDomain
     {
