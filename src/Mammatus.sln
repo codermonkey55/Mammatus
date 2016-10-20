@@ -145,6 +145,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Integration.Log4Ne
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Microservice", "Mammatus.Microservice\Mammatus.Microservice.csproj", "{BE4C0424-932C-4A2E-8DED-C1B331E47DD1}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Mammatus.Data.OracleDb", "Mammatus.Data.OracleDb\Mammatus.Data.OracleDb.sqlproj", "{BEF68AE9-B354-4A4B-B21D-5B57CEDF9E5C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -325,6 +327,12 @@ Global
 		{BE4C0424-932C-4A2E-8DED-C1B331E47DD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE4C0424-932C-4A2E-8DED-C1B331E47DD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE4C0424-932C-4A2E-8DED-C1B331E47DD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEF68AE9-B354-4A4B-B21D-5B57CEDF9E5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEF68AE9-B354-4A4B-B21D-5B57CEDF9E5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEF68AE9-B354-4A4B-B21D-5B57CEDF9E5C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{BEF68AE9-B354-4A4B-B21D-5B57CEDF9E5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEF68AE9-B354-4A4B-B21D-5B57CEDF9E5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEF68AE9-B354-4A4B-B21D-5B57CEDF9E5C}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

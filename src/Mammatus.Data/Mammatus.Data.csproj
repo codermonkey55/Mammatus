@@ -75,12 +75,11 @@
     <Compile Include="UnitOfWork\IUnitOfWorkManager.cs" />
     <Compile Include="UnitOfWork\IUnitOfWorkScope.cs" />
     <Compile Include="Query\Orderable.cs" />
-    <Compile Include="Repository\RepositoryBase%27T.cs" />
+    <Compile Include="Repository\Repository%27T.cs" />
     <Compile Include="Enums\TransactionMode.cs" />
     <Compile Include="UnitOfWork\UnitOfWorkScope.cs" />
     <Compile Include="UnitOfWork\UnitOfWorkSettings.cs" />
-    <Compile Include="Repository\GenericRepository.cs" />
-    <Compile Include="Repository\RepositoryBase.cs" />
+    <Compile Include="Repository\Repository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

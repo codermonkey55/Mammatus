@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Mammatus.Data.Query;
+using System;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using Mammatus.Data.Query;
 
 namespace Mammatus.Data.Repository
 {
-    public abstract class RepositoryBase<T> : IRepository<T> where T : class
+    public abstract class Repository<T> : Repository, IRepository<T> where T : class
     {
         #region Abstract Methods
         public abstract void Create(T entity);
