@@ -37,6 +37,11 @@ namespace Mammatus.Data.EF
             return _dbset.Add(entity);
         }
 
+        public T GetById(object id)
+        {
+            return _dbset.Find(id);
+        }
+
         public virtual T Delete(T entity)
         {
             return _dbset.Remove(entity);
