@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mammatus.Data.Contracts;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;

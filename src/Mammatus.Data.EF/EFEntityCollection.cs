@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using Mammatus.Data.Contracts;
+using System.Data.Entity;
 
 namespace Mammatus.Data.EF
 {
