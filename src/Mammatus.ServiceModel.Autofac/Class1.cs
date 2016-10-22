@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mammatus.ServiceModel.Wcf.Autofac
+namespace Mammatus.ServiceModel.Autofac
 {
     public class Class1
     {
