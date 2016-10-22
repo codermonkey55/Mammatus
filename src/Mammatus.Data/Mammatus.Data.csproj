@@ -42,7 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\ICollectionPersister.cs" />
+    <Compile Include="Contracts\ICrudEntity.cs" />
     <Compile Include="Contracts\IDataObject.cs" />
+    <Compile Include="Contracts\IEntityCollection.cs" />
+    <Compile Include="Contracts\IPersistableRepository.cs" />
+    <Compile Include="Contracts\IRepository.cs" />
+    <Compile Include="Contracts\ISessionRepository.cs" />
+    <Compile Include="Contracts\IUnitOfWork.cs" />
     <Compile Include="Core\IStateObject.cs" />
     <Compile Include="Core\StateObject.cs" />
     <Compile Include="Database\DatabaseManager.cs" />
