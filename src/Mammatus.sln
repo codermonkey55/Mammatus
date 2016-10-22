@@ -151,6 +151,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wcf", "Wcf", "{A6D82307-1F6
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.ServiceModel.Wcf.Autofac", "Mammatus.ServiceModel.Wcf.Autofac\Mammatus.ServiceModel.Wcf.Autofac.csproj", "{27E8809D-9106-4BAB-993D-0E54249A6C97}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Quartz", "Quartz", "{812E8514-BE1B-4470-BEB7-252BE437697F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Integration.Quartz", "Mammatus.Integration.Quartz\Mammatus.Integration.Quartz.csproj", "{3D64CC21-CD3B-4D6A-BC7A-27F7EFDD968C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -341,6 +345,10 @@ Global
 		{27E8809D-9106-4BAB-993D-0E54249A6C97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27E8809D-9106-4BAB-993D-0E54249A6C97}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27E8809D-9106-4BAB-993D-0E54249A6C97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D64CC21-CD3B-4D6A-BC7A-27F7EFDD968C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D64CC21-CD3B-4D6A-BC7A-27F7EFDD968C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D64CC21-CD3B-4D6A-BC7A-27F7EFDD968C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D64CC21-CD3B-4D6A-BC7A-27F7EFDD968C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -385,5 +393,7 @@ Global
 		{E5102235-CB14-4BB8-B6BA-900858241820} = {6AFDD49F-57BE-4DDD-BB42-4A3BB5430E12}
 		{A6D82307-1F60-4806-83B6-092E9C3AA296} = {DF482BD0-DD5D-489A-A7F3-3AA5840C2BE8}
 		{27E8809D-9106-4BAB-993D-0E54249A6C97} = {A6D82307-1F60-4806-83B6-092E9C3AA296}
+		{812E8514-BE1B-4470-BEB7-252BE437697F} = {DF482BD0-DD5D-489A-A7F3-3AA5840C2BE8}
+		{3D64CC21-CD3B-4D6A-BC7A-27F7EFDD968C} = {812E8514-BE1B-4470-BEB7-252BE437697F}
 	EndGlobalSection
 EndGlobal
