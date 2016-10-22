@@ -49,12 +49,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EFDomainRepository.cs" />
+    <Compile Include="EFEntityCollection.cs" />
+    <Compile Include="EFGenericRepository.cs" />
+    <Compile Include="EFRepository.cs" />
+    <Compile Include="EFUnitOfWork.cs" />
     <Compile Include="MammatusDbContext.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mammatus.Data\Mammatus.Data.csproj">
+      <Project>{20e89d07-ec07-4622-be4b-1628768fea84}</Project>
+      <Name>Mammatus.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
