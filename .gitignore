@@ -237,3 +237,4 @@ _Pvt_Extensions
 /src/Src_Utilities/CLIB
 /src/Mammatus.Data.SqlServer/Mammatus.Data.SqlServer.jfm
 /proj/docs/References.txt
+/src/Mammatus.Data.OracleDb/Mammatus.Data.OracleDb.jfm

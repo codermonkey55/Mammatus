@@ -1,0 +1,25 @@
+﻿using Mammatus.ServiceModel.IntegrationTest.Services;
+
+namespace Mammatus.ServiceModel.IntegrationTest.Bootstrapper
+{
+    internal static class TestBootstrapper
+    {
+        internal static void Configure()
+        {
+            ContainerBuilder builder = new ContainerBuilder();
+
+            builder.RegisterType<TestService>().AsSelf();
+
+            IContainer container = builder.Build();
+
+            ServiceResolverProvider.InitProvider(() => new AutofacServiceResolver(container));
+
+            var fileLoggerIdentifier = ConfigurationManager.AppSettings["FileErrorLogger.Configuration.Name"];
+            var eventLoggerIdentifier = ConfigurationManager.AppSettings["EventErrorLogger.Configuration.Name"];
+
+            LoggingInitializer.Initialize(eventLoggerIdentifier: eventLoggerIdentifier,
+                                          fileLoggerIdentifier: fileLoggerIdentifier,
+                                          serviceName: "TestService");
+        }
+    }
+}

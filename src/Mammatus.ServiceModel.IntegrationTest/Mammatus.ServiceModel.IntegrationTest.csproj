@@ -50,7 +50,13 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="Bootstrapper\TestBootstrapper.cs" />
+    <Compile Include="ServiceContracts\ITestService.cs" />
+    <Compile Include="ServiceHostFactories\TestDependencyInjectionServiceHostFactory.cs" />
+    <Compile Include="Services\TestService.cs" />
+    <Compile Include="Setups\TestClassSetup.cs" />
+    <Compile Include="Setups\TestServiceHostSetup.cs" />
+    <Compile Include="Tests\ServiceModelExtensibility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Choose>
