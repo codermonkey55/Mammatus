@@ -147,6 +147,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Microservice", "Ma
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Mammatus.Data.OracleDb", "Mammatus.Data.OracleDb\Mammatus.Data.OracleDb.sqlproj", "{BEF68AE9-B354-4A4B-B21D-5B57CEDF9E5C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wcf", "Wcf", "{A6D82307-1F60-4806-83B6-092E9C3AA296}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.ServiceModel.Wcf.Autofac", "Mammatus.ServiceModel.Wcf.Autofac\Mammatus.ServiceModel.Wcf.Autofac.csproj", "{27E8809D-9106-4BAB-993D-0E54249A6C97}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -333,6 +337,10 @@ Global
 		{BEF68AE9-B354-4A4B-B21D-5B57CEDF9E5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEF68AE9-B354-4A4B-B21D-5B57CEDF9E5C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BEF68AE9-B354-4A4B-B21D-5B57CEDF9E5C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{27E8809D-9106-4BAB-993D-0E54249A6C97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27E8809D-9106-4BAB-993D-0E54249A6C97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27E8809D-9106-4BAB-993D-0E54249A6C97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27E8809D-9106-4BAB-993D-0E54249A6C97}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -375,5 +383,7 @@ Global
 		{E0D00DA8-458A-4808-9333-70B575E49AC8} = {87770B87-5884-48B7-929B-B848CA75D70A}
 		{6AFDD49F-57BE-4DDD-BB42-4A3BB5430E12} = {DF482BD0-DD5D-489A-A7F3-3AA5840C2BE8}
 		{E5102235-CB14-4BB8-B6BA-900858241820} = {6AFDD49F-57BE-4DDD-BB42-4A3BB5430E12}
+		{A6D82307-1F60-4806-83B6-092E9C3AA296} = {DF482BD0-DD5D-489A-A7F3-3AA5840C2BE8}
+		{27E8809D-9106-4BAB-993D-0E54249A6C97} = {A6D82307-1F60-4806-83B6-092E9C3AA296}
 	EndGlobalSection
 EndGlobal
