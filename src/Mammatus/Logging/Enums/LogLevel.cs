@@ -1,4 +1,4 @@
-﻿namespace Mammatus.Enums
+﻿namespace Mammatus.Logging.Enums
 {
     public enum LogLevel : int
     {

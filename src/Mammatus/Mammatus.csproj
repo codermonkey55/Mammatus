@@ -58,7 +58,9 @@
     <Compile Include="Core\Object\IIdentifiableEntity.cs" />
     <Compile Include="Enums\Direction.cs" />
     <Compile Include="Enums\ImageFileType.cs" />
-    <Compile Include="Enums\LogLevel.cs" />
+    <Compile Include="Logging\Enums\AuditLevel.cs" />
+    <Compile Include="Logging\Enums\ErrorLevel.cs" />
+    <Compile Include="Logging\Enums\LogLevel.cs" />
     <Compile Include="Enums\MailFormat.cs" />
     <Compile Include="Enums\MathFormula.cs" />
     <Compile Include="Enums\TextStorageType.cs" />
@@ -188,6 +190,7 @@
     <Compile Include="Library\Web\WebCache.cs" />
     <Compile Include="Library\Web\WebClient.cs" />
     <Compile Include="Library\Xml\XmlData.cs" />
+    <Compile Include="Logging\Enums\LogOutput.cs" />
     <Compile Include="Models\FileWriteState.cs" />
     <Compile Include="Models\FtpState.cs" />
     <Compile Include="Models\Name.cs" />
