@@ -54,8 +54,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MammatusSessionFactoryBuilder.cs" />
-    <Compile Include="MammatusSessionManager.cs" />
+    <Compile Include="SessionFactoryBuilder.cs" />
+    <Compile Include="SessionManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

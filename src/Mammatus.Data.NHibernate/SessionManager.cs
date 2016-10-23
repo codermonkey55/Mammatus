@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mammatus.Data.NHibernate
 {
-    class MammatusSessionManager
+    class SessionManager
     {
     }
 }
