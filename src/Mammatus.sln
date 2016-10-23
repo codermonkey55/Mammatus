@@ -58,8 +58,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Transform", "Transform", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.AspNet.WebApi", "Mammatus.AspNet.WebApi\Mammatus.AspNet.WebApi.csproj", "{7C62BFBC-7341-42E0-88F2-1CED8E84305B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Serialization", "Mammatus.Serialization\Mammatus.Serialization.csproj", "{F3977E78-1E86-4380-905B-D22A736D2F1A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Serialization.Newtonsoft", "Mammatus.Serialization.Newtonsoft\Mammatus.Serialization.Newtonsoft.csproj", "{528396DE-89E7-4466-842D-6040FD98D281}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Xml", "Mammatus.Xml\Mammatus.Xml.csproj", "{AE8F9E2E-0409-4179-82EC-B841E7F70630}"
@@ -155,6 +153,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Integration.Quartz
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.ServiceModel.Autofac", "Mammatus.ServiceModel.Autofac\Mammatus.ServiceModel.Autofac.csproj", "{289EF3C0-A713-4613-9623-EDB50405794E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Runtime.Serialization", "Mammatus.Runtime.Serialization\Mammatus.Runtime.Serialization.csproj", "{F0F987DF-DE63-4A51-B316-C61033022FD4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -229,10 +229,6 @@ Global
 		{7C62BFBC-7341-42E0-88F2-1CED8E84305B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C62BFBC-7341-42E0-88F2-1CED8E84305B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C62BFBC-7341-42E0-88F2-1CED8E84305B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F3977E78-1E86-4380-905B-D22A736D2F1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F3977E78-1E86-4380-905B-D22A736D2F1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F3977E78-1E86-4380-905B-D22A736D2F1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F3977E78-1E86-4380-905B-D22A736D2F1A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{528396DE-89E7-4466-842D-6040FD98D281}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{528396DE-89E7-4466-842D-6040FD98D281}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{528396DE-89E7-4466-842D-6040FD98D281}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -349,6 +345,10 @@ Global
 		{289EF3C0-A713-4613-9623-EDB50405794E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{289EF3C0-A713-4613-9623-EDB50405794E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{289EF3C0-A713-4613-9623-EDB50405794E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0F987DF-DE63-4A51-B316-C61033022FD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0F987DF-DE63-4A51-B316-C61033022FD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0F987DF-DE63-4A51-B316-C61033022FD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0F987DF-DE63-4A51-B316-C61033022FD4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
