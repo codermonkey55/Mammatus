@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity;
 
-namespace Mammatus.Data.EF
+namespace Mammatus.Data.Entity
 {
     class Program
     {

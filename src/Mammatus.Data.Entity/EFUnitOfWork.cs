@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 
-namespace Mammatus.Data.EF
+namespace Mammatus.Data.Entity
 {
     public class EFUnitOfWork : IUnitOfWork<IEFRepository>
     {

@@ -5,7 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace Mammatus.Data.EF
+namespace Mammatus.Data.Entity
 {
     public interface IEFGenericRepository<T> : IRepository<T>, IEFRepository where T : class
     {

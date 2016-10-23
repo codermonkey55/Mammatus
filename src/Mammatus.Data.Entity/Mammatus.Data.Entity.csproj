@@ -7,8 +7,8 @@
     <ProjectGuid>{ADB848C8-34A6-42B5-90FC-DDF0B8513109}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Mammatus.Data.EF</RootNamespace>
-    <AssemblyName>Mammatus.Data.EF</AssemblyName>
+    <RootNamespace>Mammatus.Data.Entity</RootNamespace>
+    <AssemblyName>Mammatus.Data.Entity</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

@@ -1,7 +1,7 @@
 ﻿using Mammatus.Data.Contracts;
 using System.Data.Entity;
 
-namespace Mammatus.Data.EF
+namespace Mammatus.Data.Entity
 {
     public interface IEFEntityCollection : IEntityCollection
     {

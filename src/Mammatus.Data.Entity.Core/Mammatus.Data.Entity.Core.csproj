@@ -7,8 +7,8 @@
     <ProjectGuid>{9B8FA2FE-1697-4501-B8ED-70C6BA5017DB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Mammatus.Data.EFCore</RootNamespace>
-    <AssemblyName>Mammatus.Data.EFCore</AssemblyName>
+    <RootNamespace>Mammatus.Data.Entity.Core</RootNamespace>
+    <AssemblyName>Mammatus.Data.Entity.Core</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
