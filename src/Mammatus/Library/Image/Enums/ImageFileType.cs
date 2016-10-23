@@ -1,6 +1,5 @@
-namespace Mammatus.Library.Image
+namespace Mammatus.Library.Image.Enums
 {
-
     public enum ImageFileType
     {
         Unknown,

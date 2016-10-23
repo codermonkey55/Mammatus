@@ -72,6 +72,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Algorithms\" />
+    <Folder Include="Computation\" />
+    <Folder Include="Probability\" />
+    <Folder Include="Statistics\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DataStructures\Errors.resx">

@@ -1,11 +1,9 @@
-﻿
-using Mammatus.Enums;
+﻿using Mammatus.Enums;
+using System;
 
-namespace Mammatus.Library.Math
+namespace Mammatus.Library.Mathematics
 {
-    using System;
-
-    public class MathUtil
+    public class Arithmetics
     {
         private double CalculateExpress(string stringExpression)
         {

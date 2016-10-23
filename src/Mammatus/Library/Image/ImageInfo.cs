@@ -1,11 +1,11 @@
 ﻿using Mammatus.Helpers;
+using Mammatus.Library.Image.Enums;
+using System;
+using System.IO;
+using System.Windows;
 
 namespace Mammatus.Library.Image
 {
-    using System;
-    using System.IO;
-    using System.Windows;
-
     public class ImageInfo
     {
         public Size GraphicSize { get; private set; }

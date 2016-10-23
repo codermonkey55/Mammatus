@@ -4,7 +4,7 @@ namespace Mammatus.Library.Image
 {
     using System;
 
-    public class ValidateImg
+    public class ValidateImageGenerator
     {
         public void GenerateValidateImg()
         {

@@ -57,7 +57,12 @@
     <Compile Include="Core\Object\IEntity.cs" />
     <Compile Include="Core\Object\IIdentifiableEntity.cs" />
     <Compile Include="Enums\Direction.cs" />
-    <Compile Include="Enums\ImageFileType.cs" />
+    <Compile Include="Library\Image\Enums\ImageFileType.cs" />
+    <Compile Include="Library\Mathematics\Alegebra.cs" />
+    <Compile Include="Library\Mathematics\Analysis.cs" />
+    <Compile Include="Library\Mathematics\Combinatorics.cs" />
+    <Compile Include="Library\Mathematics\Geometry.cs" />
+    <Compile Include="Library\Mathematics\Topology.cs" />
     <Compile Include="Logging\Enums\AuditLevel.cs" />
     <Compile Include="Logging\Enums\ErrorLevel.cs" />
     <Compile Include="Logging\Enums\LogLevel.cs" />
@@ -133,7 +138,7 @@
     <Compile Include="Library\Generic\Switch.cs" />
     <Compile Include="Library\Generic\TypeSwitch.cs" />
     <Compile Include="Library\Image\ImageInfo.cs" />
-    <Compile Include="Library\Image\ValidateImgGenerator.cs" />
+    <Compile Include="Library\Image\ValidateImageGenerator.cs" />
     <Compile Include="Library\Json\ConvertJson.cs" />
     <Compile Include="Library\Mail\MailAttachments.cs" />
     <Compile Include="Library\Mail\MailHelper.cs" />
@@ -146,7 +151,7 @@
     <Compile Include="Library\Mail\SmtpClient.cs" />
     <Compile Include="Library\Mail\SmtpMail.cs" />
     <Compile Include="Library\Mail\SmtpServerHelper.cs" />
-    <Compile Include="Library\Math\MathUtil.cs" />
+    <Compile Include="Library\Mathematics\Arithmetics.cs" />
     <Compile Include="Library\Mime\MediaTypes.cs" />
     <Compile Include="Library\Mime\MimeEntity.cs" />
     <Compile Include="Library\Mime\MimeHeaders.cs" />
@@ -224,7 +229,7 @@
     <Compile Include="Code.Contracts\Exceptions\InvariantException.cs" />
     <Compile Include="Code.Contracts\Exceptions\PostconditionException.cs" />
     <Compile Include="Code.Contracts\Exceptions\PreconditionException.cs" />
-    <Compile Include="Enums\FileSize.cs" />
+    <Compile Include="IO\Enums\FileSize.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\TypeExtensions.cs" />
     <Compile Include="Validation\CheckIf.cs" />
