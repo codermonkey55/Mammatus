@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mammatus.Core.Application
 {
-    public abstract class ObjectBase<TDerived>
+    public abstract class ObjectBase<TDerived> : ObjectBase
         where TDerived : class
     {
         public static TDerived Create()
