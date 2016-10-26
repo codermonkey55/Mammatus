@@ -155,6 +155,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Data.Entity", "Mam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Data.Entity.Core", "Mammatus.Data.Entity.Core\Mammatus.Data.Entity.Core.csproj", "{9B8FA2FE-1697-4501-B8ED-70C6BA5017DB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.AspNet.NHibernate", "Mammatus.AspNet.NHibernate\Mammatus.AspNet.NHibernate.csproj", "{534E6C0B-2CE0-491A-B63F-5184B1D422B6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -349,6 +351,10 @@ Global
 		{9B8FA2FE-1697-4501-B8ED-70C6BA5017DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B8FA2FE-1697-4501-B8ED-70C6BA5017DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B8FA2FE-1697-4501-B8ED-70C6BA5017DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{534E6C0B-2CE0-491A-B63F-5184B1D422B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{534E6C0B-2CE0-491A-B63F-5184B1D422B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{534E6C0B-2CE0-491A-B63F-5184B1D422B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{534E6C0B-2CE0-491A-B63F-5184B1D422B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -395,5 +401,6 @@ Global
 		{289EF3C0-A713-4613-9623-EDB50405794E} = {A6D82307-1F60-4806-83B6-092E9C3AA296}
 		{ADB848C8-34A6-42B5-90FC-DDF0B8513109} = {D371E8B7-4387-42B9-8F38-F818A5D9EB88}
 		{9B8FA2FE-1697-4501-B8ED-70C6BA5017DB} = {D371E8B7-4387-42B9-8F38-F818A5D9EB88}
+		{534E6C0B-2CE0-491A-B63F-5184B1D422B6} = {7D15DADF-E503-4026-A3A0-EFC15B2D5CC1}
 	EndGlobalSection
 EndGlobal
