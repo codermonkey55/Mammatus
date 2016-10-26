@@ -1,9 +1,9 @@
-﻿using NHibernate;
-using PocoLib.Data.ControllerModel;
+﻿using Mammatus.Data.Contracts;
+using NHibernate;
 using System;
 using System.Collections.Generic;
 
-namespace PocoLib.Integration.NHibernate
+namespace Mammatus.Data.NHibernate
 {
     public interface INHUnitOfWork<TINHRepository> : IUnitOfWork<TINHRepository> where TINHRepository : ISessionRepository
     {

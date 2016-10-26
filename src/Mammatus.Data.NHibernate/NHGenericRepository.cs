@@ -1,10 +1,10 @@
-﻿using PocoLib.Data.ControllerModel;
+﻿using Mammatus.Data.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace PocoLib.Integration.NHibernate
+namespace Mammatus.Data.NHibernate
 {
     public interface INHGenericRepository<T> : IRepository<T>, INHRepository where T : class
     {
@@ -36,7 +36,7 @@ namespace PocoLib.Integration.NHibernate
             return _collection.Save(entity);
         }
 
-        public T FindById(object id)
+        public T GetById(object id)
         {
             return _collection.Get(id);
         }

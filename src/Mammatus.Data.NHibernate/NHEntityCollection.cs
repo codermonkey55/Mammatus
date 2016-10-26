@@ -1,9 +1,9 @@
-﻿using NHibernate;
+﻿using Mammatus.Data.Contracts;
+using NHibernate;
 using NHibernate.Linq;
-using PocoLib.Data.ControllerModel;
 using System.Linq;
 
-namespace PocoLib.Integration.NHibernate
+namespace Mammatus.Data.NHibernate
 {
     public interface INHEntityCollection : IEntityCollection
     {

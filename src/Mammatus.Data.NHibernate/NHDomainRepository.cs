@@ -1,7 +1,7 @@
-﻿using NHibernate;
-using PocoLib.Data.ControllerModel;
+﻿using Mammatus.Data.Contracts;
+using NHibernate;
 
-namespace PocoLib.Integration.NHibernate
+namespace Mammatus.Data.NHibernate
 {
     public abstract class NHDomainRepository : IPersistableRepository
     {

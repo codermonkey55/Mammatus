@@ -63,7 +63,12 @@
     <Compile Include="SessionManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Mammatus.Data\Mammatus.Data.csproj">
+      <Project>{20E89D07-EC07-4622-BE4B-1628768FEA84}</Project>
+      <Name>Mammatus.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

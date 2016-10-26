@@ -1,6 +1,6 @@
-﻿using PocoLib.Data.ControllerModel;
+﻿using Mammatus.Data.Contracts;
 
-namespace PocoLib.Integration.NHibernate
+namespace Mammatus.Data.NHibernate
 {
     public interface INHRepository : ISessionRepository
     {
