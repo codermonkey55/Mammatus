@@ -54,6 +54,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NHDomainRepository.cs" />
+    <Compile Include="NHEntityCollection.cs" />
+    <Compile Include="NHGenericRepository.cs" />
+    <Compile Include="NHRepository.cs" />
+    <Compile Include="NHUnitOfWork.cs" />
     <Compile Include="SessionFactoryBuilder.cs" />
     <Compile Include="SessionManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
