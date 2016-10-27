@@ -1,7 +1,7 @@
 ﻿using Mammatus.Data.Contracts;
 using NHibernate;
 
-namespace Mammatus.Data.NHibernate
+namespace Mammatus.Data.NHibernate.Database
 {
     public abstract class NHDomainRepository : IPersistableRepository
     {

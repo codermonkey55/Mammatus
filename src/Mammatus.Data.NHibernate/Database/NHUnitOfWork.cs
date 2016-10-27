@@ -3,7 +3,7 @@ using NHibernate;
 using System;
 using System.Collections.Generic;
 
-namespace Mammatus.Data.NHibernate
+namespace Mammatus.Data.NHibernate.Database
 {
     public interface INHUnitOfWork<TINHRepository> : IUnitOfWork<TINHRepository> where TINHRepository : ISessionRepository
     {

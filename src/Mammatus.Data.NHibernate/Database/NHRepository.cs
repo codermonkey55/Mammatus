@@ -1,6 +1,6 @@
 ﻿using Mammatus.Data.Contracts;
 
-namespace Mammatus.Data.NHibernate
+namespace Mammatus.Data.NHibernate.Database
 {
     public interface INHRepository : ISessionRepository
     {

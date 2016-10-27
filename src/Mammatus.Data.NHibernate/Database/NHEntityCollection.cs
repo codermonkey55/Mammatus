@@ -3,7 +3,7 @@ using NHibernate;
 using NHibernate.Linq;
 using System.Linq;
 
-namespace Mammatus.Data.NHibernate
+namespace Mammatus.Data.NHibernate.Database
 {
     public interface INHEntityCollection : IEntityCollection
     {

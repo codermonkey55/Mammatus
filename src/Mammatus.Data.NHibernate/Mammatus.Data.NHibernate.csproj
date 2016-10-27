@@ -54,13 +54,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NHDomainRepository.cs" />
-    <Compile Include="NHEntityCollection.cs" />
-    <Compile Include="NHGenericRepository.cs" />
-    <Compile Include="NHRepository.cs" />
-    <Compile Include="NHUnitOfWork.cs" />
-    <Compile Include="SessionFactoryBuilder.cs" />
-    <Compile Include="SessionManager.cs" />
+    <Compile Include="AutoMappings\AutoMappingConfiguration.cs" />
+    <Compile Include="Components\AuditInfo.cs" />
+    <Compile Include="Conventions\CollectionConvention.cs" />
+    <Compile Include="Conventions\ComponentConvention.cs" />
+    <Compile Include="Conventions\PropertyConvention.cs" />
+    <Compile Include="Conventions\TableNameConvention.cs" />
+    <Compile Include="Database\NHExtendedSession.cs" />
+    <Compile Include="Entities\Base\AuditableEntity.cs" />
+    <Compile Include="Entities\Base\Entity%27T.cs" />
+    <Compile Include="Entities\Base\Entity.cs" />
+    <Compile Include="Entities\Token.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="FluentMappings\BaseMaps\AuditMap.cs" />
+    <Compile Include="FluentMappings\BaseMaps\CommonMap.cs" />
+    <Compile Include="FluentMappings\ClassMaps\TokenMap.cs" />
+    <Compile Include="FluentMappings\ClassMaps\UserMap.cs" />
+    <Compile Include="FluentMappings\ComponentMaps\AuditableEntityComponentMap.cs" />
+    <Compile Include="Interceptors\PreCommitInterceptor.cs" />
+    <Compile Include="Interceptors\TrackingInterceptor.cs" />
+    <Compile Include="Interfaces\IAuditableEntity.cs" />
+    <Compile Include="Listeners\AuditFieldsDirtyCheckingEventListener.cs" />
+    <Compile Include="Listeners\AuditingEventListener.cs" />
+    <Compile Include="Listeners\FlushEntityAuditEventListener.cs" />
+    <Compile Include="Listeners\PrePersistAuditEventListener.cs" />
+    <Compile Include="Database\NHDomainRepository.cs" />
+    <Compile Include="Database\NHEntityCollection.cs" />
+    <Compile Include="Database\NHGenericRepository.cs" />
+    <Compile Include="Database\NHRepository.cs" />
+    <Compile Include="Database\NHUnitOfWork.cs" />
+    <Compile Include="Database\SessionFactoryBuilder.cs" />
+    <Compile Include="Database\SessionManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

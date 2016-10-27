@@ -2,6 +2,13 @@
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using FluentNHibernate.Conventions.Helpers;
+using Mammatus.Data.NHibernate.AutoMappings;
+using Mammatus.Data.NHibernate.Conventions;
+using Mammatus.Data.NHibernate.Entities;
+using Mammatus.Data.NHibernate.Entities.Base;
+using Mammatus.Data.NHibernate.FluentMappings.ClassMaps;
+using Mammatus.Data.NHibernate.Interceptors;
+using Mammatus.Data.NHibernate.Listeners;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Cfg.MappingSchema;
@@ -68,7 +75,7 @@ namespace Mammatus.Data.NHibernate
                         {
                             m.AutoMappings.Add(Automappings);
 
-                            m.FluentMappings.AddFromAssemblyOf<BrochureMap>()
+                            m.FluentMappings.AddFromAssemblyOf<TokenMap>()
                                 .Conventions.Setup(c =>
                                 {
                                     c.Add(ForeignKey.EndsWith("Id"));
@@ -112,7 +119,7 @@ namespace Mammatus.Data.NHibernate
 
                             cfg.SetProperty("generate_statistics", "true");
                             cfg.SetProperty("timeout", "10");
-                            cfg.EntityCache<Entity>(ccp => ccp.Strategy = EntityCacheUsage.ReadWrite);
+                            cfg.EntityCache<Entities.Entity>(ccp => ccp.Strategy = EntityCacheUsage.ReadWrite);
 
                             //--> Clears all previous listeners for given listener type and adds the given listener object.
                             cfg.SetListener(ListenerType.FlushEntity, new AuditFieldsDirtyCheckingEventListener());
@@ -152,7 +159,7 @@ namespace Mammatus.Data.NHibernate
 
         private static AutoPersistenceModel Automappings()
         {
-            return AutoMap.AssemblyOf<Brochure>(new AutoMappingConfiguration())
+            return AutoMap.AssemblyOf<User>(new AutoMappingConfiguration())
                           .Conventions.Setup(c =>
                           {
                               c.Add(ForeignKey.EndsWith("Id"));

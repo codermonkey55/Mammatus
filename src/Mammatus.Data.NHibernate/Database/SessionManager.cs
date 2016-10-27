@@ -1,4 +1,5 @@
-﻿using NHibernate;
+﻿using Mammatus.Data.NHibernate.Database;
+using NHibernate;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -64,18 +65,18 @@ namespace Mammatus.Data.NHibernate
         }
 
 
-        public static IExtendedSession GetDecoratedSession(bool beginTransaction)
+        public static INHExtendedSession GetDecoratedSession(bool beginTransaction)
         {
-            IExtendedSession extSession = new ExtendedSession(SessionFactory.OpenSession());
+            INHExtendedSession extSession = new NHExtendedSession(SessionFactory.OpenSession());
 
             if (beginTransaction) extSession.Session.BeginTransaction();
 
             return extSession;
         }
 
-        public static IExtendedSession GetDecoratedSession(bool beginTransaction, IDbConnection dbconnection)
+        public static INHExtendedSession GetDecoratedSession(bool beginTransaction, IDbConnection dbconnection)
         {
-            IExtendedSession extSession = new ExtendedSession(SessionFactory.OpenSession(dbconnection));
+            INHExtendedSession extSession = new NHExtendedSession(SessionFactory.OpenSession(dbconnection));
 
             if (beginTransaction) extSession.Session.BeginTransaction();
 
