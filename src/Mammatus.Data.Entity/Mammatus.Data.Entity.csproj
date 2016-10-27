@@ -49,11 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EFDomainRepository.cs" />
-    <Compile Include="EFEntityCollection.cs" />
-    <Compile Include="EFGenericRepository.cs" />
-    <Compile Include="EFRepository.cs" />
-    <Compile Include="EFUnitOfWork.cs" />
+    <Compile Include="Database\EFDomainRepository.cs" />
+    <Compile Include="Database\EFEntityCollection.cs" />
+    <Compile Include="Database\EFGenericRepository.cs" />
+    <Compile Include="Database\EFRepository.cs" />
+    <Compile Include="Database\EFUnitOfWork.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

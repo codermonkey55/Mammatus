@@ -1,6 +1,6 @@
-﻿using System;
-using Mammatus.Enums;
-using Mammatus.Extensions;
+﻿using Mammatus.Extensions;
+using Mammatus.IO.Enums;
+using System;
 
 namespace Mammatus.Numeric.Extensions
 {
