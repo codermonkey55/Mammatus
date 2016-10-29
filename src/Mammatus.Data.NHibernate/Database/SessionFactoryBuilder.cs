@@ -15,6 +15,7 @@ using NHibernate.Cfg.MappingSchema;
 using NHibernate.Dialect;
 using NHibernate.Driver;
 using NHibernate.Event;
+using NHibernate.Impl;
 using NHibernate.Tool.hbm2ddl;
 using System;
 using System.Collections.Generic;
@@ -148,6 +149,8 @@ namespace Mammatus.Data.NHibernate
                 config.Configure("Name of config file if different from defaut: hibernate.cfg.xml"); // Override fluent-configurations with the "hibernate.cfg.xml" file default style.
 
                 ISessionFactory sessionFactory = config.BuildSessionFactory();
+
+                SessionFactoryObjectFactory.AddInstance(Guid.NewGuid().ToString(), "DefaultSessionFactory", sessionFactory, config.Properties);
 
                 return sessionFactory;
             }
