@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Web", "Mammatus.We
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Data.NHibernate", "Mammatus.Data.NHibernate\Mammatus.Data.NHibernate.csproj", "{505B9D22-012A-4085-99A1-9C6F79785F4C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{74EB36E8-43A6-4CC7-B2EA-0051256A9A63}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Specs", "Specs", "{74EB36E8-43A6-4CC7-B2EA-0051256A9A63}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{BC670C77-6EF7-4F0E-B2E5-EC89B0383BA0}"
 	ProjectSection(SolutionItems) = preProject
