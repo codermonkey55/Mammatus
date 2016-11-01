@@ -4,16 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>Mammatus.Data.OracleDb</Name>
+    <Name>Mammatus.Data.MySQL</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{bef68ae9-b354-4a4b-b21d-5b57cedf9e5c}</ProjectGuid>
+    <ProjectGuid>{5eb6bb41-3e86-4da8-ab20-4ba6b71f97aa}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
-    <RootNamespace>Mammatus.Data.OracleDb</RootNamespace>
-    <AssemblyName>Mammatus.Data.OracleDb</AssemblyName>
+    <RootNamespace>Mammatus.Data.MySQL</RootNamespace>
+    <AssemblyName>Mammatus.Data.MySQL</AssemblyName>
     <ModelCollation>1033, CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>

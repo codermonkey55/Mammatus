@@ -4,20 +4,20 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>Mammatus.Data.SQLServer</Name>
+    <Name>Mammatus.Data.OracleDatabase</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{a135b449-0e83-45eb-b21a-0c0b04eefcdc}</ProjectGuid>
+    <ProjectGuid>{bef68ae9-b354-4a4b-b21d-5b57cedf9e5c}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
-    <RootNamespace>Mammatus.Data.SqlServer</RootNamespace>
-    <AssemblyName>Mammatus.Data.SqlServer</AssemblyName>
+    <RootNamespace>Mammatus.Data.OracleDb</RootNamespace>
+    <AssemblyName>Mammatus.Data.OracleDb</AssemblyName>
     <ModelCollation>1033, CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <TargetLanguage>CS</TargetLanguage>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <SqlServerVerification>False</SqlServerVerification>
@@ -57,26 +57,5 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
-    <Folder Include="ServiceBroker" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ServiceBroker\EndAllConversations.sql" />
-    <None Include="SQLTimeDiffFormatter.sql" />
-    <Build Include="SQLStringFormatter.sql" />
-    <None Include="SQLSplit.sql" />
-    <None Include="ListTableRelationships.sql" />
-    <None Include="ListAllTableNames.sql" />
-    <None Include="ListAllTableMetaData.sql" />
-    <None Include="ListAllProcParams.sql" />
-    <None Include="ListAllProcNames.sql" />
-    <None Include="ListAllMetadata.sql" />
-    <None Include="ListAllColumnMetaData.sql" />
-    <None Include="IndexFragmentation.sql" />
-    <None Include="GrantExecOnAllProcs.sql" />
-    <None Include="GenerateCrudProcedures.sql" />
-    <Build Include="FindWorkingDays.sql" />
-    <None Include="FindObjectByName.sql" />
-    <None Include="FindDatabaseByTable.sql" />
-    <None Include="DeleteAllProcedures.sql" />
   </ItemGroup>
 </Project>
