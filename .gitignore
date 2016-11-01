@@ -239,3 +239,4 @@ _Pvt_Extensions
 /proj/docs/References.txt
 /src/Mammatus.Data.OracleDb/Mammatus.Data.OracleDb.jfm
 /src/Mammatus.Data.MySQL/*.jfm
+*.jfm

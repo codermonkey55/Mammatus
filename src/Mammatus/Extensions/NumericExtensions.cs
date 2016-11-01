@@ -1,8 +1,7 @@
-﻿using Mammatus.Extensions;
-using Mammatus.IO.Enums;
+﻿using Mammatus.IO.Enums;
 using System;
 
-namespace Mammatus.Numeric.Extensions
+namespace Mammatus.Extensions
 {
     public static class NumericExtensions
     {

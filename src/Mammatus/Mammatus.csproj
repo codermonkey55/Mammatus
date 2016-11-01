@@ -57,6 +57,7 @@
     <Compile Include="Core\Object\IEntity.cs" />
     <Compile Include="Core\Object\IIdentifiableEntity.cs" />
     <Compile Include="Enums\Direction.cs" />
+    <Compile Include="Extensions\ExceptionExtensions.cs" />
     <Compile Include="Library\Image\Enums\ImageFileType.cs" />
     <Compile Include="Library\Mathematics\Alegebra.cs" />
     <Compile Include="Library\Mathematics\Analysis.cs" />

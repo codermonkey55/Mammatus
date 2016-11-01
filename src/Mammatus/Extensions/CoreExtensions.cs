@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Reflection;
-using Mammatus.Core.Application;
+﻿using Mammatus.Core.Application;
 using Mammatus.Core.Attributes;
 using Mammatus.Helpers;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq.Expressions;
+using System.Reflection;
 
-namespace Mammatus.Core.Extensions
+namespace Mammatus.Extensions
 {
     public static class CoreExtensions
     {

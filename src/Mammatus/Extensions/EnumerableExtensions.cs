@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace Mammatus.Enumerable.Extensions
+namespace Mammatus.Extensions
 {
     public static class EnumerableExtensions
     {

@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Mammatus.Validation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Mammatus.Validation;
 
-namespace Mammatus.Queryable.Extensions
+namespace Mammatus.Extensions
 {
     public static class QueryableExtensions
     {

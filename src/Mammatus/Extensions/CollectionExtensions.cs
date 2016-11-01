@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
-namespace Mammatus.Collection.Extensions
+namespace Mammatus.Extensions
 {
     public static class ICollectionExtentions
     {
