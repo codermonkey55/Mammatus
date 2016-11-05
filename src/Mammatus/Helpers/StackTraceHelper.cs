@@ -6,11 +6,29 @@ namespace Mammatus.Helpers
 {
     public class StackTraceHelper
     {
-        private const int stackOffSet = 2;
+        private const int stackOffSet = 1;
 
         public StackTraceHelper()
         {
 
+        }
+
+        public MethodBase GetCurrentMethod()
+        {
+            //-> Get current executing call stack.
+            StackTrace stackTrace = new StackTrace();
+
+            //-> Get calling method.
+            return stackTrace.GetFrame(stackOffSet).GetMethod();
+        }
+
+        public Type GetEnclosingType()
+        {
+            //-> Get current executing call stack.
+            StackTrace stackTrace = new StackTrace();
+
+            //-> Get calling method.
+            return stackTrace.GetFrame(stackOffSet).GetMethod().DeclaringType;
         }
 
         public MethodBase GetCallingMethod()
@@ -19,7 +37,7 @@ namespace Mammatus.Helpers
             StackTrace stackTrace = new StackTrace();
 
             //-> Get calling method.
-            return stackTrace.GetFrame(stackOffSet).GetMethod();
+            return stackTrace.GetFrame(stackOffSet + 1).GetMethod();
         }
 
         public MethodBase GetMethodAt(int methodIndex)
