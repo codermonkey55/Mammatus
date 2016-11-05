@@ -93,12 +93,12 @@ namespace Mammatus.Helpers
             return hasMethod;
         }
 
-        public StackTraceHelper Create()
+        public static StackTraceHelper Create()
         {
             return new StackTraceHelper();
         }
 
-        public StackTraceHelper Create(int stackOffSet)
+        public static StackTraceHelper Create(int stackOffSet)
         {
             return new StackTraceHelper(stackOffSet);
         }
