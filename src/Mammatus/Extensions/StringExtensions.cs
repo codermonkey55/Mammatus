@@ -707,16 +707,13 @@ namespace Mammatus.Extensions
         }
         public static bool IsNumberId(string _value)
         {
-            return QuickValidate("^[1-9]*[0-9]*$", _value);
+            return IsMatch("^[1-9]*[0-9]*$", _value);
         }
-        public static bool QuickValidate(string _express, string _value)
+        public static bool IsMatch(this string _value, string regexExpression)
         {
             if (_value == null) return false;
-            Regex myRegex = new Regex(_express);
-            if (_value.Length == 0)
-            {
-                return false;
-            }
+            if (_value.Length == 0) return false;
+            Regex myRegex = new Regex(regexExpression);
             return myRegex.IsMatch(_value);
         }
 
@@ -1200,6 +1197,49 @@ namespace Mammatus.Extensions
         public static byte[] StringToBytes(string text, Encoding encoding)
         {
             return encoding.GetBytes(text);
+        }
+
+
+
+        public static string Interpolate(this string formatString, params object[] args)
+        {
+            return string.Format(formatString, args);
+        }
+        public static string Fmt(this string formatString, params object[] args)
+        {
+            return Interpolate(formatString, args);
+        }
+        public static string Last(this string value, int count)
+        {
+            if (count > value.Length) throw new ArgumentOutOfRangeException(string.Format("Cannot return more characters than exist in the string (wanted {0} string contains {1}", count, value.Length));
+
+            return value.Substring(value.Length - count, count);
+        }
+        public static string SnakeCase(this string camelizedString)
+        {
+            var parts = new List<string>();
+            var currentWord = new StringBuilder();
+
+            foreach (var c in camelizedString)
+            {
+                if (char.IsUpper(c) && currentWord.Length > 0)
+                {
+                    parts.Add(currentWord.ToString());
+                    currentWord = new StringBuilder();
+                }
+                currentWord.Append(char.ToLower(c));
+            }
+
+            if (currentWord.Length > 0)
+            {
+                parts.Add(currentWord.ToString());
+            }
+
+            return string.Join("_", parts.ToArray());
+        }
+        public static string Capitalize(this string word)
+        {
+            return word.Substring(0, 1).ToUpper() + word.Substring(1);
         }
     }
 }

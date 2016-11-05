@@ -57,7 +57,13 @@
     <Compile Include="Core\Object\IEntity.cs" />
     <Compile Include="Core\Object\IIdentifiableEntity.cs" />
     <Compile Include="Enums\Direction.cs" />
+    <Compile Include="Extensions\ArrayExtensions.cs" />
+    <Compile Include="Extensions\DictionaryExtensions.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Extensions\ExceptionExtensions.cs" />
+    <Compile Include="Delegates\Predicate.cs" />
+    <Compile Include="Extensions\FloatExtensions.cs" />
+    <Compile Include="Extensions\ListExtensions.cs" />
     <Compile Include="Helpers\StackTraceHelper.cs" />
     <Compile Include="Library\Image\Enums\ImageFileType.cs" />
     <Compile Include="Library\Mathematics\Alegebra.cs" />
@@ -247,7 +253,6 @@
     <Compile Include="Validation\Validator%27T.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Data\" />
     <Folder Include="Notifications\" />
   </ItemGroup>
   <ItemGroup>
