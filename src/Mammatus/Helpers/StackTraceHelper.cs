@@ -6,11 +6,18 @@ namespace Mammatus.Helpers
 {
     public class StackTraceHelper
     {
-        private const int stackOffSet = 1;
+        private const int Stack_OffSet = 1;
 
-        public StackTraceHelper()
+        private readonly int _stackOffSet;
+
+        StackTraceHelper()
         {
+            _stackOffSet = Stack_OffSet;
+        }
 
+        StackTraceHelper(int stackOffSet)
+        {
+            _stackOffSet = stackOffSet;
         }
 
         public MethodBase GetCurrentMethod()
@@ -19,7 +26,7 @@ namespace Mammatus.Helpers
             StackTrace stackTrace = new StackTrace();
 
             //-> Get calling method.
-            return stackTrace.GetFrame(stackOffSet).GetMethod();
+            return stackTrace.GetFrame(_stackOffSet).GetMethod();
         }
 
         public Type GetEnclosingType()
@@ -28,7 +35,7 @@ namespace Mammatus.Helpers
             StackTrace stackTrace = new StackTrace();
 
             //-> Get calling method.
-            return stackTrace.GetFrame(stackOffSet).GetMethod().DeclaringType;
+            return stackTrace.GetFrame(_stackOffSet).GetMethod().DeclaringType;
         }
 
         public MethodBase GetCallingMethod()
@@ -37,12 +44,12 @@ namespace Mammatus.Helpers
             StackTrace stackTrace = new StackTrace();
 
             //-> Get calling method.
-            return stackTrace.GetFrame(stackOffSet + 1).GetMethod();
+            return stackTrace.GetFrame(_stackOffSet + 1).GetMethod();
         }
 
         public MethodBase GetMethodAt(int methodIndex)
         {
-            methodIndex = stackOffSet + methodIndex;
+            methodIndex = _stackOffSet + methodIndex;
 
             //-> Get current executing call stack.
             StackTrace stackTrace = new StackTrace();
@@ -60,7 +67,7 @@ namespace Mammatus.Helpers
 
         public bool HasMethod(string methodName, out int methodIndex)
         {
-            methodIndex = stackOffSet;
+            methodIndex = _stackOffSet;
 
             var stackTrace = new StackTrace();
             var frameCount = stackTrace.FrameCount;
@@ -79,11 +86,21 @@ namespace Mammatus.Helpers
             }
 
             if (hasMethod)
-                methodIndex -= stackOffSet;
+                methodIndex -= _stackOffSet;
             else
                 methodIndex = 0;
 
             return hasMethod;
+        }
+
+        public StackTraceHelper Create()
+        {
+            return new StackTraceHelper();
+        }
+
+        public StackTraceHelper Create(int stackOffSet)
+        {
+            return new StackTraceHelper(stackOffSet);
         }
     }
 }
