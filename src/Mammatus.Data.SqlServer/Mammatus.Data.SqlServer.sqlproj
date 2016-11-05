@@ -7,17 +7,17 @@
     <Name>Mammatus.Data.SQLServer</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{a135b449-0e83-45eb-b21a-0c0b04eefcdc}</ProjectGuid>
+    <ProjectGuid>{4f0ac064-5649-48fb-845a-458a6a9bc1cf}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
-    <RootNamespace>Mammatus.Data.SqlServer</RootNamespace>
-    <AssemblyName>Mammatus.Data.SqlServer</AssemblyName>
+    <RootNamespace>Mammatus.Data.SQLServer</RootNamespace>
+    <AssemblyName>Mammatus.Data.SQLServer</AssemblyName>
     <ModelCollation>1033, CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <TargetLanguage>CS</TargetLanguage>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <SqlServerVerification>False</SqlServerVerification>
@@ -60,23 +60,23 @@
     <Folder Include="ServiceBroker" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ServiceBroker\EndAllConversations.sql" />
-    <None Include="SQLTimeDiffFormatter.sql" />
+    <Build Include="SQLTimeDiffFormatter.sql" />
     <Build Include="SQLStringFormatter.sql" />
-    <None Include="SQLSplit.sql" />
-    <None Include="ListTableRelationships.sql" />
-    <None Include="ListAllTableNames.sql" />
-    <None Include="ListAllTableMetaData.sql" />
-    <None Include="ListAllProcParams.sql" />
-    <None Include="ListAllProcNames.sql" />
-    <None Include="ListAllMetadata.sql" />
-    <None Include="ListAllColumnMetaData.sql" />
+    <Build Include="SQLSplit.sql" />
+    <Build Include="ListTableRelationships.sql" />
+    <Build Include="ListAllTableNames.sql" />
+    <Build Include="ListAllTableMetaData.sql" />
+    <Build Include="ListAllProcParams.sql" />
+    <Build Include="ListAllProcNames.sql" />
+    <Build Include="ListAllMetadata.sql" />
+    <Build Include="ListAllColumnMetaData.sql" />
     <None Include="IndexFragmentation.sql" />
     <None Include="GrantExecOnAllProcs.sql" />
     <None Include="GenerateCrudProcedures.sql" />
     <Build Include="FindWorkingDays.sql" />
     <None Include="FindObjectByName.sql" />
     <None Include="FindDatabaseByTable.sql" />
-    <None Include="DeleteAllProcedures.sql" />
+    <Build Include="DeleteAllProcedures.sql" />
+    <None Include="ServiceBroker\EndAllConversations.sql" />
   </ItemGroup>
 </Project>

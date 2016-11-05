@@ -1,4 +1,8 @@
-﻿using Mammatus.ServiceModel.IntegrationTest.Services;
+﻿using Autofac;
+using Mammatus.ServiceModel.Autofac;
+using Mammatus.ServiceModel.Extensibility.DependencyInjection.Providers;
+using Mammatus.ServiceModel.IntegrationTest.Services;
+using System.Configuration;
 
 namespace Mammatus.ServiceModel.IntegrationTest.Bootstrapper
 {

@@ -1,11 +1,11 @@
-﻿using System;
-using System.ServiceModel;
-using Mammatus.ServiceModel.Extensibility.DependencyInjection.Providers;
+﻿using Mammatus.ServiceModel.Extensibility.DependencyInjection.Providers;
 using Mammatus.ServiceModel.Extensibility.Hosts;
+using System;
+using System.ServiceModel;
 
 namespace Mammatus.ServiceModel.Extensibility.Factories
 {
-    public sealed class IoCServiceHostFactory : ServiceHostFactoryBase
+    public class IoCServiceHostFactory : ServiceHostFactoryBase
     {
         public IoCServiceHostFactory() { }
 

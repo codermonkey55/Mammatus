@@ -35,7 +35,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.2.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.2.0\lib\net45\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Activation" />
@@ -54,6 +59,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Bootstrapper\LoggingInitializer.cs" />
     <Compile Include="Bootstrapper\TestBootstrapper.cs" />
     <Compile Include="ServiceContracts\ITestService.cs" />
     <Compile Include="ServiceHostFactories\TestDependencyInjectionServiceHostFactory.cs" />
@@ -64,10 +70,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Mammatus.ServiceModel.Autofac\Mammatus.ServiceModel.Autofac.csproj">
+      <Project>{289ef3c0-a713-4613-9623-edb50405794e}</Project>
+      <Name>Mammatus.ServiceModel.Autofac</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Mammatus.ServiceModel\Mammatus.ServiceModel.csproj">
       <Project>{BFBD394A-5B20-46FD-BBAC-5E8C0E340B76}</Project>
       <Name>Mammatus.ServiceModel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
