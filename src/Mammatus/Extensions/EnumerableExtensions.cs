@@ -9,8 +9,8 @@ namespace Mammatus.Extensions
     {
         public static IEnumerable<T> ForEach<T>(this IEnumerable<T> source, Action<T> action)
         {
-            var items = source as T[] ?? source.ToArray();
-            if (source != null)
+            var items = source as T[] ?? source?.ToArray();
+            if (items != null)
             {
                 foreach (var item in items)
                 {
@@ -23,7 +23,7 @@ namespace Mammatus.Extensions
         public static IEnumerable<T> ForEach<T>(this IEnumerable<T> source, Action<T, int> action)
         {
             var items = source as T[] ?? source.ToArray();
-            if (source != null)
+            if (items != null)
             {
                 var index = 0;
                 foreach (var item in items)
