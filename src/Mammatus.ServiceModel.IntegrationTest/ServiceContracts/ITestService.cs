@@ -1,4 +1,7 @@
-﻿namespace Mammatus.ServiceModel.IntegrationTest.ServiceContracts
+﻿using System.ServiceModel;
+using System.ServiceModel.Web;
+
+namespace Mammatus.ServiceModel.IntegrationTest.ServiceContracts
 {
     internal interface ITestService
     {

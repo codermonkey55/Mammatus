@@ -1,9 +1,9 @@
-﻿using System.Collections;
+﻿using Mammatus.Extensions;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
-using Mammatus.Enumerable.Extensions;
 
 namespace Mammatus.Library.Collection
 {

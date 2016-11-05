@@ -1,15 +1,15 @@
-﻿using System;
+﻿using Mammatus.Core.Attributes;
+using Mammatus.Core.IoC;
+using Mammatus.Extensions;
+using Mammatus.Helpers;
+using Mammatus.Interface.Contracts;
+using Mammatus.Validation;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-using Mammatus.Core.Attributes;
-using Mammatus.Core.Extensions;
-using Mammatus.Core.IoC;
-using Mammatus.Helpers;
-using Mammatus.Interface.Contracts;
-using Mammatus.Validation;
 
 namespace Mammatus.Core.Application
 {

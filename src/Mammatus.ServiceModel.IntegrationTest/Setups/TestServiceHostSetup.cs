@@ -1,6 +1,7 @@
 ﻿using Mammatus.ServiceModel.IntegrationTest.ServiceHostFactories;
 using Mammatus.ServiceModel.IntegrationTest.Services;
 using System;
+using System.ServiceModel;
 
 namespace Mammatus.ServiceModel.IntegrationTest.Setups
 {

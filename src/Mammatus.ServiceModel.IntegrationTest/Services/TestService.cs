@@ -1,5 +1,8 @@
-﻿using Mammatus.ServiceModel.IntegrationTest.ServiceContracts;
+﻿using Mammatus.ServiceModel.Extensibility.Behaviors.Operation;
+using Mammatus.ServiceModel.IntegrationTest.ServiceContracts;
 using System;
+using System.ServiceModel;
+using System.ServiceModel.Activation;
 using System.Threading;
 
 namespace Mammatus.ServiceModel.IntegrationTest.Services

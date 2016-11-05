@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Mammatus.ServiceModel.Extensibility.Factories;
+using System;
+using System.ServiceModel;
 
 namespace Mammatus.ServiceModel.IntegrationTest.ServiceHostFactories
 {

@@ -1,5 +1,7 @@
 ﻿using Mammatus.ServiceModel.IntegrationTest.Bootstrapper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.ComponentModel;
+using System.ServiceModel;
 
 namespace Mammatus.ServiceModel.IntegrationTest.Setups
 {
