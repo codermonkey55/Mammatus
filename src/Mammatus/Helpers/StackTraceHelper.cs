@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Reflection;
 
 namespace Mammatus.Helpers
@@ -50,8 +51,8 @@ namespace Mammatus.Helpers
             while (methodIndex < frameCount)
             {
                 hasMethod = stackTrace.GetFrame(methodIndex)
-                                        .GetMethod()
-                                        .Name.Equals(methodName, System.StringComparison.CurrentCultureIgnoreCase);
+                                      .GetMethod()
+                                      .Name.Equals(methodName, StringComparison.CurrentCultureIgnoreCase);
 
                 if (hasMethod)
                     break;
