@@ -7,8 +7,6 @@ namespace Mammatus.Extensions
 {
     public static class ReflectionExtensions
     {
-        #region  Properties
-
         /// <summary>
         /// Determines whether the value is the name of one of the given properties.
         /// </summary>
@@ -55,6 +53,16 @@ namespace Mammatus.Extensions
             return info.Name;
         }
 
-        #endregion
+        public static Type[] ToTypeArray(this ParameterInfo[] parameters)
+        {
+            if (parameters.Length == 0)
+                return Type.EmptyTypes;
+            var types = new Type[parameters.Length];
+            for (int i = 0; i < types.Length; i++)
+            {
+                types[i] = parameters[i].ParameterType;
+            }
+            return types;
+        }
     }
 }

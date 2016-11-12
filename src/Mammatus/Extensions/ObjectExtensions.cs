@@ -1,5 +1,6 @@
-﻿using System;
-using Mammatus.Library.Generic;
+﻿using Mammatus.Library.Generic;
+using Mammatus.Library.Reflection.Emitter;
+using System;
 
 namespace Mammatus.Extensions
 {
@@ -48,6 +49,27 @@ namespace Mammatus.Extensions
         public static Option<T> AsOption<T>(this T obj)
         {
             return Option<T>.Create(obj);
+        }
+
+        public static Type GetTypeAdjusted(this object obj)
+        {
+            var wrapper = obj as ValueTypeHolder;
+            return wrapper == null
+                ? obj is Type ? obj as Type : obj.GetType()
+                : wrapper.Value.GetType();
+        }
+
+        public static Type[] ToTypeArray(this object[] objects)
+        {
+            if (objects.Length == 0)
+                return Type.EmptyTypes;
+            var types = new Type[objects.Length];
+            for (int i = 0; i < types.Length; i++)
+            {
+                var obj = objects[i];
+                types[i] = obj != null ? obj.GetType() : null;
+            }
+            return types;
         }
     }
 }

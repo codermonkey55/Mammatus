@@ -63,7 +63,7 @@
     <Compile Include="Extensions\DictionaryExtensions.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Extensions\ExceptionExtensions.cs" />
-    <Compile Include="Delegates\Predicate.cs" />
+    <Compile Include="Delegates\Delegates.cs" />
     <Compile Include="Extensions\FloatExtensions.cs" />
     <Compile Include="Extensions\ListExtensions.cs" />
     <Compile Include="Helpers\StackTraceHelper.cs" />
@@ -73,6 +73,7 @@
     <Compile Include="Library\Mathematics\Combinatorics.cs" />
     <Compile Include="Library\Mathematics\Geometry.cs" />
     <Compile Include="Library\Mathematics\Topology.cs" />
+    <Compile Include="Library\Reflection\Emitter\ValueTypeHolder.cs" />
     <Compile Include="Logging\Enums\AuditLevel.cs" />
     <Compile Include="Logging\Enums\ErrorLevel.cs" />
     <Compile Include="Logging\Enums\LogLevel.cs" />
