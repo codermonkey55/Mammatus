@@ -159,6 +159,8 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Mammatus.Data.MySQL", "Mamm
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Mammatus.Data.SQLServer", "Mammatus.Data.SQLServer\Mammatus.Data.SQLServer.sqlproj", "{4F0AC064-5649-48FB-845A-458A6A9BC1CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.FileSystem", "Mammatus.FileSystem\Mammatus.FileSystem.csproj", "{F490FD28-CDC8-4A56-831F-87977438C9CF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -365,6 +367,10 @@ Global
 		{4F0AC064-5649-48FB-845A-458A6A9BC1CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F0AC064-5649-48FB-845A-458A6A9BC1CF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4F0AC064-5649-48FB-845A-458A6A9BC1CF}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{F490FD28-CDC8-4A56-831F-87977438C9CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F490FD28-CDC8-4A56-831F-87977438C9CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F490FD28-CDC8-4A56-831F-87977438C9CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F490FD28-CDC8-4A56-831F-87977438C9CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
