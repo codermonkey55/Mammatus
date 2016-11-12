@@ -57,7 +57,9 @@
     <Compile Include="Core\Object\IEntity.cs" />
     <Compile Include="Core\Object\IIdentifiableEntity.cs" />
     <Compile Include="Enums\Direction.cs" />
+    <Compile Include="Core\Reflection\Flags.cs" />
     <Compile Include="Extensions\ArrayExtensions.cs" />
+    <Compile Include="Extensions\ConstructorExtensions.cs" />
     <Compile Include="Extensions\DictionaryExtensions.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Extensions\ExceptionExtensions.cs" />
