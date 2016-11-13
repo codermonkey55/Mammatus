@@ -1,15 +1,12 @@
-﻿using System.Collections.Concurrent;
-using System.Collections.Generic;
+﻿using Mammatus.ComponentModel.Containers;
 using Mammatus.Core.IoC;
 using Mammatus.Core.State;
-using Mammatus.ComponentModel;
-using Mammatus.ComponentModel.Containers;
+using System;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
 
-namespace Mammatus.Domain
+namespace Mammatus.Domain.Events
 {
-    using System;
-
-
     public static class DomainEvents
     {
         private const string DomainEventsKey = "Mammatus.Domain.Events";

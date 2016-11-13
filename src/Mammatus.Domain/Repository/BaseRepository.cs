@@ -1,22 +1,21 @@
-﻿using Mammatus.Validation;
+﻿using Mammatus.Core.Data;
+using Mammatus.Domain.Core;
+using Mammatus.Extensions;
+using Mammatus.Validation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
 namespace Mammatus.Domain.Repository
 {
-    using Extensions;
-    using Mammatus.Core.Data;
-    using Mammatus.Domain.Core;
-    using System;
-
-    public abstract class Repository<TEntity, TKey> : IRepository<TEntity, TKey>
+    public abstract class BaseRepository<TEntity, TKey> : IBaseRepository<TEntity, TKey>
         where TEntity : class, IEntity<TKey>
         where TKey : struct, IEquatable<TKey>
     {
         //private readonly ILogger logger;
 
-        protected Repository()
+        protected BaseRepository()
         {
             //this.logger = LoggerManager.GetLogger(GetType());
 

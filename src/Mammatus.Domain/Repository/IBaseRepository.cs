@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using Mammatus.Core.Data;
+﻿using Mammatus.Core.Data;
 using Mammatus.Domain.Core;
+using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace Mammatus.Domain.Repository
 {
-    public interface IRepository<TEntity, TKey>
+    public interface IBaseRepository<TEntity, TKey>
         where TEntity : class, IEntity<TKey>
         where TKey : struct, IEquatable<TKey>
     {

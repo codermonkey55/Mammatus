@@ -4,23 +4,28 @@ namespace Mammatus.Domain.UnitOfWork
 {
     public abstract class AbstractUnitOfWorkFactory : IUnitOfWorkFactory
     {
-        private IState currentContextState;
+        private readonly IState _currentContextState;
 
         public IUnitOfWork Current
         {
             get
             {
-                return currentContextState.Get<IUnitOfWork>("yada");
+                return _currentContextState.Get<IUnitOfWork>("yada");
             }
             private set
             {
-                currentContextState.Store("yada", value);
+                _currentContextState.Store("yada", value);
             }
         }
 
         public AbstractUnitOfWorkFactory()
         {
-            currentContextState = null;
+            _currentContextState = null;
+        }
+
+        public IUnitOfWork Create()
+        {
+            throw new System.NotImplementedException();
         }
 
         public IUnitOfWork Create(UnitOfWorkOption unitOfWorkOption = UnitOfWorkOption.Reuse)

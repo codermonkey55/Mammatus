@@ -1,8 +1,10 @@
-﻿
+﻿using Mammatus.Domain.Enums;
+
 namespace Mammatus.Domain.UnitOfWork
 {
     public interface IUnitOfWorkFactory
     {
-        IUnitOfWork Create(UnitOfWorkOption unitOfWorkOption = UnitOfWorkOption.Reuse);
+        IUnitOfWork Create();
+        IUnitOfWork Create(UnitOfWorkOption unitOfWorkOption);
     }
 }

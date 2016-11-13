@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,18 +42,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\ITenantScopedEntity.cs" />
+    <Compile Include="Core\TenantScopedEntity.cs" />
     <Compile Include="Events\DomainEvents.cs" />
     <Compile Include="Events\IConsumeEvent.cs" />
     <Compile Include="Core\AuditableEntity.cs" />
-    <Compile Include="Core\Entity%27T%27U.cs" />
+    <Compile Include="Core\BaseEntity%27T%27U.cs" />
     <Compile Include="Core\IAuditableEntity.cs" />
     <Compile Include="Core\IEntity.cs" />
     <Compile Include="Core\IEntityAuditTrail.cs" />
     <Compile Include="Core\ValidatableObject.cs" />
     <Compile Include="Core\ValueObject.cs" />
     <Compile Include="Core\ValueObject%27T.cs" />
-    <Compile Include="Repository\Repository.cs" />
-    <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Repository\BaseRepository.cs" />
+    <Compile Include="Repository\IBaseRepository.cs" />
+    <Compile Include="Specification\AndAlsoSpecification.cs" />
+    <Compile Include="Specification\CompositeSpecification.cs" />
+    <Compile Include="Specification\DirectSpecification.cs" />
+    <Compile Include="Specification\ExpressionBuilder.cs" />
+    <Compile Include="Specification\IOrderBySpecification.cs" />
+    <Compile Include="Specification\ISpecification.cs" />
+    <Compile Include="Specification\NotSpecification.cs" />
+    <Compile Include="Specification\OrderBySpecification.cs" />
+    <Compile Include="Specification\OrElseSpecification.cs" />
+    <Compile Include="Specification\ParametersRebinder.cs" />
+    <Compile Include="Specification\Specification.cs" />
+    <Compile Include="Specification\SpecificationExtensions.cs" />
+    <Compile Include="Specification\SpecificationModel.cs" />
+    <Compile Include="Specification\TrueSpecification.cs" />
+    <Compile Include="UnitOfWork\BaseUnitOfWorkFactory.cs" />
+    <Compile Include="UnitOfWork\INestableUnitOfWork.cs" />
     <Compile Include="UnitOfWork\UnitOfWork.cs" />
     <Compile Include="UnitOfWork\UnitOfWorkFactory.cs" />
     <Compile Include="UnitOfWork\AbstractUnitOfWorkFactory.cs" />
@@ -72,6 +91,7 @@
     <Compile Include="Events\ISubscriptionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Events\SubscriptionService.cs" />
+    <Compile Include="UnitOfWork\UnitOfWorkOption.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Mammatus.ComponentModel\Mammatus.ComponentModel.csproj">
