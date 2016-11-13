@@ -2,9 +2,9 @@
 
 namespace Mammatus.Data.NHibernate.FluentMappings.BaseMaps
 {
-    public class CommonMap<TEntity> : ClassMap<TEntity>
+    public class BaseClassMap<TEntity> : ClassMap<TEntity>
     {
-        public CommonMap()
+        public BaseClassMap()
         {
             this.DynamicInsert();
 

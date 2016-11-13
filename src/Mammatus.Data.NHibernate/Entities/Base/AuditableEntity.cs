@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mammatus.Core.Object;
+using System;
 
 namespace Mammatus.Data.NHibernate.Entities.Base
 {

@@ -1,5 +1,5 @@
 ﻿using FluentNHibernate.Mapping;
-using Mammatus.Data.NHibernate.Entities.Components;
+using Mammatus.Data.NHibernate.Components;
 
 namespace Mammatus.Data.NHibernate.FluentMappings.ComponentMaps
 {

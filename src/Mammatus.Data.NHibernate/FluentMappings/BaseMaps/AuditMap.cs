@@ -2,7 +2,7 @@
 
 namespace Mammatus.Data.NHibernate.FluentMappings.BaseMaps
 {
-    public class AuditMap<TEntity> : CommonMap<TEntity> where TEntity : AuditableEntity
+    public class AuditMap<TEntity> : BaseClassMap<TEntity> where TEntity : AuditableEntity
     {
         public AuditMap()
         {

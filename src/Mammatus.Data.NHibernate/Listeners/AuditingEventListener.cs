@@ -1,4 +1,4 @@
-﻿using Mammatus.Data.NHibernate.Entities;
+﻿using Mammatus.Core.Object;
 using NHibernate.Event;
 using NHibernate.Persister.Entity;
 using System;

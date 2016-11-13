@@ -1,10 +1,9 @@
-﻿using Mammatus.Data.NHibernate.Database;
-using NHibernate;
+﻿using NHibernate;
 using System;
 using System.Collections.Generic;
 using System.Data;
 
-namespace Mammatus.Data.NHibernate
+namespace Mammatus.Data.NHibernate.Database
 {
     public interface ISessionManager
     {

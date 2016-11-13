@@ -16,7 +16,7 @@ namespace Mammatus.Data.NHibernate.Interceptors
             var time = DateTime.Now;
             var userName = string.Empty; // --> Find user name here
 
-            var typedEntity = (Entities.Entity)entity;
+            var typedEntity = (Entities.Base.Entity)entity;
             typedEntity.Created = time;
             typedEntity.CreatedBy = userName;
             typedEntity.Modified = time;
@@ -48,7 +48,7 @@ namespace Mammatus.Data.NHibernate.Interceptors
             var indexOfModified = GetIndex(propertyNames, "Modified");
             var indexOfModifiedBy = GetIndex(propertyNames, "ModifiedBy");
 
-            var typedEntity = (Entities.Entity)entity;
+            var typedEntity = (Entities.Base.Entity)entity;
             if (typedEntity.Created == DateTime.MinValue)
             {
                 currentState[indexOfCreated] = time;

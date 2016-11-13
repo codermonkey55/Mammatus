@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Mammatus.Data.NHibernate.Entities
+namespace Mammatus.Data.NHibernate.Entities.Base
 {
     internal class Entity
     {

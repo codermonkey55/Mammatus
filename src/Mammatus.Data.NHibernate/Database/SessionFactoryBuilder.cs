@@ -24,7 +24,7 @@ using System.IO;
 using System.Reflection;
 using Environment = NHibernate.Cfg.Environment;
 
-namespace Mammatus.Data.NHibernate
+namespace Mammatus.Data.NHibernate.Database
 {
     public static class SessionFactoryBuilder
     {
@@ -120,7 +120,7 @@ namespace Mammatus.Data.NHibernate
 
                             cfg.SetProperty("generate_statistics", "true");
                             cfg.SetProperty("timeout", "10");
-                            cfg.EntityCache<Entities.Entity>(ccp => ccp.Strategy = EntityCacheUsage.ReadWrite);
+                            cfg.EntityCache<Entities.Base.Entity>(ccp => ccp.Strategy = EntityCacheUsage.ReadWrite);
 
                             //--> Clears all previous listeners for given listener type and adds the given listener object.
                             cfg.SetListener(ListenerType.FlushEntity, new AuditFieldsDirtyCheckingEventListener());

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Mammatus.Data.NHibernate.Entities.Components
+namespace Mammatus.Data.NHibernate.Components
 {
     public class AuditInfo
     {
