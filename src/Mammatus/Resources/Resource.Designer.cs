@@ -304,6 +304,15 @@ namespace Mammatus.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The page number should be greater than or equal to 0..
+        /// </summary>
+        internal static string PageNumberGreaterThanOrEqualToZero {
+            get {
+                return ResourceManager.GetString("PageNumberGreaterThanOrEqualToZero", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The type {0} cannot be unregistered because there are active threads waiting for an object..
         /// </summary>
         internal static string Type0CannotBeUnregisteredBecauseThereAreActiveThreadsWaitingForAnObject {

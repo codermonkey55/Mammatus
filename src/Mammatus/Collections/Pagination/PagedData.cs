@@ -81,7 +81,7 @@ namespace Mammatus.Collections.Pagination
         }
 
 
-        public PagedData(IEnumerable<T> currentItems, int totalCountOfItems,int currentPage, int itemsPerPage)
+        public PagedData(IEnumerable<T> currentItems, int totalCountOfItems, int currentPage, int itemsPerPage)
         {
             if (_innerArray == null) _innerArray = new ArrayList();
 
@@ -93,7 +93,7 @@ namespace Mammatus.Collections.Pagination
 
             ItemsPerPage = itemsPerPage;
 
-            TotalPages = (int) Math.Ceiling((float) TotalCountOfItems/ItemsPerPage);
+            TotalPages = (int)Math.Ceiling((float)TotalCountOfItems / ItemsPerPage);
 
             HasNextPage = CurrentPage < TotalPages;
 

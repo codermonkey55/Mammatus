@@ -228,4 +228,7 @@
   <data name="UnableToStartProvider" xml:space="preserve">
     <value>Unable to start provider</value>
   </data>
+  <data name="PageNumberGreaterThanOrEqualToZero" xml:space="preserve">
+    <value>The page number should be greater than or equal to 0.</value>
+  </data>
 </root>
