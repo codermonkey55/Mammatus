@@ -39,6 +39,8 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
@@ -56,7 +58,12 @@
     <Compile Include="Core\Object\ICrudEntity.cs" />
     <Compile Include="Core\Object\IEntity.cs" />
     <Compile Include="Core\Object\IIdentifiableEntity.cs" />
+    <Compile Include="Core\State\ApplicationContext.cs" />
+    <Compile Include="Core\State\ContextState.cs" />
     <Compile Include="Enums\Direction.cs" />
+    <Compile Include="Exceptions\AggregateNotFoundException.cs" />
+    <Compile Include="Exceptions\ConstraintException.cs" />
+    <Compile Include="Exceptions\InternalException.cs" />
     <Compile Include="Extensions\ArrayExtensions.cs" />
     <Compile Include="Extensions\DictionaryExtensions.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
@@ -64,6 +71,16 @@
     <Compile Include="Delegates\Delegates.cs" />
     <Compile Include="Extensions\FloatExtensions.cs" />
     <Compile Include="Extensions\ListExtensions.cs" />
+    <Compile Include="Resources\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Security\CertificateHelper.cs" />
+    <Compile Include="Security\CoreIdentity.cs" />
+    <Compile Include="Security\CorePrincipal.cs" />
+    <Compile Include="Security\ICoreIdentity.cs" />
+    <Compile Include="Utils\Inflector.cs" />
     <Compile Include="Helpers\StackTraceHelper.cs" />
     <Compile Include="Library\Image\Enums\ImageFileType.cs" />
     <Compile Include="Library\Mathematics\Alegebra.cs" />
@@ -310,6 +327,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

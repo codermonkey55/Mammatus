@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.Serialization;
 
 namespace Mammatus.Extensions
 {
@@ -38,6 +39,16 @@ namespace Mammatus.Extensions
             }
 
             return default(T);
+        }
+
+        public static string GetDescription(this Enum value)
+        {
+            var attributes
+            = value.GetType().GetField(value.ToString())
+              .GetCustomAttributes(typeof(EnumMemberAttribute), false)
+              as EnumMemberAttribute[];
+
+            return attributes != null && attributes.Length > 0 ? attributes[0].Value : string.Empty;
         }
     }
 }
