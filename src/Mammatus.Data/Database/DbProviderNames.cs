@@ -1,7 +1,7 @@
 
 namespace Mammatus.Data.Database
 {
-    public class DbProvider
+    public class DbProviderNames
     {
         public const string MySqlProvider = "MySql.Data.MySQLClient";
         public const string SQLiteProvider = "System.Data.SQLite";

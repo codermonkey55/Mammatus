@@ -1,4 +1,6 @@
-﻿using System.Data.Common;
+﻿using Mammatus.Data.Enums;
+using Mammatus.Extensions;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Globalization;
 using System.IO;
@@ -18,9 +20,9 @@ namespace Mammatus.Data.Database
         private readonly string connectionString;
         private readonly string providerName;
 
-        public DatabaseManager(string provider, string connectionString)
+        public DatabaseManager(DbProvider provider, string connectionString)
         {
-            this.providerName = provider;
+            this.providerName = provider.GetDescription();
             this.connectionString = connectionString;
             this.connectionProvider = DbProviderFactories.GetFactory(providerName);
         }
@@ -50,19 +52,19 @@ namespace Mammatus.Data.Database
 
         private static void InternalClearAllPools(string providerName)
         {
-            if (providerName == DbProvider.MsSqlProvider)
+            if (providerName == DbProviderNames.MsSqlProvider)
             {
                 SqlConnection.ClearAllPools();
             }
 
-            if (providerName == DbProvider.PostgreSQLProvider)
+            if (providerName == DbProviderNames.PostgreSQLProvider)
             {
                 Type type = Type.GetType("Npgsql.NpgsqlConnection, Npgsql", true);
                 MethodInfo method = type.GetMethod("ClearAllPools", BindingFlags.Static | BindingFlags.Public);
                 method.Invoke(null, null);
             }
 
-            if (providerName == DbProvider.Firebird)
+            if (providerName == DbProviderNames.Firebird)
             {
                 Type type = Type.GetType(
                                 "FirebirdSql.Data.FirebirdClient.FbConnection, FirebirdSql.Data.FirebirdClient", true);
@@ -77,13 +79,13 @@ namespace Mammatus.Data.Database
             string connStr = InternalStripDbName(connectionString, providerName, out dbName, out dbFile);
             var command = new StringBuilder(); // Build SQL Command..
 
-            if (providerName == DbProvider.SQLiteProvider)
+            if (providerName == DbProviderNames.SQLiteProvider)
             {
                 // Do nothing..
                 return;
             }
 
-            if (providerName == DbProvider.SqlCe)
+            if (providerName == DbProviderNames.SqlCe)
             {
                 if (File.Exists(dbName))
                 {
@@ -102,7 +104,7 @@ namespace Mammatus.Data.Database
                 return;
             }
 
-            if (providerName == DbProvider.Firebird)
+            if (providerName == DbProviderNames.Firebird)
             {
                 if (File.Exists(dbName))
                 {
@@ -123,20 +125,20 @@ namespace Mammatus.Data.Database
 
                 return;
             }
-            else if (providerName == DbProvider.OracleDataProvider)
+            else if (providerName == DbProviderNames.OracleDataProvider)
             {
                 throw new NotImplementedException();
             }
-            else if (providerName == DbProvider.PostgreSQLProvider)
+            else if (providerName == DbProviderNames.PostgreSQLProvider)
             {
                 command.AppendFormat(CultureInfo.InvariantCulture, "CREATE DATABASE \"{0}\" WITH ENCODING = 'UTF8'", dbName);
             }
-            else if (providerName == DbProvider.MsSqlProvider)
+            else if (providerName == DbProviderNames.MsSqlProvider)
             {
                 command.AppendFormat(CultureInfo.InvariantCulture, "CREATE DATABASE [{0}] ", dbName);
 
                 // Handle MSSQL AttachDBFile..
-                if (providerName == DbProvider.MsSqlProvider && !string.IsNullOrEmpty(dbFile))
+                if (providerName == DbProviderNames.MsSqlProvider && !string.IsNullOrEmpty(dbFile))
                 {
                     string fname = Path.GetFileNameWithoutExtension(dbFile);
                     string pathname = Path.Combine(Path.GetDirectoryName(dbFile), fname);
@@ -168,7 +170,7 @@ namespace Mammatus.Data.Database
                 //    providerName,
                 //    connStr);
 
-                if (providerName == DbProvider.SQLiteProvider)
+                if (providerName == DbProviderNames.SQLiteProvider)
                 {
                     if (dbName.ToUpperInvariant() == ":MEMORY:")
                     {
@@ -180,36 +182,36 @@ namespace Mammatus.Data.Database
                     }
                 }
 
-                if (providerName == DbProvider.SqlCe || providerName == DbProvider.Firebird)
+                if (providerName == DbProviderNames.SqlCe || providerName == DbProviderNames.Firebird)
                 {
                     return File.Exists(dbName);
                 }
 
                 switch (providerName)
                 {
-                    case DbProvider.MsSqlProvider:
-                    cmdText = string.Format(CultureInfo.InvariantCulture, "select COUNT(*) from sys.sysdatabases where name=\'{0}\'", dbName);
-                    break;
-                    case DbProvider.MySqlProvider:
-                    cmdText = string.Format(
-                                  CultureInfo.InvariantCulture,
-                                  @"SELECT COUNT(*) FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '{0}'",
-                                  dbName);
-                    break;
-                    case DbProvider.OracleDataProvider:
-                    cmdText = "SELECT 1 FROM DUAL";
-                    break;
-                    case DbProvider.PostgreSQLProvider:
-                    cmdText = string.Format(
-                                  CultureInfo.InvariantCulture,
-                                  "select count(*) from pg_catalog.pg_database where datname = '{0}'",
-                                  dbName);
-                    break;
-                default:
-                    throw new NotSupportedException(string.Format(
-                                                        CultureInfo.InvariantCulture,
-                                                        "Provider {0} is not supported",
-                                                        providerName));
+                    case DbProviderNames.MsSqlProvider:
+                        cmdText = string.Format(CultureInfo.InvariantCulture, "select COUNT(*) from sys.sysdatabases where name=\'{0}\'", dbName);
+                        break;
+                    case DbProviderNames.MySqlProvider:
+                        cmdText = string.Format(
+                                      CultureInfo.InvariantCulture,
+                                      @"SELECT COUNT(*) FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '{0}'",
+                                      dbName);
+                        break;
+                    case DbProviderNames.OracleDataProvider:
+                        cmdText = "SELECT 1 FROM DUAL";
+                        break;
+                    case DbProviderNames.PostgreSQLProvider:
+                        cmdText = string.Format(
+                                      CultureInfo.InvariantCulture,
+                                      "select count(*) from pg_catalog.pg_database where datname = '{0}'",
+                                      dbName);
+                        break;
+                    default:
+                        throw new NotSupportedException(string.Format(
+                                                            CultureInfo.InvariantCulture,
+                                                            "Provider {0} is not supported",
+                                                            providerName));
                 }
 
                 object ret = provider.ExecuteScalar(connStr, cmdText);
@@ -257,7 +259,7 @@ namespace Mammatus.Data.Database
             }
 
             // SQLite! (XXX: MsSql has 'Data Source' as a means to specify Server address)
-            if ((providerName == DbProvider.SQLiteProvider || providerName == DbProvider.SqlCe) && builder.TryGetValue("Data Source", out tmp))
+            if ((providerName == DbProviderNames.SQLiteProvider || providerName == DbProviderNames.SqlCe) && builder.TryGetValue("Data Source", out tmp))
             {
                 dbname = tmp.ToString();
                 builder.Remove("Data Source");
@@ -274,7 +276,7 @@ namespace Mammatus.Data.Database
             }
 
             // Oracle SID
-            if (providerName == DbProvider.OracleDataProvider && builder.TryGetValue("Data Source", out tmp))
+            if (providerName == DbProviderNames.OracleDataProvider && builder.TryGetValue("Data Source", out tmp))
             {
                 string connStr = tmp.ToString().Replace(" ", "").Replace("\r", "").Replace("\n", "");
                 Match match = Regex.Match(connStr, @"SERVICE_NAME=([^\)]+)");
@@ -332,27 +334,27 @@ namespace Mammatus.Data.Database
 
             // XXX: Maybe calling this.DatabaseExists prior to deletion would allow for a cleaner error.
 
-            if (providerName == DbProvider.OracleDataProvider)
+            if (providerName == DbProviderNames.OracleDataProvider)
             {
                 throw new NotImplementedException();
             }
-            else if (providerName == DbProvider.SQLiteProvider)
+            else if (providerName == DbProviderNames.SQLiteProvider)
             {
                 if (dbName.ToUpperInvariant() != ":MEMORY:")
                 {
                     File.Delete(dbName);
                 }
             }
-            else if (providerName == DbProvider.SqlCe)
+            else if (providerName == DbProviderNames.SqlCe)
             {
                 File.Delete(dbName);
             }
-            else if (providerName == DbProvider.Firebird)
+            else if (providerName == DbProviderNames.Firebird)
             {
                 InternalClearAllPools(providerName);
                 File.Delete(dbName);
             }
-            else if (providerName == DbProvider.MsSqlProvider)
+            else if (providerName == DbProviderNames.MsSqlProvider)
             {
                 InternalClearAllPools(providerName);
 
@@ -364,7 +366,7 @@ namespace Mammatus.Data.Database
                 this.connectionProvider.ExecuteNonQuery(connStr, cmd);
                 this.connectionProvider.ExecuteNonQuery(connStr, string.Format(CultureInfo.InvariantCulture, "DROP DATABASE [{0}]", dbName));
             }
-            else if (providerName == DbProvider.PostgreSQLProvider)
+            else if (providerName == DbProviderNames.PostgreSQLProvider)
             {
                 this.connectionProvider.ExecuteNonQuery(connStr, string.Format(CultureInfo.InvariantCulture, "DROP DATABASE \"{0}\"", dbName));
             }
