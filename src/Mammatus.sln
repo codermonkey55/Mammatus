@@ -159,6 +159,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Messaging", "Messaging", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.Messaging.MassTransit", "Mammatus.Messaging.MassTransit\Mammatus.Messaging.MassTransit.csproj", "{343ADF3C-9D1A-4F84-819D-8195567FB9AB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mammatus.ServiceBus", "Mammatus.ServiceBus\Mammatus.ServiceBus.csproj", "{13AD11F5-D1FE-4AE9-AA2A-DEE317DBF977}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -361,6 +363,10 @@ Global
 		{343ADF3C-9D1A-4F84-819D-8195567FB9AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{343ADF3C-9D1A-4F84-819D-8195567FB9AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{343ADF3C-9D1A-4F84-819D-8195567FB9AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13AD11F5-D1FE-4AE9-AA2A-DEE317DBF977}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13AD11F5-D1FE-4AE9-AA2A-DEE317DBF977}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13AD11F5-D1FE-4AE9-AA2A-DEE317DBF977}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13AD11F5-D1FE-4AE9-AA2A-DEE317DBF977}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
