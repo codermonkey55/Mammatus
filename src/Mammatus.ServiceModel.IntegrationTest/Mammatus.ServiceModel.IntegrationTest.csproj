@@ -70,9 +70,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Mammatus.ServiceModel.Autofac\Mammatus.ServiceModel.Autofac.csproj">
-      <Project>{289ef3c0-a713-4613-9623-edb50405794e}</Project>
-      <Name>Mammatus.ServiceModel.Autofac</Name>
+    <ProjectReference Include="..\Mammatus.Integration.Wcf.Autofac\Mammatus.Integration.Wcf.Autofac.csproj">
+      <Project>{EA7EC854-8A14-46C9-AA21-A73F447B4FC5}</Project>
+      <Name>Mammatus.Integration.Wcf.Autofac</Name>
     </ProjectReference>
     <ProjectReference Include="..\Mammatus.ServiceModel\Mammatus.ServiceModel.csproj">
       <Project>{BFBD394A-5B20-46FD-BBAC-5E8C0E340B76}</Project>

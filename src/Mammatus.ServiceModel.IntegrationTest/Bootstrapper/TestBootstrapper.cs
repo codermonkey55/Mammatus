@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using Mammatus.ServiceModel.Autofac;
+using Mammatus.Integration.Wcf.Autofac;
 using Mammatus.ServiceModel.Extensibility.DependencyInjection.Providers;
 using Mammatus.ServiceModel.IntegrationTest.Services;
 using System.Configuration;
