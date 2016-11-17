@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Mammatus.Documents.iTextSharp")]
+[assembly: AssemblyTitle("Mammatus.Integration.Wcf.Autofac")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Mammatus.Documents.iTextSharp")]
+[assembly: AssemblyProduct("Mammatus.Integration.Wcf.Autofac")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("f43e030f-c171-433a-9904-b035563ee944")]
+[assembly: Guid("ea7ec854-8a14-46c9-aa21-a73f447b4fc5")]
 
 // Version information for an assembly consists of the following four values:
 //

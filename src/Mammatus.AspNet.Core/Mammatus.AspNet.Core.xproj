@@ -7,11 +7,11 @@
 
   <Import Project="$(VSToolsPath)\DotNet\Microsoft.DotNet.Props" Condition="'$(VSToolsPath)' != ''" />
   <PropertyGroup Label="Globals">
-    <ProjectGuid>e0d00da8-458a-4808-9333-70b575e49ac8</ProjectGuid>
-    <RootNamespace>Mammatus.AspNetCore</RootNamespace>
+    <ProjectGuid>ffcad95d-47b0-4a97-9f29-34770c194462</ProjectGuid>
+    <RootNamespace>Mammatus.AspNet.Core</RootNamespace>
     <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)'=='' ">.\obj</BaseIntermediateOutputPath>
     <OutputPath Condition="'$(OutputPath)'=='' ">.\bin\</OutputPath>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
   </PropertyGroup>
 
   <PropertyGroup>
