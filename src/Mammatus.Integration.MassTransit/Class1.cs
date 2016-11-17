@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mammatus.ComponentModel.Container.Ninject
+namespace Mammatus.Integration.MassTransit
 {
     public class Class1
     {

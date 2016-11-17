@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mammatus.Serialization.Newtonsoft
+namespace Mammatus.Extensions.Newtonsoft
 {
     public class Class1
     {

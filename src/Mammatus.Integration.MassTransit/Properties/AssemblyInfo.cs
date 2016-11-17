@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Mammatus.Serialization.Newtonsoft")]
+[assembly: AssemblyTitle("Mammatus.Integration.MassTransit")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("by adguard")]
-[assembly: AssemblyProduct("Mammatus.Serialization.Newtonsoft")]
-[assembly: AssemblyCopyright("Copyright © by adguard 2016")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("Mammatus.Integration.MassTransit")]
+[assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("6ea5459a-213d-461e-b4a6-76dbdd81de16")]
+[assembly: Guid("5f448126-f6b1-473b-a398-344d941d56c7")]
 
 // Version information for an assembly consists of the following four values:
 //
