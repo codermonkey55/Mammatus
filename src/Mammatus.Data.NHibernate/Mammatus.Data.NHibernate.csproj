@@ -72,10 +72,11 @@
     <Compile Include="Conventions\StringLength.cs" />
     <Compile Include="Conventions\TableNames.cs" />
     <Compile Include="Database\NHExtendedSession.cs" />
-    <Compile Include="DbOperations\INHUnitOfWork.cs" />
-    <Compile Include="DbOperations\NHRepository.cs" />
-    <Compile Include="DbOperations\NHUnitOfWork.cs" />
-    <Compile Include="DbOperations\NHUnitOfWorkFactory.cs" />
+    <Compile Include="Operations\INHStatelessUnitOfWork.cs" />
+    <Compile Include="Operations\INHSessionUnitOfWork.cs" />
+    <Compile Include="Operations\NHRepository.cs" />
+    <Compile Include="Operations\NHUnitOfWork.cs" />
+    <Compile Include="Operations\NHUnitOfWorkFactory.cs" />
     <Compile Include="Entities\Base\AuditableEntity.cs" />
     <Compile Include="Entities\Base\Entity%27T.cs" />
     <Compile Include="Entities\Base\Entity.cs" />
