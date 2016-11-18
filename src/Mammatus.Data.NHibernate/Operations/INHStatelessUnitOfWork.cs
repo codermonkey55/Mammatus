@@ -3,8 +3,8 @@ using NHibernate;
 
 namespace Mammatus.Data.NHibernate.DbOperations
 {
-    public interface INHUnitOfWork : INestableUnitOfWork
+    public interface INHStatelessUnitOfWork : INestableUnitOfWork
     {
-        ISession Session { get; }
+        IStatelessSession Session { get; }
     }
 }

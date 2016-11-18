@@ -164,7 +164,7 @@ namespace Mammatus.Data.NHibernate.DbOperations
         {
             get
             {
-                INHUnitOfWork unitOfWork = this.Current as INHUnitOfWork;
+                INHSessionUnitOfWork unitOfWork = this.Current as INHSessionUnitOfWork;
                 Guard.IsNotNull(unitOfWork, "No UnitOfWork in scope!!!");
 
                 return unitOfWork.Session;
@@ -236,7 +236,7 @@ namespace Mammatus.Data.NHibernate.DbOperations
             ISession session = this.sessionFactory.OpenSession();
             session.Transaction.Begin();
 
-            INHUnitOfWork newUnitOfWork = new NHUnitOfWork(session, previousUnitOfWork, this);
+            INHSessionUnitOfWork newUnitOfWork = new NHUnitOfWork(session, previousUnitOfWork, this);
             return newUnitOfWork;
         }
     }

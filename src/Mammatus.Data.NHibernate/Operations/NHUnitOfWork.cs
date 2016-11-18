@@ -6,7 +6,7 @@ using System.Transactions;
 
 namespace Mammatus.Data.NHibernate.DbOperations
 {
-    public class NHUnitOfWork : INHUnitOfWork
+    public class NHUnitOfWork : INHSessionUnitOfWork
     {
         private ISession session;
         private readonly NHUnitOfWorkFactory _factory;
@@ -21,6 +21,16 @@ namespace Mammatus.Data.NHibernate.DbOperations
         public IUnitOfWork Previous { get; private set; }
 
         public ISession Session { get { return this.session; } }
+
+        public void BeginTransaction()
+        {
+            this.session.BeginTransaction();
+        }
+
+        public void EndTransaction()
+        {
+            this.session.Transaction.Dispose();
+        }
 
         /// <summary>
         /// Commit all changes made in  a container.
