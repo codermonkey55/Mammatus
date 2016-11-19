@@ -71,6 +71,13 @@
     <Compile Include="Delegates\Delegates.cs" />
     <Compile Include="Extensions\FloatExtensions.cs" />
     <Compile Include="Extensions\ListExtensions.cs" />
+    <Compile Include="Library\TimeZone\DateTimeAndZone.cs" />
+    <Compile Include="Library\TimeZone\DateTimeHelper.cs" />
+    <Compile Include="Attributes\StringValueAttribute.cs" />
+    <Compile Include="Library\TimeZone\TimeZoneByStateAndCountry.cs" />
+    <Compile Include="Library\TimeZone\TimeZoneId.cs" />
+    <Compile Include="Library\TimeZone\TimeZoneIdMap.cs" />
+    <Compile Include="Library\TimeZone\TimeZoneShortNameMap.cs" />
     <Compile Include="Resources\Resource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
