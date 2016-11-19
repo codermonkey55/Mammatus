@@ -1,5 +1,5 @@
-﻿using System;
-using Mammatus.Time;
+﻿using Mammatus.Time;
+using System;
 
 namespace Mammatus.Extensions
 {
@@ -18,6 +18,67 @@ namespace Mammatus.Extensions
         public static DateTimeDiff Years(this int offset)
         {
             return new DateTimeDiff(offset, (x, y) => x.AddYears(y));
+        }
+
+        /// <summary>
+        /// Returns first day of week for given DateTime instance
+        /// </summary>
+        /// <param name="dateTimeValue">DateTime instance</param>
+        /// <returns>Result as DateTime instance</returns>
+        public static DateTime FirstDayOfWeek(this DateTime dateTimeValue)
+        {
+            switch (dateTimeValue.DayOfWeek)
+            {
+                case DayOfWeek.Monday:
+                    return dateTimeValue;
+                case DayOfWeek.Tuesday:
+                    return dateTimeValue.AddDays(-1);
+                case DayOfWeek.Wednesday:
+                    return dateTimeValue.AddDays(-2);
+                case DayOfWeek.Thursday:
+                    return dateTimeValue.AddDays(-3);
+                case DayOfWeek.Friday:
+                    return dateTimeValue.AddDays(-4);
+                case DayOfWeek.Saturday:
+                    return dateTimeValue.AddDays(-5);
+                case DayOfWeek.Sunday:
+                    return dateTimeValue.AddDays(-6);
+                default:
+                    {
+                        return dateTimeValue;
+                    }
+            }
+        }
+
+        /// <summary>
+        /// Returns first day of month for given DateTime instance
+        /// </summary>
+        /// <param name="dateTimeValue">DateTime instance</param>
+        /// <returns>Result as DateTime instance</returns>
+        public static DateTime FirstDayOfMonth(this DateTime dateTimeValue)
+        {
+            return dateTimeValue.AddDays(-(dateTimeValue.Day - 1));
+        }
+
+        /// <summary>
+        /// Returns last day of month for given DateTime instance
+        /// </summary>
+        /// <param name="dateTimeValue">DateTime instance</param>
+        /// <returns>Result as DateTime instance</returns>
+        public static DateTime LastDayOfMonth(this DateTime dateTimeValue)
+        {
+            return dateTimeValue.AddMonths(1).AddDays(-dateTimeValue.Day);
+        }
+
+        /// <summary>
+        /// Converts the given UTC <see cref="DateTime"/> to the specified <see cref="TimeZoneInfo"/> using the system local TimeZoneId.
+        /// </summary>
+        /// <param name="utcDateTimeValue"></param>
+        /// <param name="timeZoneid"></param>
+        /// <returns></returns>
+        public static DateTime ToTimeZone(this DateTime utcDateTimeValue, string timeZoneid)
+        {
+            return TimeZoneInfo.ConvertTimeFromUtc(utcDateTimeValue, TimeZoneInfo.FindSystemTimeZoneById(timeZoneid));
         }
 
         #region Timestamps
