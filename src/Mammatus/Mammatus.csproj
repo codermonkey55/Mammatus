@@ -143,6 +143,7 @@
     <Compile Include="Security\ICoreIdentity.cs" />
     <Compile Include="Core\ValueObjects\AttributeInfo.cs" />
     <Compile Include="Extensions\EnumerationExtensions.cs" />
+    <Compile Include="Utils\GenericEqualityComparer.cs" />
     <Compile Include="Utils\Inflector.cs" />
     <Compile Include="Helpers\StackTraceHelper.cs" />
     <Compile Include="Library\Image\Enums\ImageFileType.cs" />
@@ -336,6 +337,8 @@
     <Compile Include="IO\Enums\FileSize.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\TypeExtensions.cs" />
+    <Compile Include="Utils\GenericComparer.cs" />
+    <Compile Include="Utils\PropertyComparer.cs" />
     <Compile Include="Validation\CheckIf.cs" />
     <Compile Include="Validation\Guard.cs" />
     <Compile Include="Validation\FilePathValidator.cs" />
