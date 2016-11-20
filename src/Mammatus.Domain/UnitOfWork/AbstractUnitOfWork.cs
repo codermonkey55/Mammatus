@@ -1,5 +1,4 @@
-﻿using Mammatus.Domain.Enums;
-using System;
+﻿using System;
 using System.ComponentModel;
 
 namespace Mammatus.Domain.UnitOfWork
@@ -26,6 +25,16 @@ namespace Mammatus.Domain.UnitOfWork
             IUnitOfWorkFactory factory = UnitOfWorkFactory.Instance;
 
             return factory.Create(unitOfWorkOption);
+        }
+
+        public void BeginTransaction()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void EndTransaction()
+        {
+            throw new NotImplementedException();
         }
 
         public void Commit()
