@@ -106,7 +106,7 @@ namespace Mammatus.Extensions
             return source;
         }
 
-        public static IList<T> ToReadOnlyCollection<T>(this IEnumerable<T> enumerable)
+        public static IReadOnlyCollection<T> ToReadOnlyCollection<T>(this IEnumerable<T> enumerable)
         {
             return new ReadOnlyCollection<T>(enumerable.ToList());
         }
@@ -181,9 +181,14 @@ namespace Mammatus.Extensions
             }
         }
 
-        public static void InParallelWith<T, U>(this IEnumerable<T> iterable1, IEnumerable<U> iterable2, Action<T, U> callback)
+        public static void InParallelWith<T, U>(this IEnumerable<T> iterable1,
+                                                IEnumerable<U> iterable2,
+                                                Action<T, U> callback)
         {
-            if (iterable1.Count() != iterable2.Count()) throw new ArgumentException(string.Format("Both IEnumerables must be the same length, iterable1: {0}, iterable2: {1}", iterable1.Count(), iterable2.Count()));
+            if (iterable1.Count() != iterable2.Count())
+                throw new ArgumentException(
+                    string.Format("Both IEnumerables must be the same length, iterable1: {0}, iterable2: {1}",
+                        iterable1.Count(), iterable2.Count()));
 
             var i1Enumerator = iterable1.GetEnumerator();
             var i2Enumerator = iterable2.GetEnumerator();
@@ -195,7 +200,8 @@ namespace Mammatus.Extensions
             }
         }
 
-        public static void InParallelWith(this IEnumerable iterable1, IEnumerable iterable2, Action<object, object> callback)
+        public static void InParallelWith(this IEnumerable iterable1, IEnumerable iterable2,
+            Action<object, object> callback)
         {
             var i1Enumerator = iterable1.GetEnumerator();
             var i2Enumerator = iterable2.GetEnumerator();
@@ -203,7 +209,10 @@ namespace Mammatus.Extensions
             var i2Count = 0;
             while (i1Enumerator.MoveNext()) ++i1Count;
             while (i2Enumerator.MoveNext()) ++i2Count;
-            if (i1Count != i2Count) throw new ArgumentException(string.Format("Both IEnumerables must be the same length, iterable1: {0}, iterable2: {1}", i1Count, i2Count));
+            if (i1Count != i2Count)
+                throw new ArgumentException(
+                    string.Format("Both IEnumerables must be the same length, iterable1: {0}, iterable2: {1}", i1Count,
+                        i2Count));
 
             i1Enumerator.Reset();
             i2Enumerator.Reset();
@@ -234,6 +243,26 @@ namespace Mammatus.Extensions
         {
             // MoveNext returns false if we are at the end of the collection
             return iterable.GetEnumerator().MoveNext();
+        }
+
+        public static IEnumerable<TSource> AddItem<TSource>(this IEnumerable<TSource> source, TSource item)
+        {
+            return source.Concat(new TSource[] { item });
+        }
+
+        public static IEnumerable<TSource> InsertItem<TSource>(this IEnumerable<TSource> source,
+                                                               TSource item,
+                                                               int index)
+        {
+            index = index - 1 >= 0
+                ? index
+                : 0;
+
+            var enumerable = source as TSource[] ?? source.ToArray();
+            return enumerable
+                .Take(index)
+                .AddItem(item)
+                .Concat(enumerable.Skip(index));
         }
     }
 }

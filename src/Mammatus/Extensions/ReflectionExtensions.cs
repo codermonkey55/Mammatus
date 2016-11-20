@@ -1,6 +1,7 @@
 ﻿
 using Mammatus.Core.ValueObjects;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -10,6 +11,13 @@ namespace Mammatus.Extensions
 {
     public static class ReflectionExtensions
     {
+        private static readonly ConcurrentDictionary<Type, FieldInfo[]> _fieldMap;
+
+        static ReflectionExtensions()
+        {
+            _fieldMap = new ConcurrentDictionary<Type, FieldInfo[]>();
+        }
+
         /// <summary>
         /// Determines whether the value is the name of one of the given properties.
         /// </summary>
@@ -54,6 +62,17 @@ namespace Mammatus.Extensions
             var body = propertyExpression.Body as MemberExpression;
             var info = body.Member as PropertyInfo;
             return info.Name;
+        }
+
+        public static FieldInfo[] GetFieldsFromType(this Type type)
+        {
+            FieldInfo[] fields = null;
+            if (_fieldMap.TryGetValue(type, out fields))
+                return fields;
+
+            fields = type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+            _fieldMap[type] = fields;
+            return fields;
         }
 
         public static Type[] ToTypeArray(this ParameterInfo[] parameters)

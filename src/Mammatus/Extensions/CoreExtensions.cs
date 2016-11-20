@@ -57,8 +57,8 @@ namespace Mammatus.Extensions
             return propertyInfo.IsNavigable();
         }
 
-        static Dictionary<string, bool> BrowsableProperties = new Dictionary<string, bool>();
-        static Dictionary<string, PropertyInfo[]> BrowsablePropertyInfos = new Dictionary<string, PropertyInfo[]>();
+        static readonly Dictionary<string, bool> BrowsableProperties = new Dictionary<string, bool>();
+        static readonly Dictionary<string, PropertyInfo[]> BrowsablePropertyInfos = new Dictionary<string, PropertyInfo[]>();
 
         public static bool IsBrowsable(this object obj, PropertyInfo property)
         {

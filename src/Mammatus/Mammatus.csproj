@@ -74,7 +74,9 @@
     <Compile Include="Extensions\ExceptionExtensions.cs" />
     <Compile Include="Delegates\Delegates.cs" />
     <Compile Include="Extensions\FloatExtensions.cs" />
+    <Compile Include="Extensions\GenericExtensions.cs" />
     <Compile Include="Extensions\ListExtensions.cs" />
+    <Compile Include="Extensions\NullableExtensions.cs" />
     <Compile Include="Library\Mail\ConnectCommand.cs" />
     <Compile Include="Library\Mail\ConnectResponse.cs" />
     <Compile Include="Library\Mail\DeleCommand.cs" />
@@ -143,6 +145,7 @@
     <Compile Include="Security\ICoreIdentity.cs" />
     <Compile Include="Core\ValueObjects\AttributeInfo.cs" />
     <Compile Include="Extensions\EnumerationExtensions.cs" />
+    <Compile Include="Utils\LamdaEqualityComparer.cs" />
     <Compile Include="Utils\GenericEqualityComparer.cs" />
     <Compile Include="Utils\Inflector.cs" />
     <Compile Include="Helpers\StackTraceHelper.cs" />

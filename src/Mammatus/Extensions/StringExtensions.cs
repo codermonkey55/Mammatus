@@ -1787,10 +1787,6 @@ namespace Mammatus.Extensions
             return false;
         }
 
-        //private static readonly CultureInfo CultureHelper.CultureUSA = new CultureInfo("en-us");
-        //private static CultureInfo CultureHelper.Argentina = new CultureInfo("es-ar");
-
-
         public static string ToLink(this string text, string href, string target = "")
         {
             return "<a href='" + href + "' " + (target.IsNullOrEmpty() ? "" : " target='" + target + "'") + ">" + text +
@@ -2527,7 +2523,7 @@ namespace Mammatus.Extensions
             return true;
         }
 
-        public static bool ContainsOnlyDigits(this string text) //ver
+        public static bool ContainsOnlyDigits(this string text)
         {
             foreach (var car in text)
             {
@@ -2536,12 +2532,12 @@ namespace Mammatus.Extensions
             return true;
         }
 
-        public static string OnlyDigits(this string text) //ver
+        public static string OnlyDigits(this string text)
         {
             return text.OnlyDigits(null);
         }
 
-        public static bool NotContainsDigits(this string text) //Ver
+        public static bool NotContainsDigits(this string text)
         {
             foreach (var car in text)
             {
@@ -2550,7 +2546,7 @@ namespace Mammatus.Extensions
             return true;
         }
 
-        public static bool ContainsDigit(this string text) //ver
+        public static bool ContainsDigit(this string text)
         {
             foreach (var car in text)
             {
@@ -2559,7 +2555,7 @@ namespace Mammatus.Extensions
             return false;
         }
 
-        public static string OnlyDigits(this string text, IEnumerable<char> excepciones) //ver
+        public static string OnlyDigits(this string text, IEnumerable<char> excepciones)
         {
             var res = new StringBuilder();
             foreach (char car in text)
@@ -2572,12 +2568,12 @@ namespace Mammatus.Extensions
             return res.ToString();
         }
 
-        public static bool IncludeDigits(this string text) //ver
+        public static bool IncludeDigits(this string text)
         {
             return text.IncludeDigits(0);
         }
 
-        public static bool IncludeDigits(this string text, int minCount) //ver
+        public static bool IncludeDigits(this string text, int minCount)
         {
             var count = 0;
             foreach (var car in text)
@@ -2592,12 +2588,12 @@ namespace Mammatus.Extensions
             return false;
         }
 
-        public static bool IncludeLetters(this string text) //ver
+        public static bool IncludeLetters(this string text)
         {
             return text.IncludeLetters(0);
         }
 
-        public static bool IncludeLetters(this string text, int minCount) //ver
+        public static bool IncludeLetters(this string text, int minCount)
         {
             var count = 0;
             foreach (var car in text)
@@ -2761,7 +2757,7 @@ namespace Mammatus.Extensions
         /// </summary>
         /// <param name="c"></param>
         /// <returns>AscII value of the char</returns>
-        public static int ASCIIValue(this char c)
+        public static int AsciiValue(this char c)
         {
             int num;
             int num2 = Convert.ToInt32(c);
