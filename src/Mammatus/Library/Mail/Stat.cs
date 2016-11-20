@@ -1,37 +1,24 @@
 ﻿using System;
 
-
-namespace Mammatus.Library.POP3
+namespace Mammatus.Library.Mail
 {
     /// <summary>
-    /// This class represents the results from the execution 
+    /// This class represents the results from the execution
     /// of a pop3 STAT command.
     /// </summary>
     public sealed class Stat
     {
-        private int _messageCount;
-
         /// <summary>
         /// Gets or sets the message count.
         /// </summary>
         /// <value>The message count.</value>
-        public int MessageCount
-        {
-            get { return _messageCount; }
-            set { _messageCount = value; }
-        }
-
-        private long _octets;
+        public int MessageCount { get; set; }
 
         /// <summary>
         /// Gets or sets the octets.
         /// </summary>
         /// <value>The octets.</value>
-        public long Octets
-        {
-            get { return _octets; }
-            set { _octets = value; }
-        }
+        public long Octets { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Stat"/> class.
@@ -49,8 +36,8 @@ namespace Mammatus.Library.POP3
             {
                 throw new ArgumentOutOfRangeException("octets");
             }
-            _messageCount = messageCount;
-            _octets = octets;
+            MessageCount = messageCount;
+            Octets = octets;
         }
     }
 }

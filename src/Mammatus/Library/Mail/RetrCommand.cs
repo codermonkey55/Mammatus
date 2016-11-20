@@ -1,13 +1,14 @@
 ﻿using System;
 using System.IO;
-namespace Mammatus.Library.POP3
+
+namespace Mammatus.Library.Mail
 {
     /// <summary>
     /// This class represents the Pop3 RETR command.
     /// </summary>
     internal sealed class RetrCommand : Pop3Command<RetrResponse>
     {
-        int _message;
+        readonly int _message;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RetrCommand"/> class.

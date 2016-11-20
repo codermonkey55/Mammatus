@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace Mammatus.Library.Reflection
+namespace Mammatus.Library.Reflection.Common
 {
     /// <summary>
     /// This class encapsulates common <see cref="BindingFlags"/> combinations and provides various

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace Mammatus.Library.POP3
+namespace Mammatus.Library.Mail
 {
     /// <summary>
     /// This class represents a Pop3 response message and
@@ -10,39 +10,23 @@ namespace Mammatus.Library.POP3
     /// </summary>
     internal class Pop3Response
     {
-        private byte[] _responseContents;
         /// <summary>
         /// Gets the response contents.
         /// </summary>
         /// <value>The response contents.</value>
-        internal byte[] ResponseContents
-        {
-            get
-            {
-                return _responseContents;
-            }
-        }
+        internal byte[] ResponseContents { get; }
 
-        private bool _statusIndicator;
         /// <summary>
         /// Gets a value indicating whether message was <c>true</c> +OK or <c>false</c> -ERR
         /// </summary>
         /// <value><c>true</c> if [status indicator]; otherwise, <c>false</c>.</value>
-        public bool StatusIndicator
-        {
-            get { return _statusIndicator; }
-        }
+        public bool StatusIndicator { get; }
 
-        private string _hostMessage;
         /// <summary>
         /// Gets the host message.
         /// </summary>
         /// <value>The host message.</value>
-        public string HostMessage
-        {
-            get { return _hostMessage; }
-        }
-
+        public string HostMessage { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Pop3Response"/> class.
@@ -62,9 +46,9 @@ namespace Mammatus.Library.POP3
                 throw new ArgumentNullException("hostMessage");
             }
 
-            _responseContents = responseContents;
-            _hostMessage = hostMessage;
-            _statusIndicator = statusIndicator;
+            ResponseContents = responseContents;
+            HostMessage = hostMessage;
+            StatusIndicator = statusIndicator;
         }
 
         /// <summary>

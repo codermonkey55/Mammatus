@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Mammatus.Library.Reflection.Extensions.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace Mammatus.Library.Reflection
+namespace Mammatus.Library.Reflection.Common
 {
     internal static class MemberFilter
     {

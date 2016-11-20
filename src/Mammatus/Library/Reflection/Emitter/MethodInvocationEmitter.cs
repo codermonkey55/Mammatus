@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mammatus.Library.Reflection.Common;
+using System;
 using System.Reflection;
 using System.Reflection.Emit;
 
@@ -28,8 +29,8 @@ namespace Mammatus.Library.Reflection.Emitter
 
         protected internal override DynamicMethod CreateDynamicMethod()
         {
-            return CreateDynamicMethod("invoke", CallInfo.TargetType, Constants.ObjectType,
-                new[] { Constants.ObjectType, Constants.ObjectType.MakeArrayType() });
+            return CreateDynamicMethod("invoke", CallInfo.TargetType, Common.Constants.ObjectType,
+                new[] { Common.Constants.ObjectType, Common.Constants.ObjectType.MakeArrayType() });
         }
 
         protected internal override Delegate CreateDelegate()
@@ -37,7 +38,7 @@ namespace Mammatus.Library.Reflection.Emitter
             var method = (MethodInfo)CallInfo.MemberInfo ?? LookupUtils.GetMethod(CallInfo);
             CallInfo.IsStatic = method.IsStatic;
             const byte paramArrayIndex = 1;
-            bool hasReturnType = method.ReturnType != Constants.VoidType;
+            bool hasReturnType = method.ReturnType != Common.Constants.VoidType;
 
             byte startUsableLocalIndex = 0;
             if (CallInfo.HasRefParam)
@@ -46,7 +47,7 @@ namespace Mammatus.Library.Reflection.Emitter
                 // create by_ref_locals from argument array
                 Generator.DeclareLocal(hasReturnType
                                             ? method.ReturnType
-                                            : Constants.ObjectType); // T result;
+                                            : Common.Constants.ObjectType); // T result;
                 GenerateInvocation(method, paramArrayIndex, (byte)(startUsableLocalIndex + 1));
                 if (hasReturnType)
                 {
@@ -58,7 +59,7 @@ namespace Mammatus.Library.Reflection.Emitter
             {
                 Generator.DeclareLocal(hasReturnType
                                             ? method.ReturnType
-                                            : Constants.ObjectType); // T result;
+                                            : Common.Constants.ObjectType); // T result;
                 GenerateInvocation(method, paramArrayIndex, (byte)(startUsableLocalIndex + 1));
                 if (hasReturnType)
                 {

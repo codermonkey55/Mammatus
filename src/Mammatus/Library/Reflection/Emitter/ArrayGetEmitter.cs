@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mammatus.Library.Reflection.Common;
+using System;
 using System.Reflection;
 using System.Reflection.Emit;
 
@@ -8,14 +9,14 @@ namespace Mammatus.Library.Reflection.Emitter
     {
         public ArrayGetEmitter(Type targetType)
             : base(new CallInfo(targetType, null, Flags.InstanceAnyVisibility, MemberTypes.Method,
-                                     Constants.ArrayGetterName, new[] { typeof(int) }, null, true))
+                                     Common.Constants.ArrayGetterName, new[] { typeof(int) }, null, true))
         {
         }
 
         protected internal override DynamicMethod CreateDynamicMethod()
         {
-            return CreateDynamicMethod(Constants.ArrayGetterName, CallInfo.TargetType,
-                                        Constants.ObjectType, new[] { Constants.ObjectType, Constants.IntType });
+            return CreateDynamicMethod(Common.Constants.ArrayGetterName, CallInfo.TargetType,
+                                        Common.Constants.ObjectType, new[] { Common.Constants.ObjectType, Common.Constants.IntType });
         }
 
         protected internal override Delegate CreateDelegate()

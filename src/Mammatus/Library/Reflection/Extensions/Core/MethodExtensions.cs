@@ -1,10 +1,11 @@
+using Mammatus.Library.Reflection.Common;
 using Mammatus.Library.Reflection.Emitter;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace Mammatus.Library.Reflection
+namespace Mammatus.Library.Reflection.Extensions.Core
 {
     /// <summary>
     /// Extension methods for locating, inspecting and invoking methods.
@@ -76,7 +77,7 @@ namespace Mammatus.Library.Reflection
         /// <see cref="NullReferenceException"/> is thrown.  If you are not sure as to whether
         /// any element is <c>null</c> or not, use the overload that accepts <c>paramTypes</c> array.
         /// </remarks>
-        /// <seealso cref="CallMethod(object,string,System.Type[],Mammatus.Library.Reflection.Flags,object[])"/>
+        /// <seealso cref="CallMethod(object,string,System.Type[],Flags,object[])"/>
         public static object CallMethod(this object obj, string name, Flags bindingFlags, params object[] parameters)
         {
             return DelegateForCallMethod(obj.GetTypeAdjusted(), null, name, bindingFlags, parameters.ToTypeArray())

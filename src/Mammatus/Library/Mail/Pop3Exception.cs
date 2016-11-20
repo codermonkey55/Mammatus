@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Runtime.Serialization;
 
-namespace Mammatus.Library.POP3
+namespace Mammatus.Library.Mail
 {
     /// <summary>
     /// This class represents a Pop3 Exception.
     /// </summary>
-    [global::System.Serializable]
+    [Serializable]
     public class Pop3Exception : Exception
     {
         /// <summary>
@@ -32,8 +33,8 @@ namespace Mammatus.Library.POP3
         /// <exception cref="T:System.Runtime.Serialization.SerializationException">The class name is null or <see cref="P:System.Exception.HResult"></see> is zero (0). </exception>
         /// <exception cref="T:System.ArgumentNullException">The info parameter is null. </exception>
         protected Pop3Exception(
-          System.Runtime.Serialization.SerializationInfo info,
-          System.Runtime.Serialization.StreamingContext context)
+          SerializationInfo info,
+          StreamingContext context)
             : base(info, context) { }
     }
 }

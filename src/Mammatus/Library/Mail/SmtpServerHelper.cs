@@ -2,92 +2,42 @@
 using System.Collections;
 using System.Net.Sockets;
 using System.Text;
-using Mammatus.Enums;
 
-namespace Mammatus.Library.Mail_Xofly
+namespace Mammatus.Library.Mail
 {
-    /// <summary>
-    /// 邮件操作
-    /// </summary>
     public class SmtpServerHelper
     {
-        #region 构造函数、析构函数
         public SmtpServerHelper()
         {
-            SMTPCodeAdd();
+            SmtpCodeAdd();
         }
 
         ~SmtpServerHelper()
         {
-            networkStream.Close();
-            tcpClient.Close();
+            _networkStream.Close();
+            _tcpClient.Close();
         }
-        #endregion
 
-        #region 私有字段
-        /// <summary>
-        /// 回车换行
-        /// </summary>
-        private string CRLF = "\r\n";
+        private readonly string _crlf = "\r\n";
 
-        /// <summary>
-        /// 错误消息反馈
-        /// </summary>
-        private string errmsg;
+        private TcpClient _tcpClient;
 
-        /// <summary>
-        /// TcpClient对象，用于连接服务器
-        /// </summary>
-        private TcpClient tcpClient;
+        private NetworkStream _networkStream;
 
-        /// <summary>
-        /// NetworkStream对象
-        /// </summary>
-        private NetworkStream networkStream;
+        private string _logs = "";
 
-        /// <summary>
-        /// 服务器交互记录
-        /// </summary>
-        private string logs = "";
+        private readonly Hashtable _errCodeHt = new Hashtable();
 
-        /// <summary>
-        /// SMTP错误代码哈希表
-        /// </summary>
-        private Hashtable ErrCodeHT = new Hashtable();
+        private readonly Hashtable _rightCodeHt = new Hashtable();
 
-        /// <summary>
-        /// SMTP正确代码哈希表
-        /// </summary>
-        private Hashtable RightCodeHT = new Hashtable();
-        #endregion
+        public string ErrMsg { set; get; }
 
-        #region 公有属性
-        /// <summary>
-        /// 错误消息反馈
-        /// </summary>
-        public string ErrMsg
-        {
-            set { errmsg = value; }
-            get { return errmsg; }
-        }
-        #endregion
-
-        #region 私有方法
-        /// <summary>
-        /// 将字符串编码为Base64字符串
-        /// </summary>
-        /// <param name="str">要编码的字符串</param>
         private string Base64Encode(string str)
         {
-            byte[] barray;
-            barray = Encoding.Default.GetBytes(str);
+            var barray = Encoding.Default.GetBytes(str);
             return Convert.ToBase64String(barray);
         }
 
-        /// <summary>
-        /// 将Base64字符串解码为普通字符串
-        /// </summary>
-        /// <param name="str">要解码的字符串</param>
         private string Base64Decode(string str)
         {
             byte[] barray;
@@ -95,112 +45,94 @@ namespace Mammatus.Library.Mail_Xofly
             return Encoding.Default.GetString(barray);
         }
 
-        /// <summary>
-        /// 得到上传附件的文件流
-        /// </summary>
-        /// <param name="FilePath">附件的绝对路径</param>
-        private string GetStream(string FilePath)
+        private string GetStream(string filePath)
         {
-            System.IO.FileStream FileStr = new System.IO.FileStream(FilePath, System.IO.FileMode.Open);
-            byte[] by = new byte[System.Convert.ToInt32(FileStr.Length)];
-            FileStr.Read(by, 0, by.Length);
-            FileStr.Close();
+            System.IO.FileStream fileStr = new System.IO.FileStream(filePath, System.IO.FileMode.Open);
+            byte[] by = new byte[System.Convert.ToInt32(fileStr.Length)];
+            fileStr.Read(by, 0, by.Length);
+            fileStr.Close();
             return (System.Convert.ToBase64String(by));
         }
 
-        /// <summary>
-        /// SMTP回应代码哈希表
-        /// </summary>
-        private void SMTPCodeAdd()
+        private void SmtpCodeAdd()
         {
-            ErrCodeHT.Add("421", "服务未就绪，关闭传输信道");
-            ErrCodeHT.Add("432", "需要一个密码转换");
-            ErrCodeHT.Add("450", "要求的邮件操作未完成，邮箱不可用（例如，邮箱忙）");
-            ErrCodeHT.Add("451", "放弃要求的操作；处理过程中出错");
-            ErrCodeHT.Add("452", "系统存储不足，要求的操作未执行");
-            ErrCodeHT.Add("454", "临时认证失败");
-            ErrCodeHT.Add("500", "邮箱地址错误");
-            ErrCodeHT.Add("501", "参数格式错误");
-            ErrCodeHT.Add("502", "命令不可实现");
-            ErrCodeHT.Add("503", "服务器需要SMTP验证");
-            ErrCodeHT.Add("504", "命令参数不可实现");
-            ErrCodeHT.Add("530", "需要认证");
-            ErrCodeHT.Add("534", "认证机制过于简单");
-            ErrCodeHT.Add("538", "当前请求的认证机制需要加密");
-            ErrCodeHT.Add("550", "要求的邮件操作未完成，邮箱不可用（例如，邮箱未找到，或不可访问）");
-            ErrCodeHT.Add("551", "用户非本地，请尝试<forward-path>");
-            ErrCodeHT.Add("552", "过量的存储分配，要求的操作未执行");
-            ErrCodeHT.Add("553", "邮箱名不可用，要求的操作未执行（例如邮箱格式错误）");
-            ErrCodeHT.Add("554", "传输失败");
+            _errCodeHt.Add("421", "，");
+            _errCodeHt.Add("432", "");
+            _errCodeHt.Add("450", "，（，）");
+            _errCodeHt.Add("451", "；");
+            _errCodeHt.Add("452", "，");
+            _errCodeHt.Add("454", "");
+            _errCodeHt.Add("500", "");
+            _errCodeHt.Add("501", "");
+            _errCodeHt.Add("502", "");
+            _errCodeHt.Add("503", "");
+            _errCodeHt.Add("504", "");
+            _errCodeHt.Add("530", "");
+            _errCodeHt.Add("534", "");
+            _errCodeHt.Add("538", "");
+            _errCodeHt.Add("550", "，（，，）");
+            _errCodeHt.Add("551", "，<forward-path>");
+            _errCodeHt.Add("552", "，");
+            _errCodeHt.Add("553", "，（）");
+            _errCodeHt.Add("554", "");
 
-            RightCodeHT.Add("220", "服务就绪");
-            RightCodeHT.Add("221", "服务关闭传输信道");
-            RightCodeHT.Add("235", "验证成功");
-            RightCodeHT.Add("250", "要求的邮件操作完成");
-            RightCodeHT.Add("251", "非本地用户，将转发向<forward-path>");
-            RightCodeHT.Add("334", "服务器响应验证Base64字符串");
-            RightCodeHT.Add("354", "开始邮件输入，以<CRLF>.<CRLF>结束");
+            _rightCodeHt.Add("220", "");
+            _rightCodeHt.Add("221", "");
+            _rightCodeHt.Add("235", "");
+            _rightCodeHt.Add("250", "");
+            _rightCodeHt.Add("251", "，<forward-path>");
+            _rightCodeHt.Add("334", "");
+            _rightCodeHt.Add("354", "，<CRLF>.<CRLF>");
         }
 
-        /// <summary>
-        /// 发送SMTP命令
-        /// </summary>
         private bool SendCommand(string str)
         {
-            byte[] WriteBuffer;
+            byte[] writeBuffer;
             if (str == null || str.Trim() == String.Empty)
             {
                 return true;
             }
-            logs += str;
-            WriteBuffer = Encoding.Default.GetBytes(str);
+            _logs += str;
+            writeBuffer = Encoding.Default.GetBytes(str);
             try
             {
-                networkStream.Write(WriteBuffer, 0, WriteBuffer.Length);
+                _networkStream.Write(writeBuffer, 0, writeBuffer.Length);
             }
             catch
             {
-                errmsg = "网络连接错误";
+                ErrMsg = "";
                 return false;
             }
             return true;
         }
 
-        /// <summary>
-        /// 接收SMTP服务器回应
-        /// </summary>
         private string RecvResponse()
         {
-            int StreamSize;
-            string Returnvalue = String.Empty;
-            byte[] ReadBuffer = new byte[1024];
+            int streamSize;
+            string returnvalue = String.Empty;
+            byte[] readBuffer = new byte[1024];
             try
             {
-                StreamSize = networkStream.Read(ReadBuffer, 0, ReadBuffer.Length);
+                streamSize = _networkStream.Read(readBuffer, 0, readBuffer.Length);
             }
             catch
             {
-                errmsg = "网络连接错误";
+                ErrMsg = "";
                 return "false";
             }
 
-            if (StreamSize == 0)
+            if (streamSize == 0)
             {
-                return Returnvalue;
+                return returnvalue;
             }
             else
             {
-                Returnvalue = Encoding.Default.GetString(ReadBuffer).Substring(0, StreamSize);
-                logs += Returnvalue + this.CRLF;
-                return Returnvalue;
+                returnvalue = Encoding.Default.GetString(readBuffer).Substring(0, streamSize);
+                _logs += returnvalue + this._crlf;
+                return returnvalue;
             }
         }
 
-        /// <summary>
-        /// 与服务器交互，发送一条命令并接收回应。
-        /// </summary>
-        /// <param name="str">一个要发送的命令</param>
-        /// <param name="errstr">如果错误，要反馈的信息</param>
         private bool Dialog(string str, string errstr)
         {
             if (str == null || str.Trim() == string.Empty)
@@ -209,30 +141,29 @@ namespace Mammatus.Library.Mail_Xofly
             }
             if (SendCommand(str))
             {
-                string RR = RecvResponse();
-                if (RR == "false")
+                string rr = RecvResponse();
+                if (rr == "false")
                 {
                     return false;
                 }
 
-                //检查返回的代码，根据[RFC 821]返回代码为3位数字代码如220
-                string RRCode = RR.Substring(0, 3);
-                if (RightCodeHT[RRCode] != null)
+                string rrCode = rr.Substring(0, 3);
+                if (_rightCodeHt[rrCode] != null)
                 {
                     return true;
                 }
                 else
                 {
-                    if (ErrCodeHT[RRCode] != null)
+                    if (_errCodeHt[rrCode] != null)
                     {
-                        errmsg += (RRCode + ErrCodeHT[RRCode].ToString());
-                        errmsg += CRLF;
+                        ErrMsg += (rrCode + _errCodeHt[rrCode].ToString());
+                        ErrMsg += _crlf;
                     }
                     else
                     {
-                        errmsg += RR;
+                        ErrMsg += rr;
                     }
-                    errmsg += errstr;
+                    ErrMsg += errstr;
                     return false;
                 }
             }
@@ -242,51 +173,41 @@ namespace Mammatus.Library.Mail_Xofly
             }
         }
 
-        /// <summary>
-        /// 与服务器交互，发送一组命令并接收回应。
-        /// </summary>
         private bool Dialog(string[] str, string errstr)
         {
             for (int i = 0; i < str.Length; i++)
             {
                 if (!Dialog(str[i], ""))
                 {
-                    errmsg += CRLF;
-                    errmsg += errstr;
+                    ErrMsg += _crlf;
+                    ErrMsg += errstr;
                     return false;
                 }
             }
             return true;
         }
 
-        /// <summary>
-        /// 连接服务器
-        /// </summary>
         private bool Connect(string smtpServer, int port)
         {
             try
             {
-                tcpClient = new TcpClient(smtpServer, port);
+                _tcpClient = new TcpClient(smtpServer, port);
             }
             catch (Exception e)
             {
-                errmsg = e.ToString();
+                ErrMsg = e.ToString();
                 return false;
             }
-            networkStream = tcpClient.GetStream();
+            _networkStream = _tcpClient.GetStream();
 
-            if (RightCodeHT[RecvResponse().Substring(0, 3)] == null)
+            if (_rightCodeHt[RecvResponse().Substring(0, 3)] == null)
             {
-                errmsg = "网络连接失败";
+                ErrMsg = "";
                 return false;
             }
             return true;
         }
 
-        /// <summary>
-        /// 获取优先级
-        /// </summary>
-        /// <param name="mailPriority">优先级</param>
         private string GetPriorityString(MailPriority mailPriority)
         {
             string priority = "Normal";
@@ -301,58 +222,46 @@ namespace Mammatus.Library.Mail_Xofly
             return priority;
         }
 
-        /// <summary>
-        /// 发送电子邮件
-        /// </summary>
-        /// <param name="smtpServer">发信SMTP服务器</param>
-        /// <param name="port">端口，默认为25</param>
-        /// <param name="username">发信人邮箱地址</param>
-        /// <param name="password">发信人邮箱密码</param>
-        /// <param name="mailMessage">邮件内容</param>
-        private bool SendEmail(string smtpServer, int port, bool ESmtp, string username, string password, MailMessage mailMessage)
+        private bool SendEmail(string smtpServer, int port, bool eSmtp, string username, string password, MailMessage mailMessage)
         {
             if (Connect(smtpServer, port) == false) return false;
 
             string priority = GetPriorityString(mailMessage.Priority);
 
-            bool Html = (mailMessage.BodyFormat == MailFormat.Html);
+            bool html = (mailMessage.BodyFormat == MailFormat.Html);
 
-            string[] SendBuffer;
-            string SendBufferstr;
+            string[] sendBuffer;
+            string sendBufferstr;
 
-            //进行SMTP验证
-            if (ESmtp)
+            if (eSmtp)
             {
-                SendBuffer = new String[4];
-                SendBuffer[0] = "EHLO " + smtpServer + CRLF;
-                SendBuffer[1] = "AUTH LOGIN" + CRLF;
-                SendBuffer[2] = Base64Encode(username) + CRLF;
-                SendBuffer[3] = Base64Encode(password) + CRLF;
-                if (!Dialog(SendBuffer, "SMTP服务器验证失败，请核对用户名和密码。")) return false;
+                sendBuffer = new String[4];
+                sendBuffer[0] = "EHLO " + smtpServer + _crlf;
+                sendBuffer[1] = "AUTH LOGIN" + _crlf;
+                sendBuffer[2] = Base64Encode(username) + _crlf;
+                sendBuffer[3] = Base64Encode(password) + _crlf;
+                if (!Dialog(sendBuffer, "，。")) return false;
             }
             else
             {
-                SendBufferstr = "HELO " + smtpServer + CRLF;
-                if (!Dialog(SendBufferstr, "")) return false;
+                sendBufferstr = "HELO " + smtpServer + _crlf;
+                if (!Dialog(sendBufferstr, "")) return false;
             }
 
-            //发件人地址
-            SendBufferstr = "MAIL FROM:<" + username + ">" + CRLF;
-            if (!Dialog(SendBufferstr, "发件人地址错误，或不能为空")) return false;
+            sendBufferstr = "MAIL FROM:<" + username + ">" + _crlf;
+            if (!Dialog(sendBufferstr, "，")) return false;
 
-            //收件人地址
-            SendBuffer = new string[mailMessage.Recipients.Count];
+            sendBuffer = new string[mailMessage.Recipients.Count];
             for (int i = 0; i < mailMessage.Recipients.Count; i++)
             {
-                SendBuffer[i] = "RCPT TO:<" + (string)mailMessage.Recipients[i] + ">" + CRLF;
+                sendBuffer[i] = "RCPT TO:<" + (string)mailMessage.Recipients[i] + ">" + _crlf;
             }
-            if (!Dialog(SendBuffer, "收件人地址有误")) return false;
+            if (!Dialog(sendBuffer, "")) return false;
 
-            SendBufferstr = "DATA" + CRLF;
-            if (!Dialog(SendBufferstr, "")) return false;
+            sendBufferstr = "DATA" + _crlf;
+            if (!Dialog(sendBufferstr, "")) return false;
 
-            //发件人姓名
-            SendBufferstr = "From:" + mailMessage.FromName + "<" + mailMessage.From + ">" + CRLF;
+            sendBufferstr = "From:" + mailMessage.FromName + "<" + mailMessage.From + ">" + _crlf;
 
             if (mailMessage.Recipients.Count == 0)
             {
@@ -360,112 +269,93 @@ namespace Mammatus.Library.Mail_Xofly
             }
             else
             {
-                SendBufferstr += "To:=?" + mailMessage.Charset.ToUpper() + "?B?" + Base64Encode((string)mailMessage.Recipients[0]) + "?=" + "<" + (string)mailMessage.Recipients[0] + ">" + CRLF;
+                sendBufferstr += "To:=?" + mailMessage.Charset.ToUpper() + "?B?" + Base64Encode((string)mailMessage.Recipients[0]) + "?=" + "<" + (string)mailMessage.Recipients[0] + ">" + _crlf;
             }
-            SendBufferstr += ((mailMessage.Subject == String.Empty || mailMessage.Subject == null) ? "Subject:" : ((mailMessage.Charset == "") ? ("Subject:" + mailMessage.Subject) : ("Subject:" + "=?" + mailMessage.Charset.ToUpper() + "?B?" + Base64Encode(mailMessage.Subject) + "?="))) + CRLF;
-            SendBufferstr += "X-Priority:" + priority + CRLF;
-            SendBufferstr += "X-MSMail-Priority:" + priority + CRLF;
-            SendBufferstr += "Importance:" + priority + CRLF;
-            SendBufferstr += "X-Mailer: Lion.Web.Mail.SmtpMail Pubclass [cn]" + CRLF;
-            SendBufferstr += "MIME-Version: 1.0" + CRLF;
+            sendBufferstr += (string.IsNullOrEmpty(mailMessage.Subject) ? "Subject:" : ((mailMessage.Charset == "") ? ("Subject:" + mailMessage.Subject) : ("Subject:" + "=?" + mailMessage.Charset.ToUpper() + "?B?" + Base64Encode(mailMessage.Subject) + "?="))) + _crlf;
+            sendBufferstr += "X-Priority:" + priority + _crlf;
+            sendBufferstr += "X-MSMail-Priority:" + priority + _crlf;
+            sendBufferstr += "Importance:" + priority + _crlf;
+            sendBufferstr += "X-Mailer: Lion.Web.Mail.SmtpMail Pubclass [cn]" + _crlf;
+            sendBufferstr += "MIME-Version: 1.0" + _crlf;
             if (mailMessage.Attachments.Count != 0)
             {
-                SendBufferstr += "Content-Type: multipart/mixed;" + CRLF;
-                SendBufferstr += " boundary=\"=====" + (Html ? "001_Dragon520636771063_" : "001_Dragon303406132050_") + "=====\"" + CRLF + CRLF;
+                sendBufferstr += "Content-Type: multipart/mixed;" + _crlf;
+                sendBufferstr += " boundary=\"=====" + (html ? "001_Dragon520636771063_" : "001_Dragon303406132050_") + "=====\"" + _crlf + _crlf;
             }
-            if (Html)
+            if (html)
             {
                 if (mailMessage.Attachments.Count == 0)
                 {
-                    SendBufferstr += "Content-Type: multipart/alternative;" + CRLF; //内容格式和分隔符
-                    SendBufferstr += " boundary=\"=====003_Dragon520636771063_=====\"" + CRLF + CRLF;
-                    SendBufferstr += "This is a multi-part message in MIME format." + CRLF + CRLF;
+                    sendBufferstr += "Content-Type: multipart/alternative;" + _crlf;
+                    sendBufferstr += " boundary=\"=====003_Dragon520636771063_=====\"" + _crlf + _crlf;
+                    sendBufferstr += "This is a multi-part message in MIME format." + _crlf + _crlf;
                 }
                 else
                 {
-                    SendBufferstr += "This is a multi-part message in MIME format." + CRLF + CRLF;
-                    SendBufferstr += "--=====001_Dragon520636771063_=====" + CRLF;
-                    SendBufferstr += "Content-Type: multipart/alternative;" + CRLF; //内容格式和分隔符
-                    SendBufferstr += " boundary=\"=====003_Dragon520636771063_=====\"" + CRLF + CRLF;
+                    sendBufferstr += "This is a multi-part message in MIME format." + _crlf + _crlf;
+                    sendBufferstr += "--=====001_Dragon520636771063_=====" + _crlf;
+                    sendBufferstr += "Content-Type: multipart/alternative;" + _crlf;
+                    sendBufferstr += " boundary=\"=====003_Dragon520636771063_=====\"" + _crlf + _crlf;
                 }
-                SendBufferstr += "--=====003_Dragon520636771063_=====" + CRLF;
-                SendBufferstr += "Content-Type: text/plain;" + CRLF;
-                SendBufferstr += ((mailMessage.Charset == "") ? (" charset=\"iso-8859-1\"") : (" charset=\"" + mailMessage.Charset.ToLower() + "\"")) + CRLF;
-                SendBufferstr += "Content-Transfer-Encoding: base64" + CRLF + CRLF;
-                SendBufferstr += Base64Encode("邮件内容为HTML格式，请选择HTML方式查看") + CRLF + CRLF;
+                sendBufferstr += "--=====003_Dragon520636771063_=====" + _crlf;
+                sendBufferstr += "Content-Type: text/plain;" + _crlf;
+                sendBufferstr += ((mailMessage.Charset == "") ? (" charset=\"iso-8859-1\"") : (" charset=\"" + mailMessage.Charset.ToLower() + "\"")) + _crlf;
+                sendBufferstr += "Content-Transfer-Encoding: base64" + _crlf + _crlf;
+                sendBufferstr += Base64Encode("，") + _crlf + _crlf;
 
-                SendBufferstr += "--=====003_Dragon520636771063_=====" + CRLF;
+                sendBufferstr += "--=====003_Dragon520636771063_=====" + _crlf;
 
-                SendBufferstr += "Content-Type: text/html;" + CRLF;
-                SendBufferstr += ((mailMessage.Charset == "") ? (" charset=\"iso-8859-1\"") : (" charset=\"" + mailMessage.Charset.ToLower() + "\"")) + CRLF;
-                SendBufferstr += "Content-Transfer-Encoding: base64" + CRLF + CRLF;
-                SendBufferstr += Base64Encode(mailMessage.Body) + CRLF + CRLF;
-                SendBufferstr += "--=====003_Dragon520636771063_=====--" + CRLF;
+                sendBufferstr += "Content-Type: text/html;" + _crlf;
+                sendBufferstr += ((mailMessage.Charset == "") ? (" charset=\"iso-8859-1\"") : (" charset=\"" + mailMessage.Charset.ToLower() + "\"")) + _crlf;
+                sendBufferstr += "Content-Transfer-Encoding: base64" + _crlf + _crlf;
+                sendBufferstr += Base64Encode(mailMessage.Body) + _crlf + _crlf;
+                sendBufferstr += "--=====003_Dragon520636771063_=====--" + _crlf;
             }
             else
             {
                 if (mailMessage.Attachments.Count != 0)
                 {
-                    SendBufferstr += "--=====001_Dragon303406132050_=====" + CRLF;
+                    sendBufferstr += "--=====001_Dragon303406132050_=====" + _crlf;
                 }
-                SendBufferstr += "Content-Type: text/plain;" + CRLF;
-                SendBufferstr += ((mailMessage.Charset == "") ? (" charset=\"iso-8859-1\"") : (" charset=\"" + mailMessage.Charset.ToLower() + "\"")) + CRLF;
-                SendBufferstr += "Content-Transfer-Encoding: base64" + CRLF + CRLF;
-                SendBufferstr += Base64Encode(mailMessage.Body) + CRLF;
+                sendBufferstr += "Content-Type: text/plain;" + _crlf;
+                sendBufferstr += ((mailMessage.Charset == "") ? (" charset=\"iso-8859-1\"") : (" charset=\"" + mailMessage.Charset.ToLower() + "\"")) + _crlf;
+                sendBufferstr += "Content-Transfer-Encoding: base64" + _crlf + _crlf;
+                sendBufferstr += Base64Encode(mailMessage.Body) + _crlf;
             }
             if (mailMessage.Attachments.Count != 0)
             {
                 for (int i = 0; i < mailMessage.Attachments.Count; i++)
                 {
                     string filepath = (string)mailMessage.Attachments[i];
-                    SendBufferstr += "--=====" + (Html ? "001_Dragon520636771063_" : "001_Dragon303406132050_") + "=====" + CRLF;
-                    SendBufferstr += "Content-Type: text/plain;" + CRLF;
-                    SendBufferstr += " name=\"=?" + mailMessage.Charset.ToUpper() + "?B?" + Base64Encode(filepath.Substring(filepath.LastIndexOf("\\") + 1)) + "?=\"" + CRLF;
-                    SendBufferstr += "Content-Transfer-Encoding: base64" + CRLF;
-                    SendBufferstr += "Content-Disposition: attachment;" + CRLF;
-                    SendBufferstr += " filename=\"=?" + mailMessage.Charset.ToUpper() + "?B?" + Base64Encode(filepath.Substring(filepath.LastIndexOf("\\") + 1)) + "?=\"" + CRLF + CRLF;
-                    SendBufferstr += GetStream(filepath) + CRLF + CRLF;
+                    sendBufferstr += "--=====" + (html ? "001_Dragon520636771063_" : "001_Dragon303406132050_") + "=====" + _crlf;
+                    sendBufferstr += "Content-Type: text/plain;" + _crlf;
+                    sendBufferstr += " name=\"=?" + mailMessage.Charset.ToUpper() + "?B?" + Base64Encode(filepath.Substring(filepath.LastIndexOf("\\") + 1)) + "?=\"" + _crlf;
+                    sendBufferstr += "Content-Transfer-Encoding: base64" + _crlf;
+                    sendBufferstr += "Content-Disposition: attachment;" + _crlf;
+                    sendBufferstr += " filename=\"=?" + mailMessage.Charset.ToUpper() + "?B?" + Base64Encode(filepath.Substring(filepath.LastIndexOf("\\") + 1)) + "?=\"" + _crlf + _crlf;
+                    sendBufferstr += GetStream(filepath) + _crlf + _crlf;
                 }
-                SendBufferstr += "--=====" + (Html ? "001_Dragon520636771063_" : "001_Dragon303406132050_") + "=====--" + CRLF + CRLF;
+                sendBufferstr += "--=====" + (html ? "001_Dragon520636771063_" : "001_Dragon303406132050_") + "=====--" + _crlf + _crlf;
             }
-            SendBufferstr += CRLF + "." + CRLF;
-            if (!Dialog(SendBufferstr, "错误信件信息")) return false;
+            sendBufferstr += _crlf + "." + _crlf;
+            if (!Dialog(sendBufferstr, "")) return false;
 
-            SendBufferstr = "QUIT" + CRLF;
-            if (!Dialog(SendBufferstr, "断开连接时错误")) return false;
+            sendBufferstr = "QUIT" + _crlf;
+            if (!Dialog(sendBufferstr, "")) return false;
 
-            networkStream.Close();
-            tcpClient.Close();
+            _networkStream.Close();
+            _tcpClient.Close();
             return true;
         }
-        #endregion
 
-        #region 公有方法
-        /// <summary>
-        /// 发送电子邮件,SMTP服务器不需要身份验证
-        /// </summary>
-        /// <param name="smtpServer">发信SMTP服务器</param>
-        /// <param name="port">端口，默认为25</param>
-        /// <param name="mailMessage">邮件内容</param>
         public bool SendEmail(string smtpServer, int port, MailMessage mailMessage)
         {
             return SendEmail(smtpServer, port, false, "", "", mailMessage);
         }
 
-        /// <summary>
-        /// 发送电子邮件,SMTP服务器需要身份验证
-        /// </summary>
-        /// <param name="smtpServer">发信SMTP服务器</param>
-        /// <param name="port">端口，默认为25</param>
-        /// <param name="username">发信人邮箱地址</param>
-        /// <param name="password">发信人邮箱密码</param>
-        /// <param name="mailMessage">邮件内容</param>
         public bool SendEmail(string smtpServer, int port, string username, string password, MailMessage mailMessage)
         {
             return SendEmail(smtpServer, port, true, username, password, mailMessage);
         }
-        #endregion
     }
-
 }
-

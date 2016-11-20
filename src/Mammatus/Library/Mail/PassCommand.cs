@@ -1,15 +1,14 @@
 ﻿using System;
 using System.IO;
 
-
-namespace Mammatus.Library.POP3
+namespace Mammatus.Library.Mail
 {
     /// <summary>
     /// This class represents the Pop3 PASS command.
     /// </summary>
     internal sealed class PassCommand : Pop3Command<Pop3Response>
     {
-        private string _password;
+        private readonly string _password;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PassCommand"/> class.
@@ -21,7 +20,7 @@ namespace Mammatus.Library.POP3
         {
             if (string.IsNullOrEmpty(password))
             {
-                throw new ArgumentNullException("password");
+                throw new ArgumentNullException(nameof(password));
             }
 
             _password = password;

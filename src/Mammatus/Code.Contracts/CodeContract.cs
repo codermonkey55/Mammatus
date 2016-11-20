@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Mammatus.Code.Contracts.Exceptions;
+using Mammatus.Extensions;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using Mammatus.Extensions;
 
 namespace Mammatus.Code.Contracts
 {

@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Mammatus.Library.Reflection.Common;
+using Mammatus.Library.Reflection.Extensions.Core;
+using System;
 using System.Text;
 
-namespace Mammatus.Library.Reflection
+namespace Mammatus.Library.Reflection.Extensions.Services
 {
     /// <summary>
     /// This class defines extensions for transforming any object to XML.
@@ -9,6 +11,7 @@ namespace Mammatus.Library.Reflection
     public static class XmlTransformerExtensions
     {
         #region ToXml
+
         /// <summary>
         /// Generates a string representation of the given <paramref name="obj"/> using the default
         /// <see href="FormatOptions" />. The output will contain one element for every readable
@@ -43,9 +46,11 @@ namespace Mammatus.Library.Reflection
             string header = addHeader ? "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" + Environment.NewLine : string.Empty;
             return ToXml(obj, header, afterElement, indent, String.Empty);
         }
+
         #endregion
 
         #region ToXml Implementation
+
         private static string ToXml(object obj, string header, string afterElementDecoration,
                                      string indentDecoration, string currentIndent)
         {
@@ -94,6 +99,7 @@ namespace Mammatus.Library.Reflection
         {
             return currentIndent.Substring(0, currentIndent.Length - indent.Length);
         }
+
         #endregion
     }
 }

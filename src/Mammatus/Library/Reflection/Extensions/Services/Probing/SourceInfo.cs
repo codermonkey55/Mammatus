@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Mammatus.Library.Reflection.Common;
+using Mammatus.Library.Reflection.Extensions.Core;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace Mammatus.Library.Reflection.Probing
+namespace Mammatus.Library.Reflection.Extensions.Services.Probing
 {
     internal class SourceInfo
     {

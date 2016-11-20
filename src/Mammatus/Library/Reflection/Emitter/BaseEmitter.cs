@@ -10,10 +10,10 @@ namespace Mammatus.Library.Reflection.Emitter
         private static readonly Cache<CallInfo, Delegate> cache = new Cache<CallInfo, Delegate>();
 
         protected static readonly MethodInfo StructGetMethod =
-            Constants.StructType.GetMethod("get_Value", BindingFlags.Public | BindingFlags.Instance);
+            Common.Constants.StructType.GetMethod("get_Value", BindingFlags.Public | BindingFlags.Instance);
 
         protected static readonly MethodInfo StructSetMethod =
-            Constants.StructType.GetMethod("set_Value", BindingFlags.Public | BindingFlags.Instance);
+            Common.Constants.StructType.GetMethod("set_Value", BindingFlags.Public | BindingFlags.Instance);
 
         protected CallInfo CallInfo;
         protected DynamicMethod Method;
@@ -52,7 +52,7 @@ namespace Mammatus.Library.Reflection.Emitter
         protected void LoadInnerStructToLocal(byte localPosition)
         {
             Generator
-                .castclass(Constants.StructType) // (ValueTypeHolder)wrappedStruct
+                .castclass(Common.Constants.StructType) // (ValueTypeHolder)wrappedStruct
                 .callvirt(StructGetMethod) // <stack>.get_Value()
                 .unbox_any(CallInfo.TargetType) // unbox <stack>
                 .stloc(localPosition) // localStr = <stack>
@@ -68,7 +68,7 @@ namespace Mammatus.Library.Reflection.Emitter
         {
             Generator
                 .ldarg(argPosition)
-                .castclass(Constants.StructType) // wrappedStruct = (ValueTypeHolder)this
+                .castclass(Common.Constants.StructType) // wrappedStruct = (ValueTypeHolder)this
                 .ldloc(localPosition) // load localStr
                 .boxIfValueType(CallInfo.TargetType) // box <stack>
                 .callvirt(StructSetMethod); // wrappedStruct.set_Value(<stack>)

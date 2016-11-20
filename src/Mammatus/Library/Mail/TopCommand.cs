@@ -1,12 +1,12 @@
 ﻿using System;
 using System.IO;
 
-namespace Mammatus.Library.POP3
+namespace Mammatus.Library.Mail
 {
     internal sealed class TopCommand : Pop3Command<RetrResponse>
     {
-        private int _messageNumber;
-        private int _lineCount;
+        private readonly int _messageNumber;
+        private readonly int _lineCount;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TopCommand"/> class.

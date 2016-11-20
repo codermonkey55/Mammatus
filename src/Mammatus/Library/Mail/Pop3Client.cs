@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Sockets;
-using Mammatus.Library.Mime;
 
-namespace Mammatus.Library.POP3
+namespace Mammatus.Library.Mail
 {
     /// <summary>
     /// The Pop3Client class provides a wrapper for the Pop3 commands
@@ -33,67 +32,41 @@ namespace Mammatus.Library.POP3
             }
         }
 
-        private string _hostname;
         /// <summary>
         /// Gets the hostname.
         /// </summary>
         /// <value>The hostname.</value>
-        public string Hostname
-        {
-            get { return _hostname; }
-        }
+        public string Hostname { get; }
 
-        private int _port;
         /// <summary>
         /// Gets the port.
         /// </summary>
         /// <value>The port.</value>
-        public int Port
-        {
-            get { return _port; }
-        }
+        public int Port { get; }
 
-        private bool _useSsl;
         /// <summary>
         /// Gets a value indicating whether [use SSL].
         /// </summary>
         /// <value><c>true</c> if [use SSL]; otherwise, <c>false</c>.</value>
-        public bool UseSsl
-        {
-            get { return _useSsl; }
-        }
+        public bool UseSsl { get; }
 
-        private string _username;
         /// <summary>
         /// Gets or sets the username.
         /// </summary>
         /// <value>The username.</value>
-        public string Username
-        {
-            get { return _username; }
-            set { _username = value; }
-        }
+        public string Username { get; set; }
 
-        private string _password;
         /// <summary>
         /// Gets or sets the password.
         /// </summary>
         /// <value>The password.</value>
-        public string Password
-        {
-            get { return _password; }
-            set { _password = value; }
-        }
+        public string Password { get; set; }
 
-        private Pop3State _currentState;
         /// <summary>
         /// Gets the state of the current.
         /// </summary>
         /// <value>The state of the current.</value>
-        public Pop3State CurrentState
-        {
-            get { return _currentState; }
-        }
+        public Pop3State CurrentState { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Pop3Client"/> class using the default POP3 port 110
@@ -146,11 +119,11 @@ namespace Mammatus.Library.POP3
                 throw new ArgumentNullException("password");
             }
 
-            _hostname = hostname;
-            _port = port;
-            _useSsl = useSsl;
-            _username = username;
-            _password = password;
+            Hostname = hostname;
+            Port = port;
+            UseSsl = useSsl;
+            Username = username;
+            Password = password;
         }
 
         /// <summary>
@@ -159,7 +132,7 @@ namespace Mammatus.Library.POP3
         private Pop3Client()
         {
             _client = new TcpClient();
-            _currentState = Pop3State.Unknown;
+            CurrentState = Pop3State.None;
         }
 
         /// <summary>
@@ -179,7 +152,7 @@ namespace Mammatus.Library.POP3
         /// <param name="state">The state.</param>
         private void SetState(Pop3State state)
         {
-            _currentState = state;
+            CurrentState = state;
         }
 
         /// <summary>
@@ -252,9 +225,9 @@ namespace Mammatus.Library.POP3
                 return;
             } //if the connection already is established no need to reconnect.
 
-            SetState(Pop3State.Unknown);
+            SetState(Pop3State.None);
             ConnectResponse response;
-            using (ConnectCommand command = new ConnectCommand(_client, _hostname, _port, _useSsl))
+            using (ConnectCommand command = new ConnectCommand(_client, Hostname, Port, UseSsl))
             {
                 TraceCommand<ConnectCommand, ConnectResponse>(command);
                 response = command.Execute(CurrentState);
@@ -297,18 +270,18 @@ namespace Mammatus.Library.POP3
             Connect();
 
             //execute the user command.
-            using (UserCommand userCommand = new UserCommand(_clientStream, _username))
+            using (UserCommand userCommand = new UserCommand(_clientStream, Username))
             {
                 ExecuteCommand<Pop3Response, UserCommand>(userCommand);
             }
 
             //execute the pass command.
-            using (PassCommand passCommand = new PassCommand(_clientStream, _password))
+            using (PassCommand passCommand = new PassCommand(_clientStream, Password))
             {
                 ExecuteCommand<Pop3Response, PassCommand>(passCommand);
             }
 
-            _currentState = Pop3State.Transaction;
+            CurrentState = Pop3State.Transaction;
         }
 
         /// <summary>
@@ -488,7 +461,7 @@ namespace Mammatus.Library.POP3
                 Disconnect();
 
                 //Quit command can only be called in Authorization or Transaction state, reset to Unknown.
-                SetState(Pop3State.Unknown);
+                SetState(Pop3State.None);
             }
         }
 

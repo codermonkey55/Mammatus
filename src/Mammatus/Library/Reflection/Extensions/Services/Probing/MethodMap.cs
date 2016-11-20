@@ -1,10 +1,12 @@
+using Mammatus.Library.Reflection.Common;
+using Mammatus.Library.Reflection.Extensions.Core;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 
-namespace Mammatus.Library.Reflection.Probing
+namespace Mammatus.Library.Reflection.Extensions.Services.Probing
 {
     /// <summary>
     /// This class wraps a single invokable method call. It contains information on the method to call as well as

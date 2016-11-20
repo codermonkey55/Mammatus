@@ -1,27 +1,20 @@
 ﻿using System;
 using System.IO;
 
-namespace Mammatus.Library.POP3
+namespace Mammatus.Library.Mail
 {
     internal sealed class ConnectResponse : Pop3Response
     {
-        private Stream _networkStream;
-        public Stream NetworkStream
-        {
-            get
-            {
-                return _networkStream;
-            }
-        }
+        public Stream NetworkStream { get; }
 
         public ConnectResponse(Pop3Response response, Stream networkStream)
             : base(response.ResponseContents, response.HostMessage, response.StatusIndicator)
         {
             if (networkStream == null)
             {
-                throw new ArgumentNullException("networkStream");
+                throw new ArgumentNullException(nameof(networkStream));
             }
-            _networkStream = networkStream;
+            NetworkStream = networkStream;
         }
     }
 }

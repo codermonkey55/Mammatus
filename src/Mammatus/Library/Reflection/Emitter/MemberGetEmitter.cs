@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Mammatus.Library.Reflection.Common;
+using Mammatus.Library.Reflection.Extensions.Core;
+using System;
 using System.Reflection;
 using System.Reflection.Emit;
 
@@ -26,7 +28,7 @@ namespace Mammatus.Library.Reflection.Emitter
 
         protected internal override DynamicMethod CreateDynamicMethod()
         {
-            return CreateDynamicMethod("getter", CallInfo.TargetType, Constants.ObjectType, new[] { Constants.ObjectType });
+            return CreateDynamicMethod("getter", CallInfo.TargetType, Common.Constants.ObjectType, new[] { Common.Constants.ObjectType });
         }
 
         protected internal override Delegate CreateDelegate()
@@ -44,7 +46,7 @@ namespace Mammatus.Library.Reflection.Emitter
                 Generator.ldarg_0                               // load arg-0 (this)
                          .DeclareLocal(CallInfo.TargetType);    // TargetType tmpStr
                 LoadInnerStructToLocal(0);                      // tmpStr = ((ValueTypeHolder)this)).Value
-                Generator.DeclareLocal(Constants.ObjectType);   // object result;
+                Generator.DeclareLocal(Common.Constants.ObjectType);   // object result;
             }
             else if (!CallInfo.IsStatic)
             {

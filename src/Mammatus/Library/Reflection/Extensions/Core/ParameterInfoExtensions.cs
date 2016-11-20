@@ -1,8 +1,9 @@
 using System;
 using System.ComponentModel;
 using System.Reflection;
+using TypeConverter = Mammatus.Library.Reflection.Extensions.Services.Probing.TypeConverter;
 
-namespace Mammatus.Library.Reflection
+namespace Mammatus.Library.Reflection.Extensions.Core
 {
     /// <summary>
     /// Extension methods for inspecting and working with method parameters.
@@ -57,7 +58,7 @@ namespace Mammatus.Library.Reflection
         {
             var defaultValue = parameter.Attribute<DefaultValueAttribute>();
             return defaultValue != null
-                       ? Probing.TypeConverter.Get(parameter.ParameterType, defaultValue.Value)
+                       ? TypeConverter.Get(parameter.ParameterType, defaultValue.Value)
                        : null;
         }
     }

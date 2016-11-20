@@ -1,10 +1,12 @@
-using Mammatus.Library.Reflection.Probing;
+using Mammatus.Library.Reflection.Common;
+using Mammatus.Library.Reflection.Extensions.Core;
+using Mammatus.Library.Reflection.Extensions.Services.Probing;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace Mammatus.Library.Reflection
+namespace Mammatus.Library.Reflection.Extensions.Services
 {
     /// <summary>
     /// Extension methods for creating object instances when you do not know which constructor to call.

@@ -1,6 +1,5 @@
 ﻿
-
-namespace Mammatus.Library.POP3
+namespace Mammatus.Library.Mail
 {
     public static class MailHeaders
     {

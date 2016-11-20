@@ -1,8 +1,9 @@
+using Mammatus.Library.Reflection.Common;
 using Mammatus.Library.Reflection.Emitter;
 using System;
 using System.Reflection;
 
-namespace Mammatus.Library.Reflection
+namespace Mammatus.Library.Reflection.Extensions.Services
 {
     /// <summary>
     /// Extension methods for mapping (copying) members from one object instance to another.

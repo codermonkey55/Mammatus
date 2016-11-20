@@ -1,8 +1,6 @@
 using System;
-using System.Linq;
-using System.Collections.Generic;
 
-namespace Mammatus.Code.Contracts
+namespace Mammatus.Code.Contracts.Exceptions
 {
     [Serializable]
     public class AssertionException : CodeContractException

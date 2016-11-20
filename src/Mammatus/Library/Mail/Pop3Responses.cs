@@ -1,6 +1,5 @@
 ﻿
-
-namespace Mammatus.Library.POP3
+namespace Mammatus.Library.Mail
 {
     /// <summary>
     /// This class contains the Positive and Negative starting response strings

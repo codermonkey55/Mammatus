@@ -1,4 +1,4 @@
-﻿namespace Mammatus.Library.Reflection
+﻿namespace Mammatus.Library.Reflection.Common
 {
     /// <summary>
     /// A delegate to retrieve the value of an instance field or property of an object.

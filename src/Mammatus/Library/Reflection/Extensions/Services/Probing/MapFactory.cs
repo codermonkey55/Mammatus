@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace Mammatus.Library.Reflection.Probing
+namespace Mammatus.Library.Reflection.Extensions.Services.Probing
 {
     /// <summary>
     /// Helper class for producing invocation maps that describe how to create an instance of an object

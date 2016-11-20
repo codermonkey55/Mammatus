@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Mammatus.Library.Reflection
+namespace Mammatus.Library.Reflection.Common
 {
     /// <summary>
     /// This enumeration allows you to customize the XML output of the ToXml extensions.

@@ -6,41 +6,30 @@ using System.Text.RegularExpressions;
 
 namespace Mammatus.Library.Mail
 {
-    /// <summary>
-    /// 邮件操作类
-    /// </summary>
     public class MailHelper
     {
-        /// <summary>
-        /// 获取Email登陆地址
-        /// </summary>
-        /// <param name="email">email地址</param>
-        /// <returns></returns>
+        protected MailHelper()
+        {
+
+        }
+
         public static string GetEMailLoginUrl(string email)
         {
-            if ((email == string.Empty) || (email.IndexOf("@") <= 0))
+            if ((email == string.Empty) || (email.IndexOf("@", StringComparison.Ordinal) <= 0))
             {
                 return string.Empty;
             }
-            int index = email.IndexOf("@");
+            int index = email.IndexOf("@", StringComparison.Ordinal);
             email = "http://mail." + email.Substring(index + 1);
             return email;
         }
-        /// <summary>
-        /// 发送邮件
-        /// </summary>
-        /// <param name="mailSubjct">邮件主题</param>
-        /// <param name="mailBody">邮件正文</param>
-        /// <param name="mailFrom">发送者</param>
-        /// <param name="mailAddress">邮件地址列表</param>
-        /// <param name="HostIP">主机IP</param>
-        /// <returns></returns>
-        public static string sendMail(string mailSubjct, string mailBody, string mailFrom, List<string> mailAddress, string HostIP)
+
+        public static string SendMail(string mailSubjct, string mailBody, string mailFrom, List<string> mailAddress, string hostIp)
         {
             string str = "";
             try
             {
-                MailMessage message = new MailMessage
+                System.Net.Mail.MailMessage message = new System.Net.Mail.MailMessage
                 {
                     IsBodyHtml = false,
                     Subject = mailSubjct,
@@ -51,7 +40,7 @@ namespace Mammatus.Library.Mail
                 {
                     message.To.Add(mailAddress[i]);
                 }
-                new SmtpClient { UseDefaultCredentials = false, DeliveryMethod = SmtpDeliveryMethod.PickupDirectoryFromIis, Host = HostIP, Port = (char)0x19 }.Send(message);
+                new System.Net.Mail.SmtpClient { UseDefaultCredentials = false, DeliveryMethod = SmtpDeliveryMethod.PickupDirectoryFromIis, Host = hostIp, Port = (char)0x19 }.Send(message);
             }
             catch (Exception exception)
             {
@@ -59,42 +48,20 @@ namespace Mammatus.Library.Mail
             }
             return str;
         }
-        /// <summary>
-        /// 发送邮件（要求登陆）
-        /// </summary>
-        /// <param name="mailSubjct">邮件主题</param>
-        /// <param name="mailBody">邮件正文</param>
-        /// <param name="mailFrom">发送者</param>
-        /// <param name="mailAddress">接收地址列表</param>
-        /// <param name="HostIP">主机IP</param>
-        /// <param name="username">用户名</param>
-        /// <param name="password">密码</param>
-        /// <returns></returns>
-        public static bool sendMail(string mailSubjct, string mailBody, string mailFrom, List<string> mailAddress, string HostIP, string username, string password)
+
+        public static bool SendMail(string mailSubjct, string mailBody, string mailFrom, List<string> mailAddress, string hostIp, string username, string password)
         {
             bool flag;
-            string str = sendMail(mailSubjct, mailBody, mailFrom, mailAddress, HostIP, 0x19, username, password, false, string.Empty, out flag);
+            string str = SendMail(mailSubjct, mailBody, mailFrom, mailAddress, hostIp, 0x19, username, password, false, string.Empty, out flag);
             return flag;
         }
-        /// <summary>
-        /// 发送邮件
-        /// </summary>
-        /// <param name="mailSubjct">邮件主题</param>
-        /// <param name="mailBody">邮件正文</param>
-        /// <param name="mailFrom">发送者</param>
-        /// <param name="mailAddress">接收地址列表</param>
-        /// <param name="HostIP">主机IP</param>
-        /// <param name="filename">附件名</param>
-        /// <param name="username">用户名</param>
-        /// <param name="password">密码</param>
-        /// <param name="ssl">加密类型</param>
-        /// <returns></returns>
-        public static string sendMail(string mailSubjct, string mailBody, string mailFrom, List<string> mailAddress, string HostIP, string filename, string username, string password, bool ssl)
+
+        public static string SendMail(string mailSubjct, string mailBody, string mailFrom, List<string> mailAddress, string hostIp, string filename, string username, string password, bool ssl)
         {
             string str = "";
             try
             {
-                MailMessage message = new MailMessage
+                System.Net.Mail.MailMessage message = new System.Net.Mail.MailMessage
                 {
                     IsBodyHtml = false,
                     Subject = mailSubjct,
@@ -102,15 +69,15 @@ namespace Mammatus.Library.Mail
 
                     From = new MailAddress(mailFrom)
                 };
-                for (int i = 0; i < mailAddress.Count; i++)
+                foreach (string address in mailAddress)
                 {
-                    message.To.Add(mailAddress[i]);
+                    message.To.Add(address);
                 }
                 if (System.IO.File.Exists(filename))
                 {
                     message.Attachments.Add(new Attachment(filename));
                 }
-                SmtpClient client = new SmtpClient
+                System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient
                 {
                     EnableSsl = ssl,
                     UseDefaultCredentials = false
@@ -118,7 +85,7 @@ namespace Mammatus.Library.Mail
                 NetworkCredential credential = new NetworkCredential(username, password);
                 client.Credentials = credential;
                 client.DeliveryMethod = SmtpDeliveryMethod.Network;
-                client.Host = HostIP;
+                client.Host = hostIp;
                 client.Port = 0x19;
                 client.Send(message);
             }
@@ -128,28 +95,14 @@ namespace Mammatus.Library.Mail
             }
             return str;
         }
-        /// <summary>
-        /// 发送邮件
-        /// </summary>
-        /// <param name="mailSubjct"></param>
-        /// <param name="mailBody"></param>
-        /// <param name="mailFrom"></param>
-        /// <param name="mailAddress"></param>
-        /// <param name="HostIP"></param>
-        /// <param name="port"></param>
-        /// <param name="username"></param>
-        /// <param name="password"></param>
-        /// <param name="ssl"></param>
-        /// <param name="replyTo"></param>
-        /// <param name="sendOK"></param>
-        /// <returns></returns>
-        public static string sendMail(string mailSubjct, string mailBody, string mailFrom, List<string> mailAddress, string HostIP, int port, string username, string password, bool ssl, string replyTo, out bool sendOK)
+
+        public static string SendMail(string mailSubjct, string mailBody, string mailFrom, List<string> mailAddress, string hostIp, int port, string username, string password, bool ssl, string replyTo, out bool sendOk)
         {
-            sendOK = true;
+            sendOk = true;
             string str = "";
             try
             {
-                MailMessage message = new MailMessage
+                System.Net.Mail.MailMessage message = new System.Net.Mail.MailMessage
                 {
                     IsBodyHtml = false,
                     Subject = mailSubjct,
@@ -162,18 +115,18 @@ namespace Mammatus.Library.Mail
                     message.ReplyTo = address;
                 }
                 Regex regex = new Regex(@"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*");
-                for (int i = 0; i < mailAddress.Count; i++)
+                foreach (string address in mailAddress)
                 {
-                    if (regex.IsMatch(mailAddress[i]))
+                    if (regex.IsMatch(address))
                     {
-                        message.To.Add(mailAddress[i]);
+                        message.To.Add(address);
                     }
                 }
                 if (message.To.Count == 0)
                 {
                     return string.Empty;
                 }
-                SmtpClient client = new SmtpClient
+                System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient
                 {
                     EnableSsl = ssl,
                     UseDefaultCredentials = false
@@ -181,14 +134,14 @@ namespace Mammatus.Library.Mail
                 NetworkCredential credential = new NetworkCredential(username, password);
                 client.Credentials = credential;
                 client.DeliveryMethod = SmtpDeliveryMethod.Network;
-                client.Host = HostIP;
+                client.Host = hostIp;
                 client.Port = port;
                 client.Send(message);
             }
             catch (Exception exception)
             {
                 str = exception.Message;
-                sendOK = false;
+                sendOk = false;
             }
             return str;
         }

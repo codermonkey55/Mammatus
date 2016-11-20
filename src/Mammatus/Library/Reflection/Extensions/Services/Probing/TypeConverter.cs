@@ -4,7 +4,7 @@ using System.Text;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace Mammatus.Library.Reflection.Probing
+namespace Mammatus.Library.Reflection.Extensions.Services.Probing
 {
     /// <summary>
     /// Helper class for converting values between various types.

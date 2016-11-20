@@ -2,7 +2,7 @@
 using System;
 using System.Reflection;
 
-namespace Mammatus.Library.Reflection
+namespace Mammatus.Library.Reflection.Common
 {
     internal static class Constants
     {

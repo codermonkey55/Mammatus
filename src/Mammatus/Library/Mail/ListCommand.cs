@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-
-namespace Mammatus.Library.POP3
+namespace Mammatus.Library.Mail
 {
     /// <summary>
     /// This class represents both the multiline and single line Pop3 LIST command.
@@ -11,7 +10,7 @@ namespace Mammatus.Library.POP3
     internal sealed class ListCommand : Pop3Command<ListResponse>
     {
         // the id of the message on the server to retrieve.
-        int _messageId;
+        readonly int _messageId;
 
         public ListCommand(Stream stream)
             : base(stream, true, Pop3State.Transaction)
@@ -29,7 +28,7 @@ namespace Mammatus.Library.POP3
         {
             if (messageId < 0)
             {
-                throw new ArgumentOutOfRangeException("messageId");
+                throw new ArgumentOutOfRangeException(nameof(messageId));
             }
 
             _messageId = messageId;

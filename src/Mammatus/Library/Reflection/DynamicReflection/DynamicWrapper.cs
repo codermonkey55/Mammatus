@@ -1,9 +1,11 @@
+using Mammatus.Library.Reflection.Common;
+using Mammatus.Library.Reflection.Extensions.Core;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
 
-namespace Mammatus.Library.Reflection
+namespace Mammatus.Library.Reflection.DynamicReflection
 {
     internal sealed class DynamicWrapper : DynamicObject
     {

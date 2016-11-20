@@ -1,10 +1,12 @@
+using Mammatus.Library.Reflection.Common;
+using Mammatus.Library.Reflection.Extensions.Core;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace Mammatus.Library.Reflection
+namespace Mammatus.Library.Reflection.Extensions.Services
 {
     /// <summary>
     /// Extension methods for deep cloning of objects.

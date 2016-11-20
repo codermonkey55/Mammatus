@@ -1,7 +1,8 @@
-﻿using Mammatus.Library.Reflection.Emitter;
+﻿using Mammatus.Library.Reflection.Common;
+using Mammatus.Library.Reflection.Emitter;
 using System.Reflection;
 
-namespace Mammatus.Library.Reflection
+namespace Mammatus.Library.Reflection.Extensions.Core
 {
     /// <summary>
     /// Extension methods for inspecting, invoking and working with constructors.

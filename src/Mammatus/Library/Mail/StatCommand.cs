@@ -1,8 +1,7 @@
 ﻿using System;
 using System.IO;
 
-
-namespace Mammatus.Library.POP3
+namespace Mammatus.Library.Mail
 {
     /// <summary>
     /// This class represents the Pop3 STAT command.

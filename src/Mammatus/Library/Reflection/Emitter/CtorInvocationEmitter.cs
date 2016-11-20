@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mammatus.Library.Reflection.Common;
+using System;
 using System.Reflection;
 using System.Reflection.Emit;
 
@@ -19,7 +20,7 @@ namespace Mammatus.Library.Reflection.Emitter
 
         protected internal override DynamicMethod CreateDynamicMethod()
         {
-            return CreateDynamicMethod("ctor", CallInfo.TargetType, Constants.ObjectType, new[] { Constants.ObjectType });
+            return CreateDynamicMethod("ctor", CallInfo.TargetType, Common.Constants.ObjectType, new[] { Common.Constants.ObjectType });
         }
 
         protected internal override Delegate CreateDelegate()

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mammatus.Library.Reflection.Common;
+using System;
 using System.Reflection;
 using System.Reflection.Emit;
 
@@ -7,15 +8,15 @@ namespace Mammatus.Library.Reflection.Emitter
     internal class ArraySetEmitter : BaseEmitter
     {
         public ArraySetEmitter(Type targetType)
-            : base(new CallInfo(targetType, null, Flags.InstanceAnyVisibility, MemberTypes.Method, Constants.ArraySetterName,
+            : base(new CallInfo(targetType, null, Flags.InstanceAnyVisibility, MemberTypes.Method, Common.Constants.ArraySetterName,
                                      new[] { typeof(int), targetType.GetElementType() }, null, false))
         {
         }
 
         protected internal override DynamicMethod CreateDynamicMethod()
         {
-            return CreateDynamicMethod(Constants.ArraySetterName, CallInfo.TargetType, null,
-                                        new[] { Constants.ObjectType, Constants.IntType, Constants.ObjectType });
+            return CreateDynamicMethod(Common.Constants.ArraySetterName, CallInfo.TargetType, null,
+                                        new[] { Common.Constants.ObjectType, Common.Constants.IntType, Common.Constants.ObjectType });
         }
 
         protected internal override Delegate CreateDelegate()

@@ -1,10 +1,11 @@
+using Mammatus.Library.Reflection.Common;
 using Mammatus.Library.Reflection.Emitter;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace Mammatus.Library.Reflection
+namespace Mammatus.Library.Reflection.Extensions.Core
 {
     /// <summary>
     /// Extension methods for locating and accessing fields.

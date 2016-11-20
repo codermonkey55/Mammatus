@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Dynamic;
 
-namespace Mammatus.Library.Reflection
+namespace Mammatus.Library.Reflection.DynamicReflection
 {
     internal sealed class DynamicBuilder : DynamicObject
     {

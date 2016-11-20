@@ -1,7 +1,6 @@
 ﻿using System;
 
-
-namespace Mammatus.Library.POP3
+namespace Mammatus.Library.Mail
 {
     [Flags()]
     public enum Pop3State
@@ -9,7 +8,7 @@ namespace Mammatus.Library.POP3
         /// <summary>
         /// Undefined.
         /// </summary>
-        Unknown = 0,
+        None = 0,
         /// <summary>
         /// Connected to Pop3 server, but not authorized.
         /// May issue any of the following commands QUIT, USER, PASS

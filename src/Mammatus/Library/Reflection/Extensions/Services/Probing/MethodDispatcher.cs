@@ -1,10 +1,12 @@
 ﻿using Mammatus.Library.Reflection.Caching;
+using Mammatus.Library.Reflection.Common;
+using Mammatus.Library.Reflection.Extensions.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace Mammatus.Library.Reflection.Probing
+namespace Mammatus.Library.Reflection.Extensions.Services.Probing
 {
     /// <summary>
     /// Collects methods into a pool and allows invocation of the best match given a set of parameters.

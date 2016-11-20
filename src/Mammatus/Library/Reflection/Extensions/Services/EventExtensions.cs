@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Mammatus.Library.Reflection.Common;
+using Mammatus.Library.Reflection.Extensions.Core;
+using System;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace Mammatus.Library.Reflection
+namespace Mammatus.Library.Reflection.Extensions.Services
 {
     /// <summary>
     /// Container class for event/delegate extensions.

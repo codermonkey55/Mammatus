@@ -1,44 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Mammatus.Library.POP3
+namespace Mammatus.Library.Mail
 {
     /// <summary>
-    /// This class represents the response message 
-    /// returned from both a single line and multi line 
+    /// This class represents the response message
+    /// returned from both a single line and multi line
     /// Pop3 LIST Command.
     /// </summary>
     internal sealed class ListResponse : Pop3Response
     {
-        private List<Pop3ListItem> _items;
-
         /// <summary>
         /// Gets or sets the items.
         /// </summary>
         /// <value>The items.</value>
-        public List<Pop3ListItem> Items
-        {
-            get { return _items; }
-            set { _items = value; }
-        }
+        public List<Pop3ListItem> Items { get; set; }
 
         /// <summary>
         /// Gets the message number.
         /// </summary>
         /// <value>The message number.</value>
-        public int MessageNumber
-        {
-            get { return _items[0].MessageId; }
-        }
+        public int MessageNumber => Items[0].MessageId;
 
         /// <summary>
         /// Gets number of octets.
         /// </summary>
         /// <value>The number of octets.</value>
-        public long Octets
-        {
-            get { return _items[0].Octets; }
-        }
+        public long Octets => Items[0].Octets;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ListResponse"/> class.
@@ -50,10 +38,10 @@ namespace Mammatus.Library.POP3
         {
             if (items == null)
             {
-                throw new ArgumentNullException("items");
+                throw new ArgumentNullException(nameof(items));
             }
 
-            _items = items;
+            Items = items;
         }
     }
 }

@@ -1,3 +1,4 @@
+using Mammatus.Library.Reflection.Common;
 using Mammatus.Library.Reflection.Emitter;
 using System;
 using System.Collections.Generic;
@@ -5,7 +6,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace Mammatus.Library.Reflection
+namespace Mammatus.Library.Reflection.Extensions.Core
 {
     /// <summary>
     /// Extension methods for locating and accessing properties.
@@ -315,7 +316,7 @@ namespace Mammatus.Library.Reflection
                                                            params Type[] parameterTypes)
         {
             return (MethodInvoker)
-                new MethodInvocationEmitter(type, bindingFlags, Constants.IndexerSetterName, parameterTypes).
+                new MethodInvocationEmitter(type, bindingFlags, Common.Constants.IndexerSetterName, parameterTypes).
                     GetDelegate();
         }
 
@@ -330,7 +331,7 @@ namespace Mammatus.Library.Reflection
                                                            params Type[] parameterTypes)
         {
             return (MethodInvoker)
-                new MethodInvocationEmitter(type, bindingFlags, Constants.IndexerGetterName, parameterTypes).
+                new MethodInvocationEmitter(type, bindingFlags, Common.Constants.IndexerGetterName, parameterTypes).
                     GetDelegate();
         }
         #endregion
@@ -402,9 +403,9 @@ namespace Mammatus.Library.Reflection
         /// <returns>A list of all matching properties on the type. This value will never be null.</returns>
         public static IList<PropertyInfo> Properties(this Type type, Flags bindingFlags, params string[] names)
         {
-            if (type == null || type == Constants.ObjectType)
+            if (type == null || type == Common.Constants.ObjectType)
             {
-                return Constants.EmptyPropertyInfoArray;
+                return Common.Constants.EmptyPropertyInfoArray;
             }
 
             bool recurse = bindingFlags.IsNotSet(Flags.DeclaredOnly);
@@ -413,7 +414,7 @@ namespace Mammatus.Library.Reflection
 
             if (!recurse && !hasNames && !hasSpecialFlags)
             {
-                return type.GetProperties(bindingFlags) ?? Constants.EmptyPropertyInfoArray;
+                return type.GetProperties(bindingFlags) ?? Common.Constants.EmptyPropertyInfoArray;
             }
 
             var properties = GetProperties(type, bindingFlags);
@@ -428,7 +429,7 @@ namespace Mammatus.Library.Reflection
 
             if (!recurse)
             {
-                return type.GetProperties(bindingFlags) ?? Constants.EmptyPropertyInfoArray;
+                return type.GetProperties(bindingFlags) ?? Common.Constants.EmptyPropertyInfoArray;
             }
 
             bindingFlags |= Flags.DeclaredOnly;

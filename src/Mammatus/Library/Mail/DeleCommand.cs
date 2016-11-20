@@ -1,15 +1,14 @@
 ﻿using System;
-//using System.Net.Sockets;
 using System.IO;
 
-namespace Mammatus.Library.POP3
+namespace Mammatus.Library.Mail
 {
     /// <summary>
     /// This class represents the Pop3 DELE command.
     /// </summary>
     internal sealed class DeleCommand : Pop3Command<Pop3Response>
     {
-        int _messageId = int.MinValue;
+        readonly int _messageId = int.MinValue;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DeleCommand"/> class.
@@ -21,7 +20,7 @@ namespace Mammatus.Library.POP3
         {
             if (messageId < 0)
             {
-                throw new ArgumentOutOfRangeException("_messageId");
+                throw new ArgumentOutOfRangeException(nameof(messageId));
             }
             _messageId = messageId;
         }

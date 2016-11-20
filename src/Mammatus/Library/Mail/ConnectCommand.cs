@@ -1,10 +1,9 @@
 ﻿using System;
-using System.IO;
 using System.Net.Security;
 using System.Net.Sockets;
 using System.Security.Authentication;
 
-namespace Mammatus.Library.POP3
+namespace Mammatus.Library.Mail
 {
     /// <summary>
     /// Performs the connect to a Pop3 server and returns a Pop3
@@ -13,10 +12,10 @@ namespace Mammatus.Library.POP3
     /// </summary>
     internal sealed class ConnectCommand : Pop3Command<ConnectResponse>
     {
-        private TcpClient _client;
-        private string _hostname;
-        private int _port;
-        private bool _useSsl;
+        private readonly TcpClient _client;
+        private readonly string _hostname;
+        private readonly int _port;
+        private readonly bool _useSsl;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ConnectCommand"/> class.
@@ -33,7 +32,7 @@ namespace Mammatus.Library.POP3
         /// <param name="port">The port.</param>
         /// <param name="useSsl">if set to <c>true</c> [use SSL].</param>
         public ConnectCommand(TcpClient client, string hostname, int port, bool useSsl)
-            : base(new MemoryStream(), false, Pop3State.Unknown)
+            : base(new System.IO.MemoryStream(), false, Pop3State.None)
         {
             if (client == null)
             {

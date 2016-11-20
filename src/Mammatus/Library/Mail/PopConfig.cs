@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Web;
@@ -6,6 +7,7 @@ using System.Xml;
 
 namespace Mammatus.Library.Mail
 {
+
     public class PopConfig
     {
         private static PopConfig _popConfig;
@@ -39,7 +41,7 @@ namespace Mammatus.Library.Mail
                 PopSetting popSetting = new PopSetting();
                 popSetting.Server = doc.DocumentElement.SelectSingleNode("Server").InnerText;
                 popSetting.Port = Convert.ToInt32(doc.DocumentElement.SelectSingleNode("Port").InnerText);
-                popSetting.UseSsl = Convert.ToBoolean(doc.DocumentElement.SelectSingleNode("UseSSL").InnerText);
+                popSetting.UseSSL = Convert.ToBoolean(doc.DocumentElement.SelectSingleNode("UseSSL").InnerText);
                 popSetting.UserName = doc.DocumentElement.SelectSingleNode("User").InnerText;
                 popSetting.Password = doc.DocumentElement.SelectSingleNode("Password").InnerText;
 
@@ -49,6 +51,10 @@ namespace Mammatus.Library.Mail
 
 
         }
+
+        //public static Save()
+        //{
+        //}
 
         public static PopConfig Create()
         {

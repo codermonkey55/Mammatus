@@ -1,6 +1,6 @@
 using Mammatus.Library.Reflection.Emitter;
 
-namespace Mammatus.Library.Reflection
+namespace Mammatus.Library.Reflection.Extensions.Core
 {
     /// <summary>
     /// Extension methods for working with types.

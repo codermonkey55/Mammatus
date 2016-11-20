@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace Mammatus.Library.POP3
+namespace Mammatus.Library.Mail
 {
     /// <summary>
     /// This command represents the Pop3 RSET command.

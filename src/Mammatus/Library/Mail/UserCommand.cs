@@ -1,15 +1,14 @@
 ﻿using System;
 using System.IO;
 
-
-namespace Mammatus.Library.POP3
+namespace Mammatus.Library.Mail
 {
     /// <summary>
     /// This command represents a Pop3 USER command.
     /// </summary>
     internal sealed class UserCommand : Pop3Command<Pop3Response>
     {
-        private string _username;
+        private readonly string _username;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="UserCommand"/> class.

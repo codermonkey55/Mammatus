@@ -5,10 +5,10 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 
-namespace Mammatus.Library.POP3
+namespace Mammatus.Library.Mail
 {
     /// <summary>
-    /// This class represents a generic Pop3 command and 
+    /// This class represents a generic Pop3 command and
     /// encapsulates the major operations when executing a
     /// Pop3 command against a Pop3 Server.
     /// </summary>
@@ -29,42 +29,22 @@ namespace Mammatus.Library.POP3
         private const string MultilineMessageTerminator = "\r\n.\r\n";
         private const string MessageTerminator = ".";
 
-        private ManualResetEvent _manualResetEvent;
+        private readonly ManualResetEvent _manualResetEvent;
 
-        private byte[] _buffer;
-        private MemoryStream _responseContents;
+        private readonly byte[] _buffer;
+        private readonly MemoryStream _responseContents;
 
-        private Pop3State _validExecuteState;
-        public Pop3State ValidExecuteState
-        {
-            get { return _validExecuteState; }
-        }
+        public Pop3State ValidExecuteState { get; }
 
-        private Stream _networkStream;
-        public Stream NetworkStream
-        {
-            get { return _networkStream; }
-            set { _networkStream = value; }
-        }
+        public Stream NetworkStream { get; set; }
 
-        bool _isMultiline;
         /// <summary>
         /// Sets a value indicating whether this instance is multiline.
         /// </summary>
         /// <value>
         /// 	<c>true</c> if this instance is multiline; otherwise, <c>false</c>.
         /// </value>
-        protected bool IsMultiline
-        {
-            get
-            {
-                return _isMultiline;
-            }
-            set
-            {
-                _isMultiline = value;
-            }
-        }
+        protected bool IsMultiline { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Pop3CommandBase"/> class.
@@ -82,14 +62,14 @@ namespace Mammatus.Library.POP3
             _manualResetEvent = new ManualResetEvent(false);
             _buffer = new byte[BufferSize];
             _responseContents = new MemoryStream();
-            _networkStream = stream;
-            _isMultiline = isMultiline;
-            _validExecuteState = validExecuteState;
+            NetworkStream = stream;
+            IsMultiline = isMultiline;
+            ValidExecuteState = validExecuteState;
         }
 
         /// <summary>
-        /// Abstract method intended for inheritors to 
-        /// build out the byte[] request message for 
+        /// Abstract method intended for inheritors to
+        /// build out the byte[] request message for
         /// the specific command.
         /// </summary>
         /// <returns>The byte[] containing the request message.</returns>
@@ -105,7 +85,7 @@ namespace Mammatus.Library.POP3
 
             try
             {
-                _networkStream.Write(message, 0, message.Length);
+                NetworkStream.Write(message, 0, message.Length);
             }
             catch (SocketException e)
             {
@@ -174,7 +154,7 @@ namespace Mammatus.Library.POP3
 
             AsyncCallback callback;
 
-            if (_isMultiline)
+            if (IsMultiline)
             {
                 callback = new AsyncCallback(GetMultiLineResponseCallback);
             }
@@ -203,7 +183,7 @@ namespace Mammatus.Library.POP3
         /// <returns></returns>
         private IAsyncResult Receive(AsyncCallback callback)
         {
-            return _networkStream.BeginRead(_buffer, 0, _buffer.Length, callback, null);
+            return NetworkStream.BeginRead(_buffer, 0, _buffer.Length, callback, null);
         }
 
         /// <summary>
@@ -224,7 +204,7 @@ namespace Mammatus.Library.POP3
         /// <param name="ar">The ar.</param>
         private void GetSingleLineResponseCallback(IAsyncResult ar)
         {
-            int bytesReceived = _networkStream.EndRead(ar);
+            int bytesReceived = NetworkStream.EndRead(ar);
             string message = WriteReceivedBytesToBuffer(bytesReceived);
 
             if (message.EndsWith(Pop3Commands.Crlf))
@@ -243,7 +223,7 @@ namespace Mammatus.Library.POP3
         /// <param name="ar">The ar.</param>
         private void GetMultiLineResponseCallback(IAsyncResult ar)
         {
-            int bytesReceived = _networkStream.EndRead(ar);
+            int bytesReceived = NetworkStream.EndRead(ar);
             string message = WriteReceivedBytesToBuffer(bytesReceived);
             if (message.EndsWith(MultilineMessageTerminator)
                 || bytesReceived == 0) //if the POP3 server times out we'll get an error message, then we'll get a following callback w/ 0 bytes.
@@ -299,9 +279,9 @@ namespace Mammatus.Library.POP3
                     {
                         line = reader.ReadLine();
 
-                        //pop3 protocol states if a line starts w/ a 
+                        //pop3 protocol states if a line starts w/ a
                         //'.' that line will be byte stuffed w/ a '.'
-                        //if it is byte stuffed the remove the byte, 
+                        //if it is byte stuffed the remove the byte,
                         //otherwise we have reached the end of the message.
                         if (line.StartsWith(MessageTerminator))
                         {

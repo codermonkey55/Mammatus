@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Mammatus.Library.POP3
+namespace Mammatus.Library.Mail
 {
     /// <summary>
     /// This class represents a RETR response message resulting
@@ -8,24 +8,13 @@ namespace Mammatus.Library.POP3
     /// </summary>
     internal sealed class RetrResponse : Pop3Response
     {
-        private string[] _messageLines;
         /// <summary>
         /// Gets the message lines.
         /// </summary>
         /// <value>The Pop3 message lines.</value>
-        public string[] MessageLines
-        {
-            get { return _messageLines; }
-        }
+        public string[] MessageLines { get; }
 
-        private long _octects;
-        public long Octets
-        {
-            get
-            {
-                return _octects;
-            }
-        }
+        public long Octets { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RetrResponse"/> class.
@@ -42,10 +31,10 @@ namespace Mammatus.Library.POP3
             string[] values = response.HostMessage.Split(' ');
             if (values.Length == 2)
             {
-                _octects = Convert.ToInt64(values[1]);
+                Octets = Convert.ToInt64(values[1]);
             }
 
-            _messageLines = messageLines;
+            MessageLines = messageLines;
         }
     }
 }

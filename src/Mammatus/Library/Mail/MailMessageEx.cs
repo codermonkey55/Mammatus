@@ -1,56 +1,36 @@
-﻿using System;
+﻿using Mammatus.Library.Mime;
+using System;
 using System.Collections.Generic;
 using System.Net.Mail;
 using System.Net.Mime;
 using System.Text.RegularExpressions;
-using Mammatus.Library.Mime;
 
-namespace Mammatus.Library.POP3
+namespace Mammatus.Library.Mail
 {
     /// <summary>
     /// This class adds a few internet mail headers not already exposed by the
     /// System.Net.MailMessage.  It also provides support to encapsulate the
     /// nested mail attachments in the Children collection.
     /// </summary>
-    public class MailMessageEx : MailMessage
+    public class MailMessageEx : System.Net.Mail.MailMessage
     {
         public const string EmailRegexPattern = "(['\"]{1,}.+['\"]{1,}\\s+)?<?[\\w\\.\\-]+@[^\\.][\\w\\.\\-]+\\.[a-z]{2,}>?";
 
-        private long _octets;
-
-        public long Octets
-        {
-            get { return _octets; }
-            set { _octets = value; }
-        }
-
-        private int _messageNumber;
+        public long Octets { get; set; }
 
         /// <summary>
         /// Gets or sets the message number of the MailMessage on the POP3 server.
         /// </summary>
         /// <value>The message number.</value>
-        public int MessageNumber
-        {
-            get { return _messageNumber; }
-            internal set { _messageNumber = value; }
-        }
-
+        public int MessageNumber { get; internal set; }
 
         private static readonly char[] AddressDelimiters = new char[] { ',', ';' };
 
-        private List<MailMessageEx> _children;
         /// <summary>
         /// Gets the children MailMessage attachments.
         /// </summary>
         /// <value>The children MailMessage attachments.</value>
-        public List<MailMessageEx> Children
-        {
-            get
-            {
-                return _children;
-            }
-        }
+        public List<MailMessageEx> Children { get; }
 
         /// <summary>
         /// Gets the delivery date.
@@ -96,51 +76,33 @@ namespace Mammatus.Library.POP3
         /// Gets the routing.
         /// </summary>
         /// <value>The routing.</value>
-        public string Routing
-        {
-            get { return GetHeader(MailHeaders.Received); }
-        }
+        public string Routing => GetHeader(MailHeaders.Received);
 
         /// <summary>
         /// Gets the message id.
         /// </summary>
         /// <value>The message id.</value>
-        public string MessageId
-        {
-            get { return GetHeader(MailHeaders.MessageId); }
-        }
+        public string MessageId => GetHeader(MailHeaders.MessageId);
 
-        public string ReplyToMessageId
-        {
-            get { return GetHeader(MailHeaders.InReplyTo, true); }
-        }
+        public string ReplyToMessageId => GetHeader(MailHeaders.InReplyTo, true);
 
         /// <summary>
         /// Gets the MIME version.
         /// </summary>
         /// <value>The MIME version.</value>
-        public string MimeVersion
-        {
-            get { return GetHeader(MimeHeaders.MimeVersion); }
-        }
+        public string MimeVersion => GetHeader(MimeHeaders.MimeVersion);
 
         /// <summary>
         /// Gets the content id.
         /// </summary>
         /// <value>The content id.</value>
-        public string ContentId
-        {
-            get { return GetHeader(MimeHeaders.ContentId); }
-        }
+        public string ContentId => GetHeader(MimeHeaders.ContentId);
 
         /// <summary>
         /// Gets the content description.
         /// </summary>
         /// <value>The content description.</value>
-        public string ContentDescription
-        {
-            get { return GetHeader(MimeHeaders.ContentDescription); }
-        }
+        public string ContentDescription => GetHeader(MimeHeaders.ContentDescription);
 
         /// <summary>
         /// Gets the content disposition.
@@ -184,7 +146,7 @@ namespace Mammatus.Library.POP3
         public MailMessageEx()
             : base()
         {
-            _children = new List<MailMessageEx>();
+            Children = new List<MailMessageEx>();
         }
 
         /// <summary>
@@ -296,14 +258,6 @@ namespace Mammatus.Library.POP3
             {
                 yield return CreateMailAddress(match.Value);
             }
-
-
-            /*
-            string[] addresses = addressList.Split(AddressDelimiters);
-            foreach (string address in addresses)
-            {
-                yield return CreateMailAddress(address);
-            }*/
         }
     }
 }

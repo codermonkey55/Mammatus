@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Mammatus.Library.Reflection.Common;
+using Mammatus.Library.Reflection.Extensions.Core;
+using System;
 using System.Reflection;
 using System.Reflection.Emit;
 
@@ -17,7 +19,7 @@ namespace Mammatus.Library.Reflection.Emitter
         }
 
         private MemberSetEmitter(Type targetType, Flags bindingFlags, MemberTypes memberType, string fieldOrProperty, MemberInfo memberInfo)
-            : base(new CallInfo(targetType, null, bindingFlags, memberType, fieldOrProperty, Constants.ArrayOfObjectType, memberInfo, false))
+            : base(new CallInfo(targetType, null, bindingFlags, memberType, fieldOrProperty, Common.Constants.ArrayOfObjectType, memberInfo, false))
         {
         }
         internal MemberSetEmitter(CallInfo callInfo) : base(callInfo)
@@ -26,7 +28,7 @@ namespace Mammatus.Library.Reflection.Emitter
 
         protected internal override DynamicMethod CreateDynamicMethod()
         {
-            return CreateDynamicMethod("setter", CallInfo.TargetType, null, new[] { Constants.ObjectType, Constants.ObjectType });
+            return CreateDynamicMethod("setter", CallInfo.TargetType, null, new[] { Common.Constants.ObjectType, Common.Constants.ObjectType });
         }
 
         protected internal override Delegate CreateDelegate()

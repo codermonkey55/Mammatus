@@ -1,11 +1,11 @@
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
 using Mammatus.Core.Application;
 using Mammatus.Core.Attributes;
 using Mammatus.Interface.Contracts;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 
-namespace Mammatus.Core.Collections
+namespace Mammatus.Collections
 {
     public class CollectionBase<T> : ObservableCollection<T>, IDirtyCapable
            where T : ObjectBase

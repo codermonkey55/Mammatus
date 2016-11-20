@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Mammatus.Library.Reflection.Common;
+using Mammatus.Library.Reflection.Extensions.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -36,7 +38,7 @@ namespace Mammatus.Library.Reflection.Emitter
 
         protected internal override DynamicMethod CreateDynamicMethod()
         {
-            return CreateDynamicMethod(sourceType.Name, sourceType, null, new[] { Constants.ObjectType, Constants.ObjectType });
+            return CreateDynamicMethod(sourceType.Name, sourceType, null, new[] { Common.Constants.ObjectType, Common.Constants.ObjectType });
         }
 
         protected internal override Delegate CreateDelegate()
@@ -47,7 +49,7 @@ namespace Mammatus.Library.Reflection.Emitter
                 Generator.ldarg_1.end();                     // load arg-1 (target)
                 Generator.DeclareLocal(CallInfo.TargetType); // TargetType localStr;
                 Generator
-                    .castclass(Constants.StructType) // (ValueTypeHolder)wrappedStruct
+                    .castclass(Common.Constants.StructType) // (ValueTypeHolder)wrappedStruct
                     .callvirt(StructGetMethod) // <stack>.get_Value()
                     .unbox_any(CallInfo.TargetType) // unbox <stack>
                     .stloc(0); // localStr = <stack>

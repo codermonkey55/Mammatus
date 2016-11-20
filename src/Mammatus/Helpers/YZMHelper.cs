@@ -1,14 +1,12 @@
-﻿
+﻿using Mammatus.Library.Random;
+using System;
 using System.Drawing;
 using System.Security.Cryptography;
 using System.Threading;
 using System.Web;
-using Mammatus.Library.Random;
 
-namespace Mammatus.Library.POP3
+namespace Mammatus.Helpers
 {
-    using System;
-
     public class YzmHelper
     {
         private readonly string _text;
@@ -133,6 +131,5 @@ namespace Mammatus.Library.POP3
             srcBmp.Dispose();
             return destBmp;
         }
-
     }
 }

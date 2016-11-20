@@ -1,10 +1,17 @@
-﻿using System;
+﻿using Mammatus.Library.Reflection.Common;
+using Mammatus.Library.Reflection.Extensions.Core;
+using System;
 using System.Reflection;
 
 namespace Mammatus.Library.Reflection.Emitter
 {
     internal class LookupUtils
     {
+        protected LookupUtils()
+        {
+
+        }
+
         public static ConstructorInfo GetConstructor(CallInfo callInfo)
         {
             var constructor = callInfo.MemberInfo as ConstructorInfo;
