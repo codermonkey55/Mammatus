@@ -42,6 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CacheHelper.cs" />
+    <Compile Include="CookieHelper.cs" />
+    <Compile Include="SessionHelper.cs" />
     <Compile Include="State\HttpContextProvider.cs" />
     <Compile Include="State\HttpSessionState.cs" />
     <Compile Include="State\IHttpContextProvider.cs" />
@@ -52,6 +55,11 @@
       <Project>{88f26661-78e6-49d5-80bc-63ee79eee9a4}</Project>
       <Name>Mammatus</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Caching\" />
+    <Folder Include="Cookie\" />
+    <Folder Include="Session\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
