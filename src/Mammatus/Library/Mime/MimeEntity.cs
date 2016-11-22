@@ -1,29 +1,17 @@
-﻿using System;
+﻿using Mammatus.Library.Mail;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO;
 using System.Net.Mail;
 using System.Net.Mime;
 using System.Text;
-using Mammatus.Library.POP3;
 
 namespace Mammatus.Library.Mime
 {
-    /// <summary>
-    /// This class represents a Mime entity.
-    /// 这个类表示一个MIME实体
-    /// </summary>
     public class MimeEntity
     {
         private StringBuilder _encodedMessage;
-        /// <summary>
-        /// Gets the encoded message.
-        /// 获取编码的消息。
-        /// </summary>
-        /// <value>
-        /// 编码的消息
-        /// The encoded message.
-        /// </value>
         public StringBuilder EncodedMessage
         {
             get { return _encodedMessage; }

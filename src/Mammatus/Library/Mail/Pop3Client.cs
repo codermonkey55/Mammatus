@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mammatus.Library.Mime;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Sockets;

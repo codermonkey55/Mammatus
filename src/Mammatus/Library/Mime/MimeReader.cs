@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Mammatus.Library.Mail;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Mime;
-using Mammatus.Library.POP3;
 
 namespace Mammatus.Library.Mime
 {

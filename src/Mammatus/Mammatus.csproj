@@ -40,6 +40,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
@@ -77,6 +78,31 @@
     <Compile Include="Extensions\GenericExtensions.cs" />
     <Compile Include="Extensions\ListExtensions.cs" />
     <Compile Include="Extensions\NullableExtensions.cs" />
+    <Compile Include="Helpers\CsvHelper.cs" />
+    <Compile Include="Helpers\JavaScriptHelper.cs" />
+    <Compile Include="Helpers\NetHelper.cs" />
+    <Compile Include="Helpers\RegexHelper.cs" />
+    <Compile Include="Helpers\TimeHelper.cs" />
+    <Compile Include="IO\DirFile.cs" />
+    <Compile Include="IO\DownLoadHelper.cs" />
+    <Compile Include="IO\FileDown.cs" />
+    <Compile Include="IO\FileFunctions.cs" />
+    <Compile Include="IO\FileOperate.cs" />
+    <Compile Include="IO\FileUp.cs" />
+    <Compile Include="IO\INIFile.cs" />
+    <Compile Include="IO\UpLoadFiles.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Library\FTP\FTPClient.cs" />
+    <Compile Include="Library\FTP\FTPHelper.cs" />
+    <Compile Include="Library\FTP\FTPOperater.cs" />
+    <Compile Include="Library\Image\FileExtension.cs" />
+    <Compile Include="Library\Image\ImageClass.cs" />
+    <Compile Include="Library\Image\ImageDown.cs" />
+    <Compile Include="Library\Image\FileValidation.cs" />
+    <Compile Include="Library\Image\ImageUpload.cs" />
+    <Compile Include="Library\Image\PicDeal.cs" />
+    <Compile Include="Library\Image\ThumbnailMod.cs" />
     <Compile Include="Library\Mail\ConnectCommand.cs" />
     <Compile Include="Library\Mail\ConnectResponse.cs" />
     <Compile Include="Library\Mail\DeleCommand.cs" />
@@ -124,6 +150,8 @@
     <Compile Include="Library\TimeZone\TimeZoneId.cs" />
     <Compile Include="Library\TimeZone\TimeZoneIdMap.cs" />
     <Compile Include="Library\TimeZone\TimeZoneShortNameMap.cs" />
+    <Compile Include="Library\Xml\XmlUtil.cs" />
+    <Compile Include="Library\Xml\XMLProcess.cs" />
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\ILoggerFormatter.cs" />
     <Compile Include="Logging\Implementations\LoggerBase.cs" />
@@ -145,6 +173,8 @@
     <Compile Include="Security\ICoreIdentity.cs" />
     <Compile Include="Core\ValueObjects\AttributeInfo.cs" />
     <Compile Include="Extensions\EnumerationExtensions.cs" />
+    <Compile Include="Serialization\Serialize.cs" />
+    <Compile Include="Serialization\SerializeHelper.cs" />
     <Compile Include="Utils\LamdaEqualityComparer.cs" />
     <Compile Include="Utils\GenericEqualityComparer.cs" />
     <Compile Include="Utils\Inflector.cs" />
@@ -342,6 +372,7 @@
     <Compile Include="Extensions\TypeExtensions.cs" />
     <Compile Include="Utils\GenericComparer.cs" />
     <Compile Include="Utils\PropertyComparer.cs" />
+    <Compile Include="Utils\Tools.cs" />
     <Compile Include="Validation\CheckIf.cs" />
     <Compile Include="Validation\Guard.cs" />
     <Compile Include="Validation\FilePathValidator.cs" />
