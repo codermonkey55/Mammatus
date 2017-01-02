@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using System.IO;
+using System.Text;
 
 namespace Mammatus.Helpers
 {
@@ -14,14 +15,14 @@ namespace Mammatus.Helpers
                 strmWriterObj.WriteLine(columname);
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    var strBufferLine = "";
+                    StringBuilder strBufferLine = new StringBuilder();
                     for (int j = 0; j < dt.Columns.Count; j++)
                     {
                         if (j > 0)
-                            strBufferLine += ",";
-                        strBufferLine += dt.Rows[i][j];
+                            strBufferLine.Append(",");
+                        strBufferLine.Append(dt.Rows[i][j]);
                     }
-                    strmWriterObj.WriteLine(strBufferLine);
+                    strmWriterObj.WriteLine(strBufferLine.ToString());
                 }
                 strmWriterObj.Close();
                 return true;
